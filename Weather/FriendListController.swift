@@ -98,4 +98,8 @@ class FriendListController: UITableViewController {
         let friendFotoController = segue.destination as! FriendFotoController
         friendFotoController.friends = [friendData]
     }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return firstLetters
+    }
 }
