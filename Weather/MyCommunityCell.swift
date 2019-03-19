@@ -10,8 +10,9 @@ import UIKit
 
 class MyCommunityCell: UITableViewCell {
 
+    @IBOutlet weak var avatarView: Avatar!
     @IBOutlet weak var myCommunityName: UILabel!
-    @IBOutlet weak var myCommunityPic: UIImageView!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()

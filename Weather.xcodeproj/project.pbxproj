@@ -14,6 +14,13 @@
 		D617653C222696D5003E39D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D617653B222696D5003E39D9 /* Assets.xcassets */; };
 		D617653F222696D5003E39D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D617653D222696D5003E39D9 /* LaunchScreen.storyboard */; };
 		D61765632226972D003E39D9 /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61765622226972D003E39D9 /* LoginFormController.swift */; };
+		D61D0DCD223F3BF40085BA12 /* LikeShareControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61D0DCC223F3BF40085BA12 /* LikeShareControl.xib */; };
+		D61FF087223FC60F007DED7E /* SearchBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61FF085223FC60F007DED7E /* SearchBarCell.swift */; };
+		D61FF088223FC60F007DED7E /* SearchBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61FF086223FC60F007DED7E /* SearchBarCell.xib */; };
+		D656DBD7223DF5C70076F5D3 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D656DBD6223DF5C70076F5D3 /* Avatar.swift */; };
+		D656DBDF223E25890076F5D3 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D656DBDE223E25890076F5D3 /* NewsViewController.swift */; };
+		D656DBE1223E25B00076F5D3 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D656DBE0223E25B00076F5D3 /* NewsCell.swift */; };
+		D656DC0C223E6C690076F5D3 /* LikeShareControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D656DC0B223E6C690076F5D3 /* LikeShareControl.swift */; };
 		D67876642232197F00954829 /* FriendListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67876632232197F00954829 /* FriendListController.swift */; };
 		D678766E2232371C00954829 /* CommunitiesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D678766D2232371C00954829 /* CommunitiesList.swift */; };
 		D6787670223237EB00954829 /* CommunityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D678766F223237EB00954829 /* CommunityCell.swift */; };
@@ -51,6 +58,13 @@
 		D6176545222696D6003E39D9 /* WeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6176550222696D6003E39D9 /* WeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D61765622226972D003E39D9 /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
+		D61D0DCC223F3BF40085BA12 /* LikeShareControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeShareControl.xib; sourceTree = "<group>"; };
+		D61FF085223FC60F007DED7E /* SearchBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarCell.swift; sourceTree = "<group>"; };
+		D61FF086223FC60F007DED7E /* SearchBarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarCell.xib; sourceTree = "<group>"; };
+		D656DBD6223DF5C70076F5D3 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		D656DBDE223E25890076F5D3 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		D656DBE0223E25B00076F5D3 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		D656DC0B223E6C690076F5D3 /* LikeShareControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeShareControl.swift; sourceTree = "<group>"; };
 		D67876632232197F00954829 /* FriendListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListController.swift; sourceTree = "<group>"; };
 		D678766D2232371C00954829 /* CommunitiesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesList.swift; sourceTree = "<group>"; };
 		D678766F223237EB00954829 /* CommunityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCell.swift; sourceTree = "<group>"; };
@@ -119,6 +133,13 @@
 				D6113C512232521E00E1CC6F /* MyCommunityCell.swift */,
 				D678766D2232371C00954829 /* CommunitiesList.swift */,
 				D678766F223237EB00954829 /* CommunityCell.swift */,
+				D656DBDE223E25890076F5D3 /* NewsViewController.swift */,
+				D656DBE0223E25B00076F5D3 /* NewsCell.swift */,
+				D656DBD6223DF5C70076F5D3 /* Avatar.swift */,
+				D656DC0B223E6C690076F5D3 /* LikeShareControl.swift */,
+				D61D0DCC223F3BF40085BA12 /* LikeShareControl.xib */,
+				D61FF085223FC60F007DED7E /* SearchBarCell.swift */,
+				D61FF086223FC60F007DED7E /* SearchBarCell.xib */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -229,7 +250,9 @@
 			files = (
 				D617653F222696D5003E39D9 /* LaunchScreen.storyboard in Resources */,
 				D617653C222696D5003E39D9 /* Assets.xcassets in Resources */,
+				D61D0DCD223F3BF40085BA12 /* LikeShareControl.xib in Resources */,
 				D617653A222696D4003E39D9 /* Main.storyboard in Resources */,
+				D61FF088223FC60F007DED7E /* SearchBarCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,10 +281,15 @@
 				D6113C522232521E00E1CC6F /* MyCommunityCell.swift in Sources */,
 				D67876642232197F00954829 /* FriendListController.swift in Sources */,
 				D678766E2232371C00954829 /* CommunitiesList.swift in Sources */,
+				D656DC0C223E6C690076F5D3 /* LikeShareControl.swift in Sources */,
 				D6113C50223251C300E1CC6F /* MyCommunityController.swift in Sources */,
 				D6CDE73622337D0B00025740 /* FriendFotoCell.swift in Sources */,
+				D656DBDF223E25890076F5D3 /* NewsViewController.swift in Sources */,
+				D61FF087223FC60F007DED7E /* SearchBarCell.swift in Sources */,
+				D656DBD7223DF5C70076F5D3 /* Avatar.swift in Sources */,
 				D6176535222696D4003E39D9 /* AppDelegate.swift in Sources */,
 				D69DB47B2230C3A90098797D /* FriendNameCell.swift in Sources */,
+				D656DBE1223E25B00076F5D3 /* NewsCell.swift in Sources */,
 				D61765632226972D003E39D9 /* LoginFormController.swift in Sources */,
 				D6CDE73422337CD900025740 /* FriendFotoController.swift in Sources */,
 			);
@@ -437,6 +465,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TF56ZZML3P;
 				INFOPLIST_FILE = Weather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -454,6 +483,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TF56ZZML3P;
 				INFOPLIST_FILE = Weather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

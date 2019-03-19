@@ -11,10 +11,14 @@ import UIKit
 class FriendNameCell: UITableViewCell {
     
     @IBOutlet weak var friendName: UILabel!
-    @IBOutlet weak var friendUserpic: UIImageView!
+    @IBOutlet weak var avatarView: Avatar!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    override func prepareForReuse() {
+        friendName.text = ""
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -25,5 +29,5 @@ class FriendNameCell: UITableViewCell {
         override class var layerClass: AnyClass {
             return CAShapeLayer.self
         }
-    } 
+    }
 }

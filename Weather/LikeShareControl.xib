@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LikeShareControl" customModule="Weather" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="38C-QM-l2T">
+                    <rect key="frame" x="7" y="5.5" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="FCx-hR-iPb"/>
+                        <constraint firstAttribute="height" constant="20" id="LDT-nL-Pt9"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmH-zf-DGF">
+                    <rect key="frame" x="37" y="4.5" width="100" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="MXv-L8-0Ub"/>
+                        <constraint firstAttribute="height" constant="21" id="ZXq-CA-EaM"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="afb-z8-mnl">
+                    <rect key="frame" x="167" y="5.5" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="80c-4r-oCF"/>
+                        <constraint firstAttribute="height" constant="20" id="tbE-oF-SHq"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWu-pQ-Hht">
+                    <rect key="frame" x="197" y="4.5" width="150" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="a1R-pp-vBS"/>
+                        <constraint firstAttribute="width" constant="150" id="sa6-rX-8HX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DWu-pQ-Hht" secondAttribute="trailing" constant="8" id="03Q-aA-H81"/>
+                <constraint firstItem="DWu-pQ-Hht" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="S6m-9a-qgs"/>
+                <constraint firstItem="DWu-pQ-Hht" firstAttribute="baseline" secondItem="wmH-zf-DGF" secondAttribute="baseline" id="c40-EE-i56"/>
+                <constraint firstItem="38C-QM-l2T" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="7" id="lTp-vi-QGi"/>
+                <constraint firstItem="DWu-pQ-Hht" firstAttribute="leading" secondItem="afb-z8-mnl" secondAttribute="trailing" constant="10" id="nna-N6-Mer"/>
+                <constraint firstItem="wmH-zf-DGF" firstAttribute="leading" secondItem="38C-QM-l2T" secondAttribute="trailing" constant="10" id="qSz-iD-tls"/>
+                <constraint firstItem="DWu-pQ-Hht" firstAttribute="bottom" secondItem="38C-QM-l2T" secondAttribute="bottom" id="qqe-zj-NEW"/>
+                <constraint firstItem="DWu-pQ-Hht" firstAttribute="bottom" secondItem="afb-z8-mnl" secondAttribute="bottom" id="ttz-aJ-95c"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="likeCountLabel" destination="wmH-zf-DGF" id="Lo5-av-iWu"/>
+                <outlet property="likeImage" destination="38C-QM-l2T" id="FxJ-LV-hhL"/>
+                <outlet property="shareCountLabel" destination="DWu-pQ-Hht" id="g5Q-sp-QUX"/>
+                <outlet property="shareImage" destination="afb-z8-mnl" id="FoH-SQ-vxx"/>
+            </connections>
+            <point key="canvasLocation" x="110" y="60"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="like" width="384" height="384"/>
+        <image name="share" width="384" height="384"/>
+    </resources>
+</document>

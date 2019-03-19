@@ -10,32 +10,83 @@ import UIKit
 
 class FriendListController: UITableViewController {
     
-    struct Friend {
+    struct Friend : Comparable {
+        
+        static func < (lhs: FriendListController.Friend, rhs: FriendListController.Friend) -> Bool {
+            return lhs.friendName < rhs.friendName
+        }
         let friendName : String
         var friendPic : UIImage
     }
     
-    var friendList = [Friend(friendName: "SpongeBob SquarePants", friendPic: #imageLiteral(resourceName: "SpongeBob") ), Friend(friendName: "Patrick Star", friendPic: #imageLiteral(resourceName: "PatrickStar") ),Friend(friendName: "Squidward Tentacles", friendPic: #imageLiteral(resourceName: "SquidwardTentacles") )]
-
+    var friendList = [Friend(friendName: "SpongeBob SquarePants", friendPic:  UIImage(named: "SpongeBob")!),
+                      Friend(friendName: "Patrick Star", friendPic:  UIImage(named: "PatrickStar")!),
+                      Friend(friendName: "Squidward Tentacles", friendPic:  UIImage(named: "SquidwardTentacles")!),
+                      Friend(friendName: "Mr. Krabs", friendPic:  UIImage(named: "MrKrabs")!),
+                      Friend(friendName: "Sandy Cheeks", friendPic:  UIImage(named: "Sandy")!),
+                      Friend(friendName: "Plankton", friendPic:  UIImage(named: "Plankton")!),
+                      Friend(friendName: "Karen", friendPic:  UIImage(named: "Karen")!),
+                      Friend(friendName: "Mrs. Puff", friendPic:  UIImage(named: "Puff")!),
+                      Friend(friendName: "Pearl Krabs", friendPic:  UIImage(named: "Pearl Krabs")!),
+                      Friend(friendName: "Gary the Snail", friendPic:  UIImage(named: "Gary")!)]
+    
+    var sortedFriendList = [Friend]()
+    var firstLetters = [String]()
+    var friends = [Friend]()
+    var groupedFriendList : Dictionary = [String : [Friend]]()
+    var firstLetter : String!
+    
+    override func viewWillAppear(_ animated: Bool) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
+        sortedFriendList = friendList.sorted { $0.friendName < $1.friendName }
+        
+        for friend in sortedFriendList {
+            if !firstLetters.contains(String(friend.friendName.prefix(1))) {
+                firstLetters.append(String(friend.friendName.prefix(1)))
+            }
+        }
+        
+        for letter in firstLetters {
+            friends.removeAll()
+            for friend in sortedFriendList {
+                if letter == friend.friendName.prefix(1) {
+                    friends.append(friend)
+                    groupedFriendList.updateValue(friends, forKey: letter)
+                }
+            }
+        }
 
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        firstLetter = firstLetters[section]
+        return firstLetters[section]
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return firstLetters.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendList.count
+        return (groupedFriendList[firstLetter]?.count)!
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendNameCell", for: indexPath) as! FriendNameCell
-        let friend = friendList[indexPath.row]
-        cell.friendName.text = friend.friendName
-        cell.friendUserpic?.image = friend.friendPic
+        let letter = firstLetters[indexPath.section]
+        let friend = groupedFriendList[letter]
+        cell.avatarView.image = friend![indexPath.row].friendPic
+        cell.friendName.text = friend![indexPath.row].friendName
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "ShowFriendFoto" else {
             return
@@ -47,5 +98,4 @@ class FriendListController: UITableViewController {
         let friendFotoController = segue.destination as! FriendFotoController
         friendFotoController.friends = [friendData]
     }
-    
 }

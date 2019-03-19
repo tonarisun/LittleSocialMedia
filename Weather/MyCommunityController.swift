@@ -16,6 +16,11 @@ class MyCommunityController: UITableViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -29,7 +34,7 @@ class MyCommunityController: UITableViewController {
         
         let community = myCommunities[indexPath.row]
         cell.myCommunityName.text = community
-        cell.myCommunityPic.backgroundColor = .blue
+        cell.avatarView.backgroundColor = .orange
 
         return cell
     }
@@ -41,16 +46,37 @@ class MyCommunityController: UITableViewController {
         }
     }
     
-    @IBAction func addCommunity(segue: UIStoryboardSegue) {
-        if segue.identifier == "addCommunity" {
-            let communitiesController = segue.source as! CommunitiesList
-            if let indexPath = communitiesController.tableView.indexPathForSelectedRow {
-                let community = communitiesController.allCommunities[indexPath.row]
-                if !myCommunities.contains(community){
-                    myCommunities.append(community)
-                    tableView.reloadData()
-                }
-            }
+//    Распознавание контроллера CommunitiesList
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if let vc = segue.destination as? CommunitiesList {
+            vc.myCommunityVC = self
         }
     }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = Bundle.main.loadNibNamed("SearchBarCell", owner: self, options: nil)?.first as! SearchBarCell
+        return header
+    }
+    
 }
+
+
+
+// Добавление группы по нажатию на ячейку с возвратом на страницу MyCommunityController
+//    @IBAction func addCommunity(segue: UIStoryboardSegue) {
+//        if segue.identifier == "addCommunity" {
+//            let communitiesController = segue.source as! CommunitiesList
+//            if let indexPath = communitiesController.tableView.indexPathForSelectedRow {
+//                let community = communitiesController.allCommunities[indexPath.row]
+//                if !myCommunities.contains(community){
+//                myCommunities.append(community)
+//                tableView.reloadData()
+//                }
+//            }
+//        }
+//    }
+

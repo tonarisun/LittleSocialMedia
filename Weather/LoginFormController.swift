@@ -9,7 +9,7 @@
 import UIKit
 
 class LoginFormController: UIViewController {
-
+    
     private let singInSegID = "singInSegue"
     @IBOutlet weak var loginScrollView: UIScrollView!
     @IBOutlet weak var LoginTextField: UITextField!
@@ -62,14 +62,14 @@ class LoginFormController: UIViewController {
         loginScrollView?.contentInset = contentInsets
         loginScrollView?.scrollIndicatorInsets = contentInsets
     }
-
+    
     @IBAction func SingInButton(_ sender: Any) {
         if let loginText = LoginTextField.text,
-           let passwordText = PasswordTextField.text {
+            let passwordText = PasswordTextField.text {
             if loginText == "a" && passwordText == "1" {
                 performSegue(withIdentifier: singInSegID, sender: self)
             } else {
-                let alert = UIAlertController(title: "Ошибка", message: "Введены неверные данные пользователя", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Ошибка", message: "Неверное имя пользователи или пароль", preferredStyle: .alert)
                 let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 alert.addAction(action)
                 present(alert, animated: true, completion: nil)

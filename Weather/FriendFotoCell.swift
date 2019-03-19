@@ -11,5 +11,9 @@ import UIKit
 class FriendFotoCell: UICollectionViewCell {
     
     @IBOutlet weak var friendFoto: UIImageView!
+    @IBOutlet weak var likeSharecontrolView: LikeShareControl!
     
+    override func awakeFromNib() {
+    }
 }
+
