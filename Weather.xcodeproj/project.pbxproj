@@ -120,28 +120,60 @@
 			isa = PBXGroup;
 			children = (
 				D6176534222696D4003E39D9 /* AppDelegate.swift */,
-				D6176538222696D4003E39D9 /* Main.storyboard */,
-				D617653B222696D5003E39D9 /* Assets.xcassets */,
 				D617653D222696D5003E39D9 /* LaunchScreen.storyboard */,
 				D6176540222696D5003E39D9 /* Info.plist */,
+				D617653B222696D5003E39D9 /* Assets.xcassets */,
+				D6176538222696D4003E39D9 /* Main.storyboard */,
 				D61765622226972D003E39D9 /* LoginFormController.swift */,
-				D67876632232197F00954829 /* FriendListController.swift */,
-				D69DB47A2230C3A90098797D /* FriendNameCell.swift */,
-				D6CDE73322337CD900025740 /* FriendFotoController.swift */,
-				D6CDE73522337D0B00025740 /* FriendFotoCell.swift */,
+				D61FF08B2241DC97007DED7E /* News */,
+				D61FF08A2241DC3C007DED7E /* Friends */,
+				D61FF0892241DBF3007DED7E /* Communities */,
+				D61FF08C2241DD90007DED7E /* Service */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		D61FF0892241DBF3007DED7E /* Communities */ = {
+			isa = PBXGroup;
+			children = (
 				D6113C4F223251C300E1CC6F /* MyCommunityController.swift */,
 				D6113C512232521E00E1CC6F /* MyCommunityCell.swift */,
 				D678766D2232371C00954829 /* CommunitiesList.swift */,
 				D678766F223237EB00954829 /* CommunityCell.swift */,
+			);
+			path = Communities;
+			sourceTree = "<group>";
+		};
+		D61FF08A2241DC3C007DED7E /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				D67876632232197F00954829 /* FriendListController.swift */,
+				D69DB47A2230C3A90098797D /* FriendNameCell.swift */,
+				D6CDE73322337CD900025740 /* FriendFotoController.swift */,
+				D6CDE73522337D0B00025740 /* FriendFotoCell.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		D61FF08B2241DC97007DED7E /* News */ = {
+			isa = PBXGroup;
+			children = (
 				D656DBDE223E25890076F5D3 /* NewsViewController.swift */,
 				D656DBE0223E25B00076F5D3 /* NewsCell.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		D61FF08C2241DD90007DED7E /* Service */ = {
+			isa = PBXGroup;
+			children = (
 				D656DBD6223DF5C70076F5D3 /* Avatar.swift */,
 				D656DC0B223E6C690076F5D3 /* LikeShareControl.swift */,
 				D61D0DCC223F3BF40085BA12 /* LikeShareControl.xib */,
 				D61FF085223FC60F007DED7E /* SearchBarCell.swift */,
 				D61FF086223FC60F007DED7E /* SearchBarCell.xib */,
 			);
-			path = Weather;
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
