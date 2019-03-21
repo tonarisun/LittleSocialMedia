@@ -17,6 +17,8 @@
 		D61D0DCD223F3BF40085BA12 /* LikeShareControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61D0DCC223F3BF40085BA12 /* LikeShareControl.xib */; };
 		D61FF087223FC60F007DED7E /* SearchBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61FF085223FC60F007DED7E /* SearchBarCell.swift */; };
 		D61FF088223FC60F007DED7E /* SearchBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61FF086223FC60F007DED7E /* SearchBarCell.xib */; };
+		D61FF0D22243A1C4007DED7E /* CircleIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61FF0D12243A1C3007DED7E /* CircleIndicator.swift */; };
+		D61FF0D42243A200007DED7E /* CircleIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61FF0D32243A200007DED7E /* CircleIndicator.xib */; };
 		D656DBD7223DF5C70076F5D3 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D656DBD6223DF5C70076F5D3 /* Avatar.swift */; };
 		D656DBDF223E25890076F5D3 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D656DBDE223E25890076F5D3 /* NewsViewController.swift */; };
 		D656DBE1223E25B00076F5D3 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D656DBE0223E25B00076F5D3 /* NewsCell.swift */; };
@@ -61,6 +63,8 @@
 		D61D0DCC223F3BF40085BA12 /* LikeShareControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeShareControl.xib; sourceTree = "<group>"; };
 		D61FF085223FC60F007DED7E /* SearchBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarCell.swift; sourceTree = "<group>"; };
 		D61FF086223FC60F007DED7E /* SearchBarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarCell.xib; sourceTree = "<group>"; };
+		D61FF0D12243A1C3007DED7E /* CircleIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleIndicator.swift; sourceTree = "<group>"; };
+		D61FF0D32243A200007DED7E /* CircleIndicator.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircleIndicator.xib; sourceTree = "<group>"; };
 		D656DBD6223DF5C70076F5D3 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		D656DBDE223E25890076F5D3 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		D656DBE0223E25B00076F5D3 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
@@ -172,6 +176,8 @@
 				D61D0DCC223F3BF40085BA12 /* LikeShareControl.xib */,
 				D61FF085223FC60F007DED7E /* SearchBarCell.swift */,
 				D61FF086223FC60F007DED7E /* SearchBarCell.xib */,
+				D61FF0D12243A1C3007DED7E /* CircleIndicator.swift */,
+				D61FF0D32243A200007DED7E /* CircleIndicator.xib */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -283,6 +289,7 @@
 				D617653F222696D5003E39D9 /* LaunchScreen.storyboard in Resources */,
 				D617653C222696D5003E39D9 /* Assets.xcassets in Resources */,
 				D61D0DCD223F3BF40085BA12 /* LikeShareControl.xib in Resources */,
+				D61FF0D42243A200007DED7E /* CircleIndicator.xib in Resources */,
 				D617653A222696D4003E39D9 /* Main.storyboard in Resources */,
 				D61FF088223FC60F007DED7E /* SearchBarCell.xib in Resources */,
 			);
@@ -324,6 +331,7 @@
 				D656DBE1223E25B00076F5D3 /* NewsCell.swift in Sources */,
 				D61765632226972D003E39D9 /* LoginFormController.swift in Sources */,
 				D6CDE73422337CD900025740 /* FriendFotoController.swift in Sources */,
+				D61FF0D22243A1C4007DED7E /* CircleIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
