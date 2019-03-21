@@ -416,7 +416,7 @@
                                 <connections>
                                     <outlet property="avatarView" destination="p1v-Dy-eVn" id="Zng-NH-jRy"/>
                                     <outlet property="friendName" destination="OcJ-RR-8D6" id="CZH-oW-Atc"/>
-                                    <segue destination="59o-PR-nKo" kind="show" identifier="ShowFriendFoto" id="rcp-a2-Szn"/>
+                                    <segue destination="59o-PR-nKo" kind="show" identifier="ShowFriendFoto" id="VNJ-Iu-hJb"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -481,16 +481,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6zn-XL-JPJ">
-                                                    <rect key="frame" x="170" y="5" width="20" height="20"/>
+                                                    <rect key="frame" x="155" y="5" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="gJz-T2-Wo3"/>
                                                         <constraint firstAttribute="height" constant="20" id="lxW-In-BSi"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRZ-1i-kOa">
-                                                    <rect key="frame" x="200" y="4.5" width="150" height="21"/>
+                                                    <rect key="frame" x="185" y="4.5" width="100" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="150" id="4YR-pr-y1e"/>
+                                                        <constraint firstAttribute="width" constant="100" id="4YR-pr-y1e"/>
                                                         <constraint firstAttribute="height" constant="21" id="IpB-4I-yTG"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -504,7 +504,7 @@
                                                 <constraint firstItem="wRZ-1i-kOa" firstAttribute="leading" secondItem="6zn-XL-JPJ" secondAttribute="trailing" constant="10" id="1pX-Wy-B4J"/>
                                                 <constraint firstItem="jNj-Bm-m3S" firstAttribute="centerY" secondItem="dHF-nb-ov4" secondAttribute="centerY" id="Dyc-NB-njQ"/>
                                                 <constraint firstItem="V9e-o7-QQo" firstAttribute="leading" secondItem="dHF-nb-ov4" secondAttribute="leading" constant="10" id="HiK-HW-fs9"/>
-                                                <constraint firstItem="6zn-XL-JPJ" firstAttribute="leading" secondItem="jNj-Bm-m3S" secondAttribute="trailing" constant="30" id="JT7-0k-Fau"/>
+                                                <constraint firstItem="6zn-XL-JPJ" firstAttribute="leading" secondItem="jNj-Bm-m3S" secondAttribute="trailing" constant="15" id="JT7-0k-Fau"/>
                                                 <constraint firstItem="jNj-Bm-m3S" firstAttribute="leading" secondItem="V9e-o7-QQo" secondAttribute="trailing" constant="10" id="WEm-KF-4Is"/>
                                                 <constraint firstAttribute="height" constant="30" id="dPg-LD-WrJ"/>
                                                 <constraint firstItem="6zn-XL-JPJ" firstAttribute="centerY" secondItem="dHF-nb-ov4" secondAttribute="centerY" id="faV-T6-8F5"/>
@@ -581,7 +581,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="558.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QbW-IB-J4T" customClass="Avatar" customModule="Weather" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QbW-IB-J4T" userLabel="Avatar View" customClass="Avatar" customModule="Weather" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="10" width="50" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -691,9 +691,9 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuP-bJ-Hks">
-                                                            <rect key="frame" x="200" y="4.5" width="150" height="21"/>
+                                                            <rect key="frame" x="200" y="4.5" width="100" height="21"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="150" id="6IF-3s-fJl"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="6IF-3s-fJl"/>
                                                                 <constraint firstAttribute="height" constant="21" id="YVe-iq-MSy"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -746,7 +746,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="authorLabel" destination="KYJ-eh-NiJ" id="vfr-XD-25T"/>
-                                            <outlet property="avanarView" destination="QbW-IB-J4T" id="2Op-6X-gqK"/>
+                                            <outlet property="avatarView" destination="QbW-IB-J4T" id="AJp-QT-Exc"/>
                                             <outlet property="commentTextField" destination="UZB-q0-mhl" id="u8n-KE-ikC"/>
                                             <outlet property="contentImageView" destination="aPX-k5-s6L" id="R9V-cW-maK"/>
                                             <outlet property="likeShareControlView" destination="l4j-EW-yuZ" id="Xs4-fb-hT4"/>

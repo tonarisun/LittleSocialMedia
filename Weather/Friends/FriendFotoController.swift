@@ -10,7 +10,7 @@ import UIKit
 
 class FriendFotoController: UICollectionViewController {
     
-    var friends = [FriendListController.Friend]()
+    var friendsToShow = [Friend]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +27,8 @@ class FriendFotoController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "fotoCell", for: indexPath) as! FriendFotoCell
-        let friend = friends[indexPath.row]
+        let friend = friendsToShow[indexPath.row]
         cell.friendFoto.image = friend.friendPic
         return cell
     }
-    
 }

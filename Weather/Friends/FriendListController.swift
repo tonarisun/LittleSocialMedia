@@ -8,16 +8,17 @@
 
 import UIKit
 
-class FriendListController: UITableViewController {
+struct Friend : Comparable {
     
-    struct Friend : Comparable {
-        
-        static func < (lhs: FriendListController.Friend, rhs: FriendListController.Friend) -> Bool {
-            return lhs.friendName < rhs.friendName
-        }
-        let friendName : String
-        var friendPic : UIImage
+    static func < (lhs: Friend, rhs: Friend) -> Bool {
+        return lhs.friendName < rhs.friendName
     }
+    let friendName : String
+    var friendPic : UIImage
+}
+
+class FriendListController: UITableViewController {
+
     
     var friendList = [Friend(friendName: "SpongeBob SquarePants", friendPic:  UIImage(named: "SpongeBob")!),
                       Friend(friendName: "Patrick Star", friendPic:  UIImage(named: "PatrickStar")!),
@@ -32,12 +33,9 @@ class FriendListController: UITableViewController {
     
     var sortedFriendList = [Friend]()
     var firstLetters = [String]()
-    var friends = [Friend]()
+    var friendsForLetter = [Friend]()
     var groupedFriendList : Dictionary = [String : [Friend]]()
     var firstLetter : String!
-    
-    override func viewWillAppear(_ animated: Bool) {
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,15 +48,14 @@ class FriendListController: UITableViewController {
         }
         
         for letter in firstLetters {
-            friends.removeAll()
+            friendsForLetter.removeAll()
             for friend in sortedFriendList {
                 if letter == friend.friendName.prefix(1) {
-                    friends.append(friend)
-                    groupedFriendList.updateValue(friends, forKey: letter)
+                    friendsForLetter.append(friend)
+                    groupedFriendList.updateValue(friendsForLetter, forKey: letter)
                 }
             }
         }
-
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -94,9 +91,11 @@ class FriendListController: UITableViewController {
         guard let indexPath = tableView.indexPathForSelectedRow else {
             return
         }
-        let friendData = friendList[indexPath.row]
+        let letter = firstLetters[indexPath.section]
+        let friend = groupedFriendList[letter]
+        let friendData = friend![indexPath.row]
         let friendFotoController = segue.destination as! FriendFotoController
-        friendFotoController.friends = [friendData]
+        friendFotoController.friendsToShow = [friendData]
     }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {

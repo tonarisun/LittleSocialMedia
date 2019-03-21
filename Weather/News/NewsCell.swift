@@ -10,7 +10,7 @@ import UIKit
 
 class NewsCell: UITableViewCell {
 
-    @IBOutlet weak var avanarView: Avatar!
+    @IBOutlet weak var avatarView: Avatar!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var contentImageView: UIImageView!

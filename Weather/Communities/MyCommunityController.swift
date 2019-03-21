@@ -31,7 +31,6 @@ class MyCommunityController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCommCell", for: indexPath) as! MyCommunityCell
-        
         let community = myCommunities[indexPath.row]
         cell.myCommunityName.text = community
         cell.avatarView.backgroundColor = .orange
@@ -63,8 +62,6 @@ class MyCommunityController: UITableViewController {
     }
     
 }
-
-
 
 // Добавление группы по нажатию на ячейку с возвратом на страницу MyCommunityController
 //    @IBAction func addCommunity(segue: UIStoryboardSegue) {
