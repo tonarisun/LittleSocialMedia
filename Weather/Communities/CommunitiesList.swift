@@ -12,7 +12,7 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var communitySearchBar: UISearchBar!
     
-    var allCommunities = ["Новости 24/7", "Записываемся на реснички", "Лучшие мемы", "Красота природы", "Секретные рецепты", "Вакансии Krusty Krabs", "Путешествия на сушу", "Бикини Боттом night life", "Красивые фотографии", "Истории", "Находки c AliExpress"]
+    var allCommunities = ["News 24/7", "Memes", "It's wonderfull world", "Secret recipes", "Krusty Krabs", "Traveling", "Bikini Bottom night life", "The art of photography", "True stories", "Look what I found"]
     
     var filteredCommunities = [String]()
     

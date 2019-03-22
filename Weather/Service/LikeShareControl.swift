@@ -36,20 +36,20 @@ class LikeShareControl: UIControl {
     @objc func onTapLike(recognizer: UITapGestureRecognizer) {
         if likeImage.image == UIImage(named: "like") {
             likeCount += 1
-            UIView.transition(with: self.likeCountLabel, duration: 0.5, options: .transitionFlipFromBottom, animations: {
+            UIView.transition(with: self.likeCountLabel, duration: 0.5, options: .transitionCrossDissolve, animations: {
                 self.likeCountLabel.textColor = .red
                 self.likeCountLabel.text = String(self.likeCount)
             }, completion: nil)
-            UIView.transition(with: self.likeImage, duration: 0.5, options: .transitionFlipFromBottom, animations: {
+            UIView.transition(with: self.likeImage, duration: 0.5, options: .transitionCrossDissolve, animations: {
                 self.likeImage.image = UIImage(named: "like-1")
             }, completion: nil)
         } else {
             likeCount -= 1
-            UIView.transition(with: self.likeCountLabel, duration: 0.5, options: .transitionFlipFromBottom, animations: {
+            UIView.transition(with: self.likeCountLabel, duration: 0.5, options: .transitionCrossDissolve, animations: {
                 self.likeCountLabel.textColor = .black
                 self.likeCountLabel.text = String(self.likeCount)
             }, completion: nil)
-            UIView.transition(with: self.likeImage, duration: 0.5, options: .transitionFlipFromBottom, animations: {
+            UIView.transition(with: self.likeImage, duration: 0.5, options: .transitionCrossDissolve, animations: {
                 self.likeImage.image = UIImage(named: "like")
             }, completion: nil)
         }
@@ -58,20 +58,20 @@ class LikeShareControl: UIControl {
     @objc func onTapShare(recognizer: UITapGestureRecognizer) {
         if shareImage.image == UIImage(named: "share") {
             shareCount += 1
-            UIView.transition(with: self.shareCountLabel, duration: 0.5, options: .transitionFlipFromBottom, animations: {
+            UIView.transition(with: self.shareCountLabel, duration: 0.5, options: .transitionCrossDissolve, animations: {
                 self.shareCountLabel.textColor = .red
                 self.shareCountLabel.text = String(self.shareCount)
             }, completion: nil)
-            UIView.transition(with: self.shareImage, duration: 0.5, options: .transitionFlipFromBottom, animations: {
+            UIView.transition(with: self.shareImage, duration: 0.5, options: .transitionCrossDissolve, animations: {
                 self.shareImage.image = UIImage(named: "share-1")
             }, completion: nil)
         } else {
             shareCount -= 1
-            UIView.transition(with: self.shareCountLabel, duration: 0.5, options: .transitionFlipFromBottom, animations: {
+            UIView.transition(with: self.shareCountLabel, duration: 0.5, options: .transitionCrossDissolve, animations: {
                 self.shareCountLabel.textColor = .black
                 self.shareCountLabel.text = String(self.shareCount)
             }, completion: nil)
-            UIView.transition(with: self.shareImage, duration: 0.5, options: .transitionFlipFromBottom, animations: {
+            UIView.transition(with: self.shareImage, duration: 0.5, options: .transitionCrossDissolve, animations: {
                 self.shareImage.image = UIImage(named: "share")
             }, completion: nil)
         }

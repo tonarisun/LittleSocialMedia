@@ -12,7 +12,7 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var myCommunitySearchBar: UISearchBar!
     
-    var myCommunities = ["Подслушано. БикиниБоттом", "Подводные байки", "Дома Ананасы"]
+    var myCommunities = ["Gossips. Bikini Bottom", "Underwater scary tales", "Pineapple-house"]
     var filteredMyCommunities = [String]()
 
     override func viewDidLoad() {
@@ -71,6 +71,25 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
             return community.lowercased().contains(searchText.lowercased())
         })
         tableView.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillBeHidden),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    @objc func hideKeyboard() {
+        self.tableView?.endEditing(true)
+    }
+    
+    @objc func keyboardWillBeHidden(notification: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+        tableView?.contentInset = contentInsets
+        tableView?.scrollIndicatorInsets = contentInsets
     }
     
 }

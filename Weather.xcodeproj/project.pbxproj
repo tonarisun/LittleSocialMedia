@@ -128,7 +128,7 @@
 				D6176540222696D5003E39D9 /* Info.plist */,
 				D617653B222696D5003E39D9 /* Assets.xcassets */,
 				D6176538222696D4003E39D9 /* Main.storyboard */,
-				D61765622226972D003E39D9 /* LoginFormController.swift */,
+				D61FF0D522452D3D007DED7E /* LogIn */,
 				D61FF08B2241DC97007DED7E /* News */,
 				D61FF08A2241DC3C007DED7E /* Friends */,
 				D61FF0892241DBF3007DED7E /* Communities */,
@@ -180,6 +180,14 @@
 				D61FF0D32243A200007DED7E /* CircleIndicator.xib */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		D61FF0D522452D3D007DED7E /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				D61765622226972D003E39D9 /* LoginFormController.swift */,
+			);
+			path = LogIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

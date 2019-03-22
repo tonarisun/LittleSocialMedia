@@ -32,15 +32,15 @@ class FriendFotoCell: UICollectionViewCell {
     
     @objc func onTap(recognizer: UITapGestureRecognizer) {
         
-        let animation2 = CASpringAnimation(keyPath: "transform.scale")
-        animation2.fromValue = 0.9
-        animation2.toValue = 1
-        animation2.stiffness = 500
-        animation2.mass = 1
-        animation2.duration = 2
-        animation2.isRemovedOnCompletion = false
-        animation2.fillMode = CAMediaTimingFillMode.forwards
-        self.friendFoto.layer.add(animation2, forKey: nil)
+        let animation = CASpringAnimation(keyPath: "transform.scale")
+        animation.fromValue = 0.9
+        animation.toValue = 1
+        animation.stiffness = 500
+        animation.mass = 1
+        animation.duration = 2
+        animation.isRemovedOnCompletion = false
+        animation.fillMode = CAMediaTimingFillMode.forwards
+        self.friendFoto.layer.add(animation, forKey: nil)
     }
 }
 
