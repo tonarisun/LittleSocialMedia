@@ -166,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-226" y="-232"/>
+            <point key="canvasLocation" x="-36" y="-232"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wfp-Ya-eO7">
@@ -186,7 +186,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ow-IN-RBh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="719" y="-231"/>
+            <point key="canvasLocation" x="810" y="-231"/>
         </scene>
         <!--Communities-->
         <scene sceneID="OBh-a1-pK5">
@@ -203,7 +203,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eaj-Da-qNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1606" y="457"/>
+            <point key="canvasLocation" x="1606" y="540"/>
         </scene>
         <!--My Community Controller-->
         <scene sceneID="Na5-P3-BMs">
@@ -213,9 +213,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="dQU-k1-gF2">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCommCell" id="Z5L-2r-DVb" customClass="MyCommunityCell" customModule="Weather" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z5L-2r-DVb" id="OdQ-TX-MGD">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
@@ -272,10 +277,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="myCommunitySearchBar" destination="dQU-k1-gF2" id="pHg-cd-4kj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pdh-2j-hyR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2382" y="457"/>
+            <point key="canvasLocation" x="2382" y="539"/>
         </scene>
         <!--Communities List-->
         <scene sceneID="ncd-Ln-uK9">
@@ -285,9 +293,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="Go5-Ox-sA1">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CommunityCell" id="oGF-HI-v6u" customClass="CommunityCell" customModule="Weather" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oGF-HI-v6u" id="hOr-MM-L8f">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
@@ -360,11 +373,14 @@
                             <outlet property="delegate" destination="p45-10-jLN" id="XVO-H9-1tD"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="communitySearchBar" destination="Go5-Ox-sA1" id="RpD-EA-oWq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z10-tY-8yz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="LXl-I8-o6H" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3129" y="457"/>
+            <point key="canvasLocation" x="3150" y="538"/>
         </scene>
         <!--Friend List Controller-->
         <scene sceneID="roF-AO-v2g">
@@ -543,7 +559,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0HV-ef-WvB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3128.8000000000002" y="-230.73463268365819"/>
+            <point key="canvasLocation" x="3151" y="-233"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IFc-qC-67i">
@@ -560,7 +576,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFB-DD-bcu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1606" y="-940"/>
+            <point key="canvasLocation" x="1606" y="-995"/>
         </scene>
         <!--News View Controller-->
         <scene sceneID="cKX-4I-mQN">
@@ -774,7 +790,70 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uMV-1R-shO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2381.5999999999999" y="-940.47976011994012"/>
+            <point key="canvasLocation" x="2382" y="-995"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Vtt-sN-4S3">
+            <objects>
+                <viewController id="Kdj-wj-DHO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zdn-5r-fTd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxJ-Ya-kno" customClass="CircleIndicator" customModule="Weather" customModuleProvider="target">
+                                <rect key="frame" x="152.5" y="323.5" width="70" height="20"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="kaQ-XL-xmm">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="kaQ-XL-xmm" secondAttribute="height" multiplier="1:1" id="4Ty-5g-7uZ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="hE0-m8-SCn">
+                                        <rect key="frame" x="50" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="hE0-m8-SCn" secondAttribute="height" multiplier="1:1" id="90d-Is-Khe"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="lVO-l0-Zmk">
+                                        <rect key="frame" x="25" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="lVO-l0-Zmk" secondAttribute="height" multiplier="1:1" id="sI0-4h-zV8"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="lVO-l0-Zmk" secondAttribute="bottom" id="0Ee-dj-sYv"/>
+                                    <constraint firstAttribute="height" constant="20" id="3k3-yx-HNW"/>
+                                    <constraint firstItem="lVO-l0-Zmk" firstAttribute="centerX" secondItem="YxJ-Ya-kno" secondAttribute="centerX" id="CKw-e1-qgB"/>
+                                    <constraint firstAttribute="bottom" secondItem="hE0-m8-SCn" secondAttribute="bottom" id="Grm-tE-twj"/>
+                                    <constraint firstItem="kaQ-XL-xmm" firstAttribute="top" secondItem="YxJ-Ya-kno" secondAttribute="top" id="Jsa-QO-YQu"/>
+                                    <constraint firstAttribute="trailing" secondItem="hE0-m8-SCn" secondAttribute="trailing" id="RJe-Un-tlM"/>
+                                    <constraint firstItem="hE0-m8-SCn" firstAttribute="top" secondItem="YxJ-Ya-kno" secondAttribute="top" id="b3Q-Mp-aj5"/>
+                                    <constraint firstItem="kaQ-XL-xmm" firstAttribute="leading" secondItem="YxJ-Ya-kno" secondAttribute="leading" id="cUl-nx-SY6"/>
+                                    <constraint firstAttribute="bottom" secondItem="kaQ-XL-xmm" secondAttribute="bottom" id="lRH-bO-uHo"/>
+                                    <constraint firstAttribute="width" constant="70" id="nKV-Xw-AB6"/>
+                                    <constraint firstItem="lVO-l0-Zmk" firstAttribute="top" secondItem="YxJ-Ya-kno" secondAttribute="top" id="q12-3Z-5ZQ"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="circle1" destination="kaQ-XL-xmm" id="ZZ0-qI-utZ"/>
+                                    <outlet property="circle2" destination="lVO-l0-Zmk" id="Saa-SK-HpN"/>
+                                    <outlet property="circle3" destination="hE0-m8-SCn" id="cVw-ct-kRy"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.70096534490585327" green="0.92958825826644897" blue="0.83528417348861694" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="YxJ-Ya-kno" firstAttribute="centerX" secondItem="zdn-5r-fTd" secondAttribute="centerX" id="nVX-Mc-bbS"/>
+                            <constraint firstItem="YxJ-Ya-kno" firstAttribute="centerY" secondItem="zdn-5r-fTd" secondAttribute="centerY" id="tZX-6y-a3C"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="036-wu-Vfx"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xVI-4h-POl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3150" y="-995"/>
         </scene>
         <!--Friends-->
         <scene sceneID="Oyk-gj-C6H">
@@ -798,6 +877,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="circle" width="384" height="384"/>
         <image name="user" width="2.8110830783843994" height="2.8110830783843994"/>
         <image name="users-1" width="2.8110830783843994" height="2.8110830783843994"/>
     </resources>

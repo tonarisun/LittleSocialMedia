@@ -27,17 +27,6 @@
                         <constraint firstAttribute="width" constant="20" id="zfq-a1-Erc"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="S3F-hw-Qft">
-                    <rect key="frame" x="50" y="0.0" width="20" height="20"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="20" id="5og-Is-FOq"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="9J9-CX-LbK"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="B49-vH-9w9"/>
-                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="20" id="BFA-lI-UsW"/>
-                        <constraint firstAttribute="height" constant="20" id="kwP-bd-ra5"/>
-                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="20" id="yF6-AP-OuE"/>
-                    </constraints>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="D3f-2Q-qkI">
                     <rect key="frame" x="25" y="0.0" width="20" height="20"/>
                     <constraints>
@@ -47,6 +36,17 @@
                         <constraint firstAttribute="width" constant="20" id="UzY-8H-s3v"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="cei-cQ-sCM"/>
                         <constraint firstAttribute="height" constant="20" id="fib-aD-K8y"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="S3F-hw-Qft">
+                    <rect key="frame" x="50" y="0.0" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="5og-Is-FOq"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="9J9-CX-LbK"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="B49-vH-9w9"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="20" id="BFA-lI-UsW"/>
+                        <constraint firstAttribute="height" constant="20" id="kwP-bd-ra5"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="20" id="yF6-AP-OuE"/>
                     </constraints>
                 </imageView>
             </subviews>

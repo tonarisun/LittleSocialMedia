@@ -19,7 +19,6 @@ struct Friend : Comparable {
 
 class FriendListController: UITableViewController {
 
-    
     var friendList = [Friend(friendName: "SpongeBob SquarePants", friendPic:  UIImage(named: "SpongeBob")!),
                       Friend(friendName: "Patrick Star", friendPic:  UIImage(named: "PatrickStar")!),
                       Friend(friendName: "Squidward Tentacles", friendPic:  UIImage(named: "SquidwardTentacles")!),

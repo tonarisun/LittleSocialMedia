@@ -8,12 +8,21 @@
 
 import UIKit
 
-class MyCommunityController: UITableViewController {
+class MyCommunityController: UITableViewController, UISearchBarDelegate {
+    
+    @IBOutlet weak var myCommunitySearchBar: UISearchBar!
     
     var myCommunities = ["Подслушано. БикиниБоттом", "Подводные байки", "Дома Ананасы"]
+    var filteredMyCommunities = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        filteredMyCommunities = myCommunities
+        setUpSearchBar()
+    }
+    
+    private func setUpSearchBar(){
+        myCommunitySearchBar.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,21 +35,21 @@ class MyCommunityController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myCommunities.count
+        return filteredMyCommunities.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCommCell", for: indexPath) as! MyCommunityCell
-        let community = myCommunities[indexPath.row]
+        let community = filteredMyCommunities[indexPath.row]
         cell.myCommunityName.text = community
-        cell.avatarView.backgroundColor = .orange
+        cell.avatarView.backgroundColor = #colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1)
 
         return cell
     }
   
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            myCommunities.remove(at: indexPath.row)
+            filteredMyCommunities.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -52,13 +61,15 @@ class MyCommunityController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = Bundle.main.loadNibNamed("SearchBarCell", owner: self, options: nil)?.first as! SearchBarCell
-        return header
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            filteredMyCommunities = myCommunities
+            tableView.reloadData()
+            return }
+        filteredMyCommunities = myCommunities.filter({community -> Bool in
+            return community.lowercased().contains(searchText.lowercased())
+        })
+        tableView.reloadData()
     }
     
 }

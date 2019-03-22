@@ -8,45 +8,59 @@
 
 import UIKit
 
-class CommunitiesList: UITableViewController {
+class CommunitiesList: UITableViewController, UISearchBarDelegate {
     
-    var allCommunities = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
+    @IBOutlet weak var communitySearchBar: UISearchBar!
+    
+    var allCommunities = ["Новости 24/7", "Записываемся на реснички", "Лучшие мемы", "Красота природы", "Секретные рецепты", "Вакансии Krusty Krabs", "Путешествия на сушу", "Бикини Боттом night life", "Красивые фотографии", "Истории", "Находки c AliExpress"]
+    
+    var filteredCommunities = [String]()
     
     var myCommunityVC : MyCommunityController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        filteredCommunities = allCommunities
+        setUpSearchBar()
     }
+    
+    private func setUpSearchBar(){
+        communitySearchBar.delegate = self
+        
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allCommunities.count
+        return filteredCommunities.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommunityCell", for: indexPath) as! CommunityCell
-        let community = allCommunities[indexPath.row]
+        let community = filteredCommunities[indexPath.row]
         cell.communityName.text = community
-        cell.avatarView.backgroundColor = .yellow
+        cell.avatarView.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
         cell.addCommunityTapped = { communityName in
             guard let myCommunityVC = self.myCommunityVC else {
                 return
             }
-            if !myCommunityVC.myCommunities.contains(communityName){
-            myCommunityVC.myCommunities.append(communityName)
+            if !myCommunityVC.filteredMyCommunities.contains(communityName){
+            myCommunityVC.filteredMyCommunities.append(communityName)
             }
         }
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = Bundle.main.loadNibNamed("SearchBarCell", owner: self, options: nil)?.first as! SearchBarCell
-        return header
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            filteredCommunities = allCommunities
+            tableView.reloadData()
+            return }
+        filteredCommunities = allCommunities.filter({community -> Bool in
+        return community.lowercased().contains(searchText.lowercased())
+    })
+        tableView.reloadData()
     }
 }
