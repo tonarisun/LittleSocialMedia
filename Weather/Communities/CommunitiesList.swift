@@ -46,8 +46,8 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
             guard let myCommunityVC = self.myCommunityVC else {
                 return
             }
-            if !myCommunityVC.filteredMyCommunities.contains(communityName){
-            myCommunityVC.filteredMyCommunities.append(communityName)
+            if !myCommunityVC.myCommunities.contains(communityName){
+            myCommunityVC.myCommunities.append(communityName)
             }
         }
         return cell

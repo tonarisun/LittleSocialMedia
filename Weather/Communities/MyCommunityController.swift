@@ -27,6 +27,7 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        filteredMyCommunities = myCommunities
         tableView.reloadData()
     }
     
@@ -42,7 +43,7 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCommCell", for: indexPath) as! MyCommunityCell
         let community = filteredMyCommunities[indexPath.row]
         cell.myCommunityName.text = community
-        cell.avatarView.backgroundColor = #colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1)
+        cell.avatarView.backgroundColor = #colorLiteral(red: 0.08869794756, green: 0.28105551, blue: 0.4478540421, alpha: 1)
 
         return cell
     }

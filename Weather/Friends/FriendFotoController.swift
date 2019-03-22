@@ -31,4 +31,13 @@ class FriendFotoController: UICollectionViewController {
         cell.friendFoto.image = friend.friendPic
         return cell
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        let hideAnimation = CABasicAnimation(keyPath: "transform.scale")
+        hideAnimation.fromValue = 1
+        hideAnimation.toValue = 0
+        hideAnimation.duration = 0.4
+        self.collectionView.layer.add(hideAnimation, forKey: nil)
+    }
 }

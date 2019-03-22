@@ -15,17 +15,23 @@ class FriendFotoCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         
+        let showAnimationSize = CABasicAnimation(keyPath: "transform.scale")
+        showAnimationSize.fromValue = 0.5
+        showAnimationSize.toValue = 1
+        showAnimationSize.duration = 0.4
+        let showAnimationOpacity = CABasicAnimation(keyPath: "opacity")
+        showAnimationOpacity.fromValue = 0
+        showAnimationOpacity.toValue = 1
+        showAnimationOpacity.duration = 0.7
+        self.layer.add(showAnimationOpacity, forKey: nil)
+        self.layer.add(showAnimationSize, forKey: nil)
+        
         let pushTap = UITapGestureRecognizer(target: self, action: #selector(onTap(recognizer:)))
         self.addGestureRecognizer(pushTap)
     }
     
     @objc func onTap(recognizer: UITapGestureRecognizer) {
         
-        let animation1 = CABasicAnimation(keyPath: "transform.scale")
-        animation1.fromValue = 1
-        animation1.toValue = 0.9
-        animation1.duration = 0.5
-        self.friendFoto.layer.add(animation1, forKey: nil)
         let animation2 = CASpringAnimation(keyPath: "transform.scale")
         animation2.fromValue = 0.9
         animation2.toValue = 1
@@ -36,6 +42,5 @@ class FriendFotoCell: UICollectionViewCell {
         animation2.fillMode = CAMediaTimingFillMode.forwards
         self.friendFoto.layer.add(animation2, forKey: nil)
     }
-
 }
 
