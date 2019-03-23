@@ -22,6 +22,8 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         filteredCommunities = allCommunities
         setUpSearchBar()
+        let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        self.tableView.addGestureRecognizer(hideKeyboardGesture)
     }
     
     private func setUpSearchBar(){
@@ -62,5 +64,24 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
         return community.lowercased().contains(searchText.lowercased())
     })
         tableView.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillBeHidden),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    @objc func hideKeyboard() {
+        self.tableView?.endEditing(true)
+    }
+    
+    @objc func keyboardWillBeHidden(notification: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+        tableView?.contentInset = contentInsets
+        tableView?.scrollIndicatorInsets = contentInsets
     }
 }

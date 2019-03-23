@@ -19,6 +19,8 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         filteredMyCommunities = myCommunities
         setUpSearchBar()
+        let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        self.tableView.addGestureRecognizer(hideKeyboardGesture)
     }
     
     private func setUpSearchBar(){
@@ -82,6 +84,7 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
             object: nil
         )
     }
+    
     @objc func hideKeyboard() {
         self.tableView?.endEditing(true)
     }

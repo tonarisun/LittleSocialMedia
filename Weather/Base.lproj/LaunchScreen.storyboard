@@ -19,14 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cat" translatesAutoresizingMaskIntoConstraints="NO" id="J2A-uU-Hlc">
-                                <rect key="frame" x="137.5" y="200" width="100" height="100"/>
+                                <rect key="frame" x="130" y="200" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Cfn-LM-C7R"/>
                                     <constraint firstAttribute="width" constant="100" id="fYb-mO-6GD"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeA-Vv-Nkn">
-                                <rect key="frame" x="147" y="300" width="101" height="24"/>
+                                <rect key="frame" x="138" y="299" width="98.5" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="101" id="e34-0b-yDf"/>
                                     <constraint firstAttribute="height" constant="24" id="xG8-cc-63h"/>
@@ -42,14 +42,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.70096534490585327" green="0.92958825826644897" blue="0.83528417348861694" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.70151793956756592" green="0.93130248785018921" blue="0.86264193058013916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LeA-Vv-Nkn" secondAttribute="bottom" constant="343" id="A4A-RC-Rq1"/>
-                            <constraint firstItem="J2A-uU-Hlc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="137.5" id="FMS-Hx-47J"/>
-                            <constraint firstItem="LeA-Vv-Nkn" firstAttribute="top" secondItem="J2A-uU-Hlc" secondAttribute="bottom" id="LEp-YP-c5p"/>
-                            <constraint firstItem="LeA-Vv-Nkn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="147" id="VPi-1r-gq5"/>
-                            <constraint firstItem="J2A-uU-Hlc" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="200" id="ac7-a5-Dk8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="J2A-uU-Hlc" secondAttribute="trailing" constant="137.5" id="cAP-QF-dZE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LeA-Vv-Nkn" secondAttribute="bottom" constant="344" id="2rW-FZ-9S5"/>
+                            <constraint firstItem="J2A-uU-Hlc" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="130" id="2zP-8f-liA"/>
+                            <constraint firstAttribute="trailing" secondItem="LeA-Vv-Nkn" secondAttribute="trailing" constant="134" id="Ot1-vQ-o7p"/>
+                            <constraint firstItem="LeA-Vv-Nkn" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="138" id="S8i-uI-zbJ"/>
+                            <constraint firstItem="J2A-uU-Hlc" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="200" id="gbD-F3-8AL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

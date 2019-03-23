@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D60D97D62245D1D9005F345A /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D97D52245D1D9005F345A /* GradientView.swift */; };
 		D6113C50223251C300E1CC6F /* MyCommunityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6113C4F223251C300E1CC6F /* MyCommunityController.swift */; };
 		D6113C522232521E00E1CC6F /* MyCommunityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6113C512232521E00E1CC6F /* MyCommunityCell.swift */; };
 		D6176535222696D4003E39D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6176534222696D4003E39D9 /* AppDelegate.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D60D97D52245D1D9005F345A /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		D6113C4F223251C300E1CC6F /* MyCommunityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunityController.swift; sourceTree = "<group>"; };
 		D6113C512232521E00E1CC6F /* MyCommunityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunityCell.swift; sourceTree = "<group>"; };
 		D6176531222696D4003E39D9 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +180,7 @@
 				D61FF086223FC60F007DED7E /* SearchBarCell.xib */,
 				D61FF0D12243A1C3007DED7E /* CircleIndicator.swift */,
 				D61FF0D32243A200007DED7E /* CircleIndicator.xib */,
+				D60D97D52245D1D9005F345A /* GradientView.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				D67876642232197F00954829 /* FriendListController.swift in Sources */,
 				D678766E2232371C00954829 /* CommunitiesList.swift in Sources */,
 				D656DC0C223E6C690076F5D3 /* LikeShareControl.swift in Sources */,
+				D60D97D62245D1D9005F345A /* GradientView.swift in Sources */,
 				D6113C50223251C300E1CC6F /* MyCommunityController.swift in Sources */,
 				D6CDE73622337D0B00025740 /* FriendFotoCell.swift in Sources */,
 				D656DBDF223E25890076F5D3 /* NewsViewController.swift in Sources */,

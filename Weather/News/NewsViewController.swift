@@ -22,8 +22,30 @@ var newsList = [NewPost(author: Friend(friendName: "SpongeBob SquarePants", frie
 
 class NewsViewController: UIViewController {
     
+    @IBOutlet weak var newsTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        self.view.addGestureRecognizer(hideKeyboardGesture)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillBeHidden),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    @objc func hideKeyboard() {
+        self.view?.endEditing(true)
+    }
+    
+    @objc func keyboardWillBeHidden(notification: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+        newsTableView?.contentInset = contentInsets
+        newsTableView?.scrollIndicatorInsets = contentInsets
     }
 }
 
