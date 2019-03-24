@@ -20,15 +20,14 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        filteredCommunities = allCommunities
         setUpSearchBar()
+        filteredCommunities = allCommunities
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         self.tableView.addGestureRecognizer(hideKeyboardGesture)
     }
     
     private func setUpSearchBar(){
         communitySearchBar.delegate = self
-        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

@@ -17,8 +17,10 @@ struct Friend : Comparable {
     var friendPic : UIImage
 }
 
-class FriendListController: UITableViewController {
-
+class FriendListController: UITableViewController, UISearchBarDelegate {
+    
+    @IBOutlet weak var friendListSearchBar: UISearchBar!
+    
     var friendList = [Friend(friendName: "SpongeBob SquarePants", friendPic:  UIImage(named: "SpongeBob")!),
                       Friend(friendName: "Patrick Star", friendPic:  UIImage(named: "PatrickStar")!),
                       Friend(friendName: "Squidward Tentacles", friendPic:  UIImage(named: "SquidwardTentacles")!),
@@ -31,21 +33,37 @@ class FriendListController: UITableViewController {
                       Friend(friendName: "Gary the Snail", friendPic:  UIImage(named: "Gary")!)]
     
     var sortedFriendList = [Friend]()
-    var firstLetters = [String]()
     var friendsForLetter = [Friend]()
+    var firstLetters = [String]()
+    var filteredFirstLetters = [String]()
     var groupedFriendList : Dictionary = [String : [Friend]]()
+    var filteredFriendList : Dictionary = [String : [Friend]]()
     var firstLetter : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        self.tableView.addGestureRecognizer(hideKeyboardGesture)
+        
         sortedFriendList = friendList.sorted { $0.friendName < $1.friendName }
         
+        getFirstLetters()
+        groupFriends()
+        setUpSearchBar()
+        filteredFriendList = groupedFriendList
+        filteredFirstLetters = firstLetters
+    }
+    
+    func getFirstLetters(){
         for friend in sortedFriendList {
             if !firstLetters.contains(String(friend.friendName.prefix(1))) {
                 firstLetters.append(String(friend.friendName.prefix(1)))
             }
         }
-        
+    }
+    
+    func groupFriends(){
         for letter in firstLetters {
             friendsForLetter.removeAll()
             for friend in sortedFriendList {
@@ -57,23 +75,27 @@ class FriendListController: UITableViewController {
         }
     }
     
+    private func setUpSearchBar(){
+        friendListSearchBar.delegate = self
+    }
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        firstLetter = firstLetters[section]
-        return firstLetters[section]
+        firstLetter = filteredFirstLetters[section]
+        return filteredFirstLetters[section]
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return firstLetters.count
+        return filteredFirstLetters.count
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (groupedFriendList[firstLetter]?.count)!
+        return (filteredFriendList[firstLetter]?.count)!
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendNameCell", for: indexPath) as! FriendNameCell
-        let letter = firstLetters[indexPath.section]
-        let friend = groupedFriendList[letter]
+        let letter = filteredFirstLetters[indexPath.section]
+        let friend = filteredFriendList[letter]
         cell.avatarView.image = friend![indexPath.row].friendPic
         cell.friendName.text = friend![indexPath.row].friendName
         return cell
@@ -83,6 +105,10 @@ class FriendListController: UITableViewController {
         return 30
     }
     
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return filteredFirstLetters
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "ShowFriendFoto" else {
             return
@@ -90,14 +116,53 @@ class FriendListController: UITableViewController {
         guard let indexPath = tableView.indexPathForSelectedRow else {
             return
         }
-        let letter = firstLetters[indexPath.section]
-        let friend = groupedFriendList[letter]
+        let letter = filteredFirstLetters[indexPath.section]
+        let friend = filteredFriendList[letter]
         let friendData = friend![indexPath.row]
         let friendFotoController = segue.destination as! FriendFotoController
         friendFotoController.friendsToShow = [friendData]
     }
     
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return firstLetters
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            filteredFirstLetters = firstLetters
+            filteredFriendList = groupedFriendList
+            tableView.reloadData()
+            return }
+        filteredFriendList.removeAll()
+        filteredFirstLetters.removeAll()
+        for key in firstLetters {
+            friendsForLetter.removeAll()
+            for friend in sortedFriendList {
+                if friend.friendName.lowercased().contains(searchText.lowercased()) && friend.friendName.prefix(1) == key{
+                    friendsForLetter.append(friend)
+                    filteredFriendList.updateValue(friendsForLetter, forKey: key)
+                    if !filteredFirstLetters.contains(key){
+                    filteredFirstLetters.append(key)
+                    }
+                }
+            }
+            tableView.reloadData()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillBeHidden),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    
+    @objc func hideKeyboard() {
+        self.tableView?.endEditing(true)
+    }
+    
+    @objc func keyboardWillBeHidden(notification: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+        tableView?.contentInset = contentInsets
+        tableView?.scrollIndicatorInsets = contentInsets
     }
 }
