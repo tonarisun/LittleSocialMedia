@@ -15,22 +15,23 @@ struct Friend : Comparable {
     }
     let friendName : String
     var friendPic : UIImage
+    var friendFotos = [UIImage]()
 }
 
 class FriendListController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var friendListSearchBar: UISearchBar!
     
-    var friendList = [Friend(friendName: "SpongeBob SquarePants", friendPic:  UIImage(named: "SpongeBob")!),
-                      Friend(friendName: "Patrick Star", friendPic:  UIImage(named: "PatrickStar")!),
-                      Friend(friendName: "Squidward Tentacles", friendPic:  UIImage(named: "SquidwardTentacles")!),
-                      Friend(friendName: "Mr. Krabs", friendPic:  UIImage(named: "MrKrabs")!),
-                      Friend(friendName: "Sandy Cheeks", friendPic:  UIImage(named: "Sandy")!),
-                      Friend(friendName: "Plankton", friendPic:  UIImage(named: "Plankton")!),
-                      Friend(friendName: "Karen", friendPic:  UIImage(named: "Karen")!),
-                      Friend(friendName: "Mrs. Puff", friendPic:  UIImage(named: "Puff")!),
-                      Friend(friendName: "Pearl Krabs", friendPic:  UIImage(named: "Pearl Krabs")!),
-                      Friend(friendName: "Gary the Snail", friendPic:  UIImage(named: "Gary")!)]
+    var friendList = [Friend(friendName: "SpongeBob SquarePants", friendPic:  UIImage(named: "SpongeBob")!, friendFotos: [#imageLiteral(resourceName: "SpongeBob"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "flower-pot")] ),
+                      Friend(friendName: "Patrick Star", friendPic:  UIImage(named: "PatrickStar")!, friendFotos: [#imageLiteral(resourceName: "PatrickStar"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "flower-pot")]),
+                      Friend(friendName: "Squidward Tentacles", friendPic:  UIImage(named: "SquidwardTentacles")!, friendFotos: [#imageLiteral(resourceName: "SquidwardTentacles"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "flower-pot")]),
+                      Friend(friendName: "Mr. Krabs", friendPic:  UIImage(named: "MrKrabs")!, friendFotos: [#imageLiteral(resourceName: "MrKrabs"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "flower-pot")] ),
+                      Friend(friendName: "Sandy Cheeks", friendPic:  UIImage(named: "Sandy")!, friendFotos: [#imageLiteral(resourceName: "Sandy"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "flower-pot")] ),
+                      Friend(friendName: "Plankton", friendPic:  UIImage(named: "Plankton")!, friendFotos: [#imageLiteral(resourceName: "Plankton"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "flower-pot")] ),
+                      Friend(friendName: "Karen", friendPic:  UIImage(named: "Karen")!, friendFotos: [#imageLiteral(resourceName: "Karen"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "flower-pot")] ),
+                      Friend(friendName: "Mrs. Puff", friendPic:  UIImage(named: "Puff")!, friendFotos: [#imageLiteral(resourceName: "Puff"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "flower-pot")] ),
+                      Friend(friendName: "Pearl Krabs", friendPic:  UIImage(named: "Pearl Krabs")!, friendFotos: [#imageLiteral(resourceName: "Pearl Krabs"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "flower-pot")] ),
+                      Friend(friendName: "Gary the Snail", friendPic:  UIImage(named: "Gary")!, friendFotos: [#imageLiteral(resourceName: "Gary"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "flower-pot")] )]
     
     var sortedFriendList = [Friend]()
     var friendsForLetter = [Friend]()

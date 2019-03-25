@@ -16,8 +16,6 @@
 		D617653F222696D5003E39D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D617653D222696D5003E39D9 /* LaunchScreen.storyboard */; };
 		D61765632226972D003E39D9 /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61765622226972D003E39D9 /* LoginFormController.swift */; };
 		D61D0DCD223F3BF40085BA12 /* LikeShareControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61D0DCC223F3BF40085BA12 /* LikeShareControl.xib */; };
-		D61FF087223FC60F007DED7E /* SearchBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61FF085223FC60F007DED7E /* SearchBarCell.swift */; };
-		D61FF088223FC60F007DED7E /* SearchBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61FF086223FC60F007DED7E /* SearchBarCell.xib */; };
 		D61FF0D22243A1C4007DED7E /* CircleIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61FF0D12243A1C3007DED7E /* CircleIndicator.swift */; };
 		D61FF0D42243A200007DED7E /* CircleIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61FF0D32243A200007DED7E /* CircleIndicator.xib */; };
 		D656DBD7223DF5C70076F5D3 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D656DBD6223DF5C70076F5D3 /* Avatar.swift */; };
@@ -63,8 +61,6 @@
 		D6176550222696D6003E39D9 /* WeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D61765622226972D003E39D9 /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
 		D61D0DCC223F3BF40085BA12 /* LikeShareControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeShareControl.xib; sourceTree = "<group>"; };
-		D61FF085223FC60F007DED7E /* SearchBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarCell.swift; sourceTree = "<group>"; };
-		D61FF086223FC60F007DED7E /* SearchBarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarCell.xib; sourceTree = "<group>"; };
 		D61FF0D12243A1C3007DED7E /* CircleIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleIndicator.swift; sourceTree = "<group>"; };
 		D61FF0D32243A200007DED7E /* CircleIndicator.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircleIndicator.xib; sourceTree = "<group>"; };
 		D656DBD6223DF5C70076F5D3 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
@@ -131,9 +127,9 @@
 				D617653B222696D5003E39D9 /* Assets.xcassets */,
 				D6176538222696D4003E39D9 /* Main.storyboard */,
 				D61FF0D522452D3D007DED7E /* LogIn */,
-				D61FF08B2241DC97007DED7E /* News */,
 				D61FF08A2241DC3C007DED7E /* Friends */,
 				D61FF0892241DBF3007DED7E /* Communities */,
+				D61FF08B2241DC97007DED7E /* News */,
 				D61FF08C2241DD90007DED7E /* Service */,
 			);
 			path = Weather;
@@ -176,8 +172,6 @@
 				D656DBD6223DF5C70076F5D3 /* Avatar.swift */,
 				D656DC0B223E6C690076F5D3 /* LikeShareControl.swift */,
 				D61D0DCC223F3BF40085BA12 /* LikeShareControl.xib */,
-				D61FF085223FC60F007DED7E /* SearchBarCell.swift */,
-				D61FF086223FC60F007DED7E /* SearchBarCell.xib */,
 				D61FF0D12243A1C3007DED7E /* CircleIndicator.swift */,
 				D61FF0D32243A200007DED7E /* CircleIndicator.xib */,
 				D60D97D52245D1D9005F345A /* GradientView.swift */,
@@ -302,7 +296,6 @@
 				D61D0DCD223F3BF40085BA12 /* LikeShareControl.xib in Resources */,
 				D61FF0D42243A200007DED7E /* CircleIndicator.xib in Resources */,
 				D617653A222696D4003E39D9 /* Main.storyboard in Resources */,
-				D61FF088223FC60F007DED7E /* SearchBarCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,7 +329,6 @@
 				D6113C50223251C300E1CC6F /* MyCommunityController.swift in Sources */,
 				D6CDE73622337D0B00025740 /* FriendFotoCell.swift in Sources */,
 				D656DBDF223E25890076F5D3 /* NewsViewController.swift in Sources */,
-				D61FF087223FC60F007DED7E /* SearchBarCell.swift in Sources */,
 				D656DBD7223DF5C70076F5D3 /* Avatar.swift in Sources */,
 				D6176535222696D4003E39D9 /* AppDelegate.swift in Sources */,
 				D69DB47B2230C3A90098797D /* FriendNameCell.swift in Sources */,

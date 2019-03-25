@@ -22,13 +22,13 @@ class FriendFotoController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return friendsToShow[section].friendFotos.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "fotoCell", for: indexPath) as! FriendFotoCell
         let friend = friendsToShow[indexPath.row]
-        cell.friendFoto.image = friend.friendPic
+        cell.friendFoto.image = friend.friendFotos[indexPath.row]
         return cell
     }
     

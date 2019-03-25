@@ -14,11 +14,11 @@ struct NewPost {
     var content : UIImage
 }
 
-var newsList = [NewPost(author: Friend(friendName: "SpongeBob SquarePants", friendPic:  UIImage(named: "SpongeBob")!), currentTime : getTodayString(), content : #imageLiteral(resourceName: "Bob Patrick Squidward small")),
-                NewPost(author: Friend(friendName: "Squidward Tentacles", friendPic:  UIImage(named: "SquidwardTentacles")!), currentTime : getTodayString(), content : #imageLiteral(resourceName: "SquidwardTentacles")),
-                NewPost(author:  Friend(friendName: "Sandy Cheeks", friendPic:  UIImage(named: "Sandy")!), currentTime : getTodayString(), content : #imageLiteral(resourceName: "Sandy")),
-                NewPost(author:  Friend(friendName: "Karen", friendPic:  UIImage(named: "Karen")!), currentTime : getTodayString(), content : #imageLiteral(resourceName: "Plankton")),
-                NewPost(author: Friend(friendName: "SpongeBob SquarePants", friendPic:  UIImage(named: "SpongeBob")!), currentTime : getTodayString(), content : #imageLiteral(resourceName: "Diamond-Peak-Sunset-By-Robert-Bynum-iPad-Pro-Wallpaper-2732x2732"))]
+var newsList = [NewPost(author: Friend(friendName: "SpongeBob SquarePants", friendPic:  UIImage(named: "SpongeBob")!, friendFotos: []), currentTime : getTodayString(), content : #imageLiteral(resourceName: "Bob Patrick Squidward small")),
+                NewPost(author: Friend(friendName: "Squidward Tentacles", friendPic:  UIImage(named: "SquidwardTentacles")!, friendFotos: []), currentTime : getTodayString(), content : #imageLiteral(resourceName: "SquidwardTentacles")),
+                NewPost(author:  Friend(friendName: "Sandy Cheeks", friendPic:  UIImage(named: "Sandy")!, friendFotos: []), currentTime : getTodayString(), content : #imageLiteral(resourceName: "Sandy")),
+                NewPost(author:  Friend(friendName: "Karen", friendPic:  UIImage(named: "Karen")!, friendFotos: []), currentTime : getTodayString(), content : #imageLiteral(resourceName: "Plankton")),
+                NewPost(author: Friend(friendName: "SpongeBob SquarePants", friendPic:  UIImage(named: "SpongeBob")!, friendFotos: []), currentTime : getTodayString(), content : #imageLiteral(resourceName: "Diamond-Peak-Sunset-By-Robert-Bynum-iPad-Pro-Wallpaper-2732x2732"))]
 
 class NewsViewController: UIViewController {
     
