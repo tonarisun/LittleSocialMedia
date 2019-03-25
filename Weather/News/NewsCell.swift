@@ -34,17 +34,17 @@ class NewsCell: UITableViewCell {
     
 //    override func prepareForReuse() {
 //        super.prepareForReuse()
-//        avanarView.image = nil
+//        avanеrView.image = nil
 //        authorLabel.text = nil
 //        timeLabel.text = nil
 //        contentImageView.image = nil
 //        commentTextField.text = nil
-//        likeShareControlView.likeCountLabel.text = String(initialLikeCount)
+//        likeShareControlView.likeCountLabel.text = nil
 //        likeShareControlView.likeCountLabel.textColor = .black
-//        likeShareControlView.likeImage.image = UIImage(named: "like")
-//        likeShareControlView.shareCountLabel.text = String(initialShareCount)
+//        likeShareControlView.likeImage.image = nil
+//        likeShareControlView.shareCountLabel.text = nil
 //        likeShareControlView.shareCountLabel.textColor = .black
-//        likeShareControlView.shareImage.image = UIImage(named: "share")
+//        likeShareControlView.shareImage.image = nil
 //    }
 
 }

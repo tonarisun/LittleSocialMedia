@@ -17,13 +17,13 @@ class CircleIndicator: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        UIView.animateKeyframes(withDuration: 1.4, delay: 0, options: [.repeat, .autoreverse], animations: {
+        UIView.animateKeyframes(withDuration: 1.2, delay: 0, options: [.repeat, .autoreverse], animations: {
             self.circle1.alpha = 0.1
         })
-        UIView.animateKeyframes(withDuration: 1.4, delay: 0.7, options: [.repeat, .autoreverse], animations: {
+        UIView.animateKeyframes(withDuration: 1.2, delay: 0.6, options: [.repeat, .autoreverse], animations: {
             self.circle2.alpha = 0.1
         })
-        UIView.animateKeyframes(withDuration: 1.4, delay: 1.4, options: [.repeat, .autoreverse], animations: {
+        UIView.animateKeyframes(withDuration: 1.2, delay: 1.2, options: [.repeat, .autoreverse], animations: {
             self.circle3.alpha = 0.1
         })
     }

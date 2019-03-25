@@ -11,8 +11,8 @@ import UIKit
 class MyCommunityCell: UITableViewCell {
 
     @IBOutlet weak var avatarView: Avatar!
-    @IBOutlet weak var myCommunityName: UILabel!
-
+    @IBOutlet weak var myCommunityNameLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

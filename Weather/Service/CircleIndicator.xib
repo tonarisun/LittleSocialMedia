@@ -74,6 +74,7 @@
                 <outlet property="circle2" destination="D3f-2Q-qkI" id="3Ar-SS-CiS"/>
                 <outlet property="circle3" destination="S3F-hw-Qft" id="H3U-el-Ipm"/>
             </connections>
+            <point key="canvasLocation" x="132.80000000000001" y="109.74512743628186"/>
         </view>
     </objects>
     <resources>

@@ -20,14 +20,4 @@ class FriendNameCell: UITableViewCell {
     override func prepareForReuse() {
         friendName.text = ""
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
-    class FriendUserpic: UIView {
-        override class var layerClass: AnyClass {
-            return CAShapeLayer.self
-        }
-    }
 }

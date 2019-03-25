@@ -4,7 +4,8 @@
 //
 //  Created by Olga Lidman on 08/03/2019.
 //  Copyright © 2019 Home. All rights reserved.
-//
+//Olga Lidman, [24.03.19 17:44]
+
 
 import UIKit
 
@@ -12,10 +13,18 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var communitySearchBar: UISearchBar!
     
-    var allCommunities = ["News 24/7", "Memes", "It's wonderfull world", "Secret recipes", "Krusty Krabs", "Traveling", "Bikini Bottom night life", "The art of photography", "True stories", "Look what I found"]
+    var allCommunities = [Community(communityName: "News 24/7", communityPic: #imageLiteral(resourceName: "flower-pot")),
+                          Community(communityName: "Memes", communityPic: #imageLiteral(resourceName: "circle")),
+                          Community(communityName: "That's wonderfull world", communityPic: #imageLiteral(resourceName: "like-2")),
+                          Community(communityName: "Secret recipes", communityPic: #imageLiteral(resourceName: "user")),
+                          Community(communityName: "Traveling", communityPic: #imageLiteral(resourceName: "flower-pot")),
+                          Community(communityName: "Bikini Bottom night life", communityPic: #imageLiteral(resourceName: "users-1")),
+                          Community(communityName: "True stories", communityPic: #imageLiteral(resourceName: "MrKrabs")),
+                          Community(communityName: "Look what I found", communityPic: #imageLiteral(resourceName: "SpongeBob"))]
     
-    var filteredCommunities = [String]()
     
+    var filteredCommunities = [Community]()
+        
     var myCommunityVC : MyCommunityController?
 
     override func viewDidLoad() {
@@ -41,14 +50,14 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommunityCell", for: indexPath) as! CommunityCell
         let community = filteredCommunities[indexPath.row]
-        cell.communityName.text = community
-        cell.avatarView.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
-        cell.addCommunityTapped = { communityName in
+        cell.communityNameLabel.text = community.communityName
+        cell.avatarView.image = community.communityPic
+        cell.addCommunityTapped = { community in
             guard let myCommunityVC = self.myCommunityVC else {
                 return
             }
-            if !myCommunityVC.myCommunities.contains(communityName){
-            myCommunityVC.myCommunities.append(communityName)
+            if !myCommunityVC.myCommunities.contains(community){
+            myCommunityVC.myCommunities.append(community)
             }
         }
         return cell
@@ -60,7 +69,7 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
             tableView.reloadData()
             return }
         filteredCommunities = allCommunities.filter({community -> Bool in
-        return community.lowercased().contains(searchText.lowercased())
+        return community.communityName.lowercased().contains(searchText.lowercased())
     })
         tableView.reloadData()
     }

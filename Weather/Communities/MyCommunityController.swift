@@ -6,14 +6,28 @@
 //  Copyright © 2019 Home. All rights reserved.
 //
 
+
 import UIKit
+
+struct Community : Equatable {
+    var communityName : String
+    var communityPic : UIImage
+    
+    static func == (lhs:Community, rhs:Community) -> Bool {
+        return lhs.communityName == rhs.communityName && lhs.communityPic == rhs.communityPic
+    }
+}
 
 class MyCommunityController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var myCommunitySearchBar: UISearchBar!
     
-    var myCommunities = ["Gossips. Bikini Bottom", "Underwater scary tales", "Pineapple-house"]
-    var filteredMyCommunities = [String]()
+    var myCommunities = [Community(communityName: "Gossips. Bikini Bottom", communityPic: #imageLiteral(resourceName: "flower-pot")),
+                         Community(communityName: "Underwater scary tales", communityPic: #imageLiteral(resourceName: "like-2")),
+                         Community(communityName: "Pineapple-house", communityPic: #imageLiteral(resourceName: "cactus"))]
+    
+//    var myCommunities = ["Gossips. Bikini Bottom", "Underwater scary tales", "Pineapple-house"]
+    var filteredMyCommunities = [Community]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +58,8 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCommCell", for: indexPath) as! MyCommunityCell
         let community = filteredMyCommunities[indexPath.row]
-        cell.myCommunityName.text = community
-        cell.avatarView.backgroundColor = #colorLiteral(red: 0.08869794756, green: 0.28105551, blue: 0.4478540421, alpha: 1)
+        cell.myCommunityNameLabel.text = community.communityName
+        cell.avatarView.image = community.communityPic
 
         return cell
     }
@@ -70,7 +84,7 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
             tableView.reloadData()
             return }
         filteredMyCommunities = myCommunities.filter({community -> Bool in
-            return community.lowercased().contains(searchText.lowercased())
+            return community.communityName.lowercased().contains(searchText.lowercased())
         })
         tableView.reloadData()
     }

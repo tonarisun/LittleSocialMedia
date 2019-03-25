@@ -9,12 +9,20 @@
 import UIKit
 
 class CommunityCell: UITableViewCell {
+    
+    var community: Community?
 
-    @IBOutlet weak var communityName: UILabel!
+    func configure(community: Community) {
+        self.community = community
+        communityNameLabel.text = community.communityName
+    }
+    
+    var addCommunityTapped : ((Community) -> Void)?
+
+
+    @IBOutlet weak var communityNameLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var avatarView: Avatar!
-    
-    var addCommunityTapped : ((String) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,8 +33,7 @@ class CommunityCell: UITableViewCell {
     }
 
     @IBAction func addCommunity(_ sender: Any) {
-        addCommunityTapped?(communityName.text!)
+        addCommunityTapped?(community ?? Community(communityName: "ERROR", communityPic: #imageLiteral(resourceName: "share-1")))
         }
-    
 }
 
