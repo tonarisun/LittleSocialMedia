@@ -122,7 +122,7 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         let letter = filteredFirstLetters[indexPath.section]
         let friends = filteredFriendList[letter]
         let friend = friends![indexPath.row]
-        let friendFotoController = segue.destination as! AnimatedFotoViewController//FriendFotoController
+        let friendFotoController = segue.destination as! FriendFotoController
         friendFotoController.friendToShow = friend
     }
     

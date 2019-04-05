@@ -26,11 +26,16 @@ class FriendFotoCell: UICollectionViewCell {
         self.layer.add(showAnimationOpacity, forKey: nil)
         self.layer.add(showAnimationSize, forKey: nil)
         
-        let pushTap = UITapGestureRecognizer(target: self, action: #selector(onTap(recognizer:)))
+        let pushTap = UILongPressGestureRecognizer(target: self, action: #selector(pushLongPress(recognizer:)))
         self.addGestureRecognizer(pushTap)
+        
+        let likeTapTap = UITapGestureRecognizer(target: self, action: #selector(likeTapTap(recognizer:)))
+        likeTapTap.numberOfTapsRequired = 2
+        friendFoto.isUserInteractionEnabled = true
+        friendFoto.addGestureRecognizer(likeTapTap)
     }
     
-    @objc func onTap(recognizer: UITapGestureRecognizer) {
+    @objc func pushLongPress(recognizer: UILongPressGestureRecognizer) {
         
         let animation = CASpringAnimation(keyPath: "transform.scale")
         animation.fromValue = 0.9
@@ -41,6 +46,10 @@ class FriendFotoCell: UICollectionViewCell {
         animation.isRemovedOnCompletion = false
         animation.fillMode = CAMediaTimingFillMode.forwards
         self.friendFoto.layer.add(animation, forKey: nil)
+    }
+    
+    @objc func likeTapTap(recognizer: UITapGestureRecognizer){
+        likeSharecontrolView.onTapLike(recognizer: recognizer)
     }
 }
 
