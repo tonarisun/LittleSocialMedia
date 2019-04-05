@@ -52,6 +52,7 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
         let community = filteredCommunities[indexPath.row]
         cell.communityNameLabel.text = community.communityName
         cell.avatarView.image = community.communityPic
+        cell.configure(community: community)
         cell.addCommunityTapped = { community in
             guard let myCommunityVC = self.myCommunityVC else {
                 return
