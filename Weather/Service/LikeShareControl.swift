@@ -37,21 +37,35 @@ class LikeShareControl: UIControl {
         if likeImage.image == UIImage(named: "like") {
             likeCount += 1
             UIView.transition(with: self.likeCountLabel, duration: 0.5, options: .transitionCrossDissolve, animations: {
-                self.likeCountLabel.textColor = .red
+                self.likeCountLabel.textColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
                 self.likeCountLabel.text = String(self.likeCount)
             }, completion: nil)
-            UIView.transition(with: self.likeImage, duration: 0.5, options: .transitionCrossDissolve, animations: {
-                self.likeImage.image = UIImage(named: "like-1")
-            }, completion: nil)
+            self.likeImage.image = UIImage(named: "like-2")
+            let animation = CASpringAnimation(keyPath: "transform.scale")
+            animation.fromValue = 0.7
+            animation.toValue = 1
+            animation.stiffness = 500
+            animation.mass = 2
+            animation.duration = 0.5
+            animation.isRemovedOnCompletion = false
+            animation.fillMode = CAMediaTimingFillMode.forwards
+            self.likeImage.layer.add(animation, forKey: nil)
         } else {
             likeCount -= 1
             UIView.transition(with: self.likeCountLabel, duration: 0.5, options: .transitionCrossDissolve, animations: {
                 self.likeCountLabel.textColor = .black
                 self.likeCountLabel.text = String(self.likeCount)
             }, completion: nil)
-            UIView.transition(with: self.likeImage, duration: 0.5, options: .transitionCrossDissolve, animations: {
-                self.likeImage.image = UIImage(named: "like")
-            }, completion: nil)
+            self.likeImage.image = UIImage(named: "like")
+            let animation = CASpringAnimation(keyPath: "transform.scale")
+            animation.fromValue = 0.7
+            animation.toValue = 1
+            animation.stiffness = 500
+            animation.mass = 2
+            animation.duration = 0.5
+            animation.isRemovedOnCompletion = false
+            animation.fillMode = CAMediaTimingFillMode.forwards
+            self.likeImage.layer.add(animation, forKey: nil)
         }
     }
     
@@ -59,11 +73,11 @@ class LikeShareControl: UIControl {
         if shareImage.image == UIImage(named: "share") {
             shareCount += 1
             UIView.transition(with: self.shareCountLabel, duration: 0.5, options: .transitionCrossDissolve, animations: {
-                self.shareCountLabel.textColor = .red
+                self.shareCountLabel.textColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
                 self.shareCountLabel.text = String(self.shareCount)
             }, completion: nil)
             UIView.transition(with: self.shareImage, duration: 0.5, options: .transitionCrossDissolve, animations: {
-                self.shareImage.image = UIImage(named: "share-1")
+                self.shareImage.image = UIImage(named: "share-2")
             }, completion: nil)
         } else {
             shareCount -= 1

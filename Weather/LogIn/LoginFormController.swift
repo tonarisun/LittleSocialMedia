@@ -23,22 +23,18 @@ class LoginFormController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillShow),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil
-        )
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillBeHidden),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillBeHidden),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
     }
     
     @objc func keyboardWillShow(notification: Notification) {
@@ -68,13 +64,11 @@ class LoginFormController: UIViewController {
             if loginText == "a" && passwordText == "1" {
                 performSegue(withIdentifier: singInSegID, sender: self)
             } else {
-                let alert = UIAlertController(title: "Ошибка", message: "Неверное имя пользователи или пароль", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Что-то не так", message: "Неверное имя пользователи или пароль", preferredStyle: .alert)
                 let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 alert.addAction(action)
                 present(alert, animated: true, completion: nil)
             }
         }
     }
-    
-    
 }

@@ -19,7 +19,6 @@ class CommunityCell: UITableViewCell {
     
     var addCommunityTapped : ((Community) -> Void)?
 
-
     @IBOutlet weak var communityNameLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var avatarView: Avatar!
@@ -33,7 +32,7 @@ class CommunityCell: UITableViewCell {
     }
 
     @IBAction func addCommunity(_ sender: Any) {
-        addCommunityTapped?(community ?? Community(communityName: "ERROR", communityPic: #imageLiteral(resourceName: "share-1")))
+        addCommunityTapped?(community!)
         }
 }
 

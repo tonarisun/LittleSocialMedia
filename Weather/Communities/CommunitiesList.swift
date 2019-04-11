@@ -77,12 +77,10 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillBeHidden),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillBeHidden),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
     }
     @objc func hideKeyboard() {
         self.tableView?.endEditing(true)

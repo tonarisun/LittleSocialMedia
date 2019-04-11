@@ -14,7 +14,6 @@ class FriendFotoController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
