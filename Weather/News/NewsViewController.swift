@@ -8,12 +8,6 @@
 
 import UIKit
 
-struct NewPost {
-    var author : Friend
-    var currentTime : String
-    var content : UIImage
-}
-
 var newsList = [NewPost(author: Friend(friendName: "SpongeBob SquarePants", friendPic:  UIImage(named: "SpongeBob")!, friendFotos: []), currentTime : getTodayString(), content : #imageLiteral(resourceName: "Bob Patrick Squidward small")),
                 NewPost(author: Friend(friendName: "Squidward Tentacles", friendPic:  UIImage(named: "SquidwardTentacles")!, friendFotos: []), currentTime : getTodayString(), content : #imageLiteral(resourceName: "SquidwardTentacles")),
                 NewPost(author:  Friend(friendName: "Sandy Cheeks", friendPic:  UIImage(named: "Sandy")!, friendFotos: []), currentTime : getTodayString(), content : #imageLiteral(resourceName: "Sandy")),

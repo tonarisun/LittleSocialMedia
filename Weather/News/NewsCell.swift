@@ -24,8 +24,8 @@ class NewsCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        initialLikeCount = likeShareControlView.likeCount
-        initialShareCount = likeShareControlView.shareCount
+//        initialLikeCount = likeShareControlView.likeCount
+//        initialShareCount = likeShareControlView.shareCount
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
