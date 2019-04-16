@@ -8,31 +8,9 @@
 
 import UIKit
 
-struct Friend : Comparable {
-
-    let friendName : String
-    var friendPic : UIImage
-    var friendFotos = [UIImage]()
-    
-    static func < (lhs: Friend, rhs: Friend) -> Bool {
-        return lhs.friendName < rhs.friendName
-    }
-}
-
 class FriendListController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var friendListSearchBar: UISearchBar!
-    
-    var friendList = [Friend(friendName: "SpongeBob SquarePants", friendPic:  UIImage(named: "SpongeBob")!, friendFotos: [#imageLiteral(resourceName: "SpongeBob"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "flower-pot")] ),
-                      Friend(friendName: "Patrick Star", friendPic:  UIImage(named: "PatrickStar")!, friendFotos: [#imageLiteral(resourceName: "PatrickStar"),  #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "like")]),
-                      Friend(friendName: "Squidward Tentacles", friendPic:  UIImage(named: "SquidwardTentacles")!, friendFotos: [#imageLiteral(resourceName: "SquidwardTentacles"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "flower-pot")]),
-                      Friend(friendName: "Mr. Krabs", friendPic:  UIImage(named: "MrKrabs")!, friendFotos: [#imageLiteral(resourceName: "MrKrabs"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "flower-pot")] ),
-                      Friend(friendName: "Sandy Cheeks", friendPic:  UIImage(named: "Sandy")!, friendFotos: [#imageLiteral(resourceName: "Sandy"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "like-2"), #imageLiteral(resourceName: "bud")] ),
-                      Friend(friendName: "Plankton", friendPic:  UIImage(named: "Plankton")!, friendFotos: [#imageLiteral(resourceName: "Plankton"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "flower-pot")] ),
-                      Friend(friendName: "Karen", friendPic:  UIImage(named: "Karen")!, friendFotos: [#imageLiteral(resourceName: "Karen"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "Plankton")] ),
-                      Friend(friendName: "Mrs. Puff", friendPic:  UIImage(named: "Puff")!, friendFotos: [#imageLiteral(resourceName: "Puff"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "flower-pot")] ),
-                      Friend(friendName: "Pearl Krabs", friendPic:  UIImage(named: "Pearl Krabs")!, friendFotos: [#imageLiteral(resourceName: "Pearl Krabs"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "circle")] ),
-                      Friend(friendName: "Gary the Snail", friendPic:  UIImage(named: "Gary")!, friendFotos: [#imageLiteral(resourceName: "Gary"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "plant")] )]
     
     var sortedFriendList = [Friend]()
     var friendsForLetter = [Friend]()

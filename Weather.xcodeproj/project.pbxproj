@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D603BE9422659BFF000F3F7B /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D603BE9322659BFF000F3F7B /* Friend.swift */; };
 		D60D97D62245D1D9005F345A /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D97D52245D1D9005F345A /* GradientView.swift */; };
 		D60FA11C2249C3010069CA98 /* AnimatedFotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60FA11B2249C3010069CA98 /* AnimatedFotoViewController.swift */; };
 		D6113C50223251C300E1CC6F /* MyCommunityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6113C4F223251C300E1CC6F /* MyCommunityController.swift */; };
@@ -20,7 +21,6 @@
 		D61FF0D22243A1C4007DED7E /* CircleIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61FF0D12243A1C3007DED7E /* CircleIndicator.swift */; };
 		D61FF0D42243A200007DED7E /* CircleIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61FF0D32243A200007DED7E /* CircleIndicator.xib */; };
 		D656DBD7223DF5C70076F5D3 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D656DBD6223DF5C70076F5D3 /* Avatar.swift */; };
-		D656DBDF223E25890076F5D3 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D656DBDE223E25890076F5D3 /* NewsViewController.swift */; };
 		D656DBE1223E25B00076F5D3 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D656DBE0223E25B00076F5D3 /* NewsCell.swift */; };
 		D656DC0C223E6C690076F5D3 /* LikeShareControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D656DC0B223E6C690076F5D3 /* LikeShareControl.swift */; };
 		D67876642232197F00954829 /* FriendListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67876632232197F00954829 /* FriendListController.swift */; };
@@ -53,8 +53,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D603BE9322659BFF000F3F7B /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		D60D97D52245D1D9005F345A /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		D60FA11B2249C3010069CA98 /* AnimatedFotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedFotoViewController.swift; sourceTree = "<group>"; };
+		D60FA11B2249C3010069CA98 /* AnimatedFotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnimatedFotoViewController.swift; path = ../Friends/AnimatedFotoViewController.swift; sourceTree = "<group>"; };
 		D6113C4F223251C300E1CC6F /* MyCommunityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunityController.swift; sourceTree = "<group>"; };
 		D6113C512232521E00E1CC6F /* MyCommunityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunityCell.swift; sourceTree = "<group>"; };
 		D6176531222696D4003E39D9 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,7 +71,6 @@
 		D61FF0D12243A1C3007DED7E /* CircleIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleIndicator.swift; sourceTree = "<group>"; };
 		D61FF0D32243A200007DED7E /* CircleIndicator.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircleIndicator.xib; sourceTree = "<group>"; };
 		D656DBD6223DF5C70076F5D3 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
-		D656DBDE223E25890076F5D3 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		D656DBE0223E25B00076F5D3 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		D656DC0B223E6C690076F5D3 /* LikeShareControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeShareControl.swift; sourceTree = "<group>"; };
 		D67876632232197F00954829 /* FriendListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListController.swift; sourceTree = "<group>"; };
@@ -138,9 +138,9 @@
 				D6176538222696D4003E39D9 /* Main.storyboard */,
 				D61FF0D522452D3D007DED7E /* LogIn */,
 				D674DD592264433200415B0E /* Profile */,
+				D61FF08B2241DC97007DED7E /* News */,
 				D61FF08A2241DC3C007DED7E /* Friends */,
 				D61FF0892241DBF3007DED7E /* Communities */,
-				D61FF08B2241DC97007DED7E /* News */,
 				D61FF08C2241DD90007DED7E /* Service */,
 			);
 			path = Weather;
@@ -164,7 +164,7 @@
 				D69DB47A2230C3A90098797D /* FriendNameCell.swift */,
 				D6CDE73322337CD900025740 /* FriendFotoController.swift */,
 				D6CDE73522337D0B00025740 /* FriendFotoCell.swift */,
-				D60FA11B2249C3010069CA98 /* AnimatedFotoViewController.swift */,
+				D603BE9322659BFF000F3F7B /* Friend.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -172,7 +172,6 @@
 		D61FF08B2241DC97007DED7E /* News */ = {
 			isa = PBXGroup;
 			children = (
-				D656DBDE223E25890076F5D3 /* NewsViewController.swift */,
 				D656DBE0223E25B00076F5D3 /* NewsCell.swift */,
 				D67AE13722647B4A00665CDC /* NewPost.swift */,
 			);
@@ -206,6 +205,7 @@
 				D6A54FBE226443D5005BE55E /* MyProfileViewController.swift */,
 				D6A54FC02264449F005BE55E /* MyProfileButton.swift */,
 				D67AE13522647AFF00665CDC /* User.swift */,
+				D60FA11B2249C3010069CA98 /* AnimatedFotoViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -355,10 +355,10 @@
 				D67AE13622647AFF00665CDC /* User.swift in Sources */,
 				D6113C50223251C300E1CC6F /* MyCommunityController.swift in Sources */,
 				D6CDE73622337D0B00025740 /* FriendFotoCell.swift in Sources */,
-				D656DBDF223E25890076F5D3 /* NewsViewController.swift in Sources */,
 				D656DBD7223DF5C70076F5D3 /* Avatar.swift in Sources */,
 				D6176535222696D4003E39D9 /* AppDelegate.swift in Sources */,
 				D6A54FBF226443D6005BE55E /* MyProfileViewController.swift in Sources */,
+				D603BE9422659BFF000F3F7B /* Friend.swift in Sources */,
 				D69DB47B2230C3A90098797D /* FriendNameCell.swift in Sources */,
 				D656DBE1223E25B00076F5D3 /* NewsCell.swift in Sources */,
 				D61765632226972D003E39D9 /* LoginFormController.swift in Sources */,

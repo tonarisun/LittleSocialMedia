@@ -27,15 +27,33 @@ class FriendFotoController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "fotoCell", for: indexPath) as! FriendFotoCell
         cell.friendFoto.image = friendToShow.friendFotos[indexPath.row]
+        cell.likeSharecontrolView.onTapLike = {
+            if cell.likeSharecontrolView.likeImage.image == UIImage(named: "like") {
+                cell.likeSharecontrolView.likeCount += 1
+                cell.likeSharecontrolView.like()
+            } else {
+                cell.likeSharecontrolView.likeCount -= 1
+                cell.likeSharecontrolView.dislike()
+            }
+        }
+        cell.likeSharecontrolView.onTapShare = {
+            if cell.likeSharecontrolView.shareImage.image == UIImage(named: "share") {
+               cell.likeSharecontrolView.shareCount += 1
+               cell.likeSharecontrolView.share()
+            } else {
+                cell.likeSharecontrolView.shareCount -= 1
+                cell.likeSharecontrolView.unshare()
+            }
+        }
         return cell
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        let hideAnimation = CABasicAnimation(keyPath: "transform.scale")
-        hideAnimation.fromValue = 1
-        hideAnimation.toValue = 0
-        hideAnimation.duration = 0.4
-        self.collectionView.layer.add(hideAnimation, forKey: nil)
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        let hideAnimation = CABasicAnimation(keyPath: "transform.scale")
+//        hideAnimation.fromValue = 1
+//        hideAnimation.toValue = 0
+//        hideAnimation.duration = 0.4
+//        self.collectionView.layer.add(hideAnimation, forKey: nil)
+//    }
 }

@@ -18,6 +18,6 @@ class FriendNameCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
-        friendName.text = ""
+        friendName.text = nil
     }
 }

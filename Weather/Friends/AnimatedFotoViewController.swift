@@ -14,11 +14,12 @@ class AnimatedFotoViewController: UIViewController {
     @IBOutlet weak var animatedFotoView2: UIImageView!
     @IBOutlet weak var animatedFotoView3: UIImageView!
     @IBOutlet weak var animatedView: UIView!
+    @IBOutlet weak var likeShareControlView: LikeShareControl!
     
-    
-//    var friendToShow : Friend!
     var i = 0
     let userToShow = user1
+    var likeCount = 0
+    var shareCount = 0
                                                                                                         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +47,26 @@ class AnimatedFotoViewController: UIViewController {
         self.animatedView.layer.add(showAnimationOpacity, forKey: nil)
         self.animatedView.layer.add(showAnimationSize, forKey: nil)
         
-        let pushTap = UITapGestureRecognizer(target: self, action: #selector(onTap(recognizer:)))
-        self.animatedView.addGestureRecognizer(pushTap)
+        likeShareControlView.likeCountLabel.text = String(likeCount)
+        likeShareControlView.shareCountLabel.text = String(shareCount)
+        likeShareControlView.onTapLike = {
+            if self.likeShareControlView.likeImage.image == UIImage(named: "like") {
+                self.likeShareControlView.likeCount += 1
+                self.likeShareControlView.like()
+            } else {
+                self.likeShareControlView.likeCount -= 1
+                self.likeShareControlView.dislike()
+            }
+        }
+        likeShareControlView.onTapShare = {
+            if self.likeShareControlView.shareImage.image == UIImage(named: "share") {
+                self.likeShareControlView.shareCount += 1
+                self.likeShareControlView.share()
+            } else {
+                self.likeShareControlView.shareCount -= 1
+                self.likeShareControlView.unshare()
+            }
+        }
         
     }
     
@@ -130,18 +149,5 @@ class AnimatedFotoViewController: UIViewController {
             },
                            completion: nil)
         }
-    }
-    
-    @objc func onTap(recognizer: UITapGestureRecognizer) {
-        
-        let animation = CASpringAnimation(keyPath: "transform.scale")
-        animation.fromValue = 0.9
-        animation.toValue = 1
-        animation.stiffness = 500
-        animation.mass = 1
-        animation.duration = 2
-        animation.isRemovedOnCompletion = false
-        animation.fillMode = CAMediaTimingFillMode.forwards
-        self.animatedView.layer.add(animation, forKey: nil)
     }
 }

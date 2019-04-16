@@ -26,6 +26,10 @@ class FriendFotoCell: UICollectionViewCell {
         self.layer.add(showAnimationOpacity, forKey: nil)
         self.layer.add(showAnimationSize, forKey: nil)
         
+        likeSharecontrolView.likeCount = 0
+        likeSharecontrolView.shareCount = 0
+        
+        
         let likeTapTap = UITapGestureRecognizer(target: self, action: #selector(likeTapTap(recognizer:)))
         likeTapTap.numberOfTapsRequired = 2
         friendFoto.isUserInteractionEnabled = true
@@ -33,7 +37,14 @@ class FriendFotoCell: UICollectionViewCell {
     }
     
     @objc func likeTapTap(recognizer: UITapGestureRecognizer){
-        likeSharecontrolView.onTapLike(recognizer: recognizer)
+//        likeSharecontrolView.likeTap(recognizer: recognizer)
+        if likeSharecontrolView.likeImage.image == UIImage(named: "like") {
+            likeSharecontrolView.likeCount += 1
+            likeSharecontrolView.like()
+        } else {
+            likeSharecontrolView.likeCount -= 1
+            likeSharecontrolView.dislike()
+        }
     }
 }
 
