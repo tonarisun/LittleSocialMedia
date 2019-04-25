@@ -9,12 +9,12 @@
 import UIKit
 
 class NewPost {
+    
     let author : Friend
     let currentTime : String
     let content : UIImage
     var likeCount : Int
     var shareCount : Int
-    
     
     init(author: Friend, currentTime: String, content: UIImage, likeCount: Int, shareCount: Int){
         self.author = author

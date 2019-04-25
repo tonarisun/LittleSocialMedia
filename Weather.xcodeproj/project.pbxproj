@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D603BE9422659BFF000F3F7B /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D603BE9322659BFF000F3F7B /* Friend.swift */; };
+		D603D5002270200B00BCF4A0 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D603D4FF2270200B00BCF4A0 /* Session.swift */; };
 		D60D97D62245D1D9005F345A /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60D97D52245D1D9005F345A /* GradientView.swift */; };
 		D60FA11C2249C3010069CA98 /* AnimatedFotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60FA11B2249C3010069CA98 /* AnimatedFotoViewController.swift */; };
 		D6113C50223251C300E1CC6F /* MyCommunityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6113C4F223251C300E1CC6F /* MyCommunityController.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		D603BE9322659BFF000F3F7B /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		D603D4FF2270200B00BCF4A0 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D60D97D52245D1D9005F345A /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		D60FA11B2249C3010069CA98 /* AnimatedFotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnimatedFotoViewController.swift; path = ../Friends/AnimatedFotoViewController.swift; sourceTree = "<group>"; };
 		D6113C4F223251C300E1CC6F /* MyCommunityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunityController.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				D61765622226972D003E39D9 /* LoginFormController.swift */,
+				D603D4FF2270200B00BCF4A0 /* Session.swift */,
 			);
 			path = LogIn;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				D603BE9422659BFF000F3F7B /* Friend.swift in Sources */,
 				D69DB47B2230C3A90098797D /* FriendNameCell.swift in Sources */,
 				D656DBE1223E25B00076F5D3 /* NewsCell.swift in Sources */,
+				D603D5002270200B00BCF4A0 /* Session.swift in Sources */,
 				D61765632226972D003E39D9 /* LoginFormController.swift in Sources */,
 				D6CDE73422337CD900025740 /* FriendFotoController.swift in Sources */,
 				D61FF0D22243A1C4007DED7E /* CircleIndicator.swift in Sources */,
