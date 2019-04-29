@@ -33,6 +33,7 @@
 		D67AE13822647B4A00665CDC /* NewPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67AE13722647B4A00665CDC /* NewPost.swift */; };
 		D69DB47B2230C3A90098797D /* FriendNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69DB47A2230C3A90098797D /* FriendNameCell.swift */; };
 		D6A341472276BD5000777AC5 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A341462276BD4F00777AC5 /* WebKit.framework */; };
+		D6A3414B2276D78C00777AC5 /* VKLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A3414A2276D78C00777AC5 /* VKLoginController.swift */; };
 		D6A54FBF226443D6005BE55E /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A54FBE226443D5005BE55E /* MyProfileViewController.swift */; };
 		D6A54FC12264449F005BE55E /* MyProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A54FC02264449F005BE55E /* MyProfileButton.swift */; };
 		D6CDE73422337CD900025740 /* FriendFotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CDE73322337CD900025740 /* FriendFotoController.swift */; };
@@ -95,6 +96,7 @@
 		D67AE13722647B4A00665CDC /* NewPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPost.swift; sourceTree = "<group>"; };
 		D69DB47A2230C3A90098797D /* FriendNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendNameCell.swift; sourceTree = "<group>"; };
 		D6A341462276BD4F00777AC5 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		D6A3414A2276D78C00777AC5 /* VKLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginController.swift; sourceTree = "<group>"; };
 		D6A54FBE226443D5005BE55E /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		D6A54FC02264449F005BE55E /* MyProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileButton.swift; sourceTree = "<group>"; };
 		D6CDE73322337CD900025740 /* FriendFotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendFotoController.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			children = (
 				D61765622226972D003E39D9 /* LoginFormController.swift */,
 				D603D4FF2270200B00BCF4A0 /* Session.swift */,
+				D6A3414A2276D78C00777AC5 /* VKLoginController.swift */,
 			);
 			path = LogIn;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				D61765632226972D003E39D9 /* LoginFormController.swift in Sources */,
 				D6CDE73422337CD900025740 /* FriendFotoController.swift in Sources */,
 				D61FF0D22243A1C4007DED7E /* CircleIndicator.swift in Sources */,
+				D6A3414B2276D78C00777AC5 /* VKLoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
