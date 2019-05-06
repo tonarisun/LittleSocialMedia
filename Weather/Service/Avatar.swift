@@ -10,27 +10,20 @@ import UIKit
 
 class Avatar: UIView {
     
-    var image: UIImage? {
-        didSet {
-            imageView.image = image
-        }
-    }
-    
-    private var imageView: UIImageView!
+    @IBOutlet weak var subView: UIView!
+    @IBOutlet weak var photoView: UIImageView!
     
     override func awakeFromNib() {
-        imageView = UIImageView(frame: bounds)
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = imageView.frame.width / 2
-        imageView.layer.borderColor = UIColor.black.cgColor
-        imageView.layer.borderWidth = 1
-        addSubview(imageView)
         
-        layer.shadowOffset = .zero
-        layer.shadowOpacity = 0.7
-        layer.shadowColor = UIColor.black.cgColor
-        layer.cornerRadius = layer.frame.width / 2
+        subView.clipsToBounds = false
+        subView.layer.cornerRadius = layer.frame.width / 2
+        subView.layer.shadowColor = UIColor.black.cgColor
+        subView.layer.shadowOffset = .zero
+        subView.layer.shadowOpacity = 0.7
         
+        photoView.clipsToBounds = true
+        photoView.layer.borderColor = UIColor.black.cgColor
+        photoView.layer.borderWidth = 1
+        photoView.layer.cornerRadius = layer.frame.width / 2
     }
 }

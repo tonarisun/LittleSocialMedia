@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireObjectMapper
+import ObjectMapper
 
 class AnimatedFotoViewController: UIViewController {
-    
 
     @IBOutlet weak var animatedFotoView2: UIImageView!
     @IBOutlet weak var animatedFotoView3: UIImageView!
@@ -17,14 +19,19 @@ class AnimatedFotoViewController: UIViewController {
     @IBOutlet weak var likeShareControlView: LikeShareControl!
     
     var i = 0
-    let userToShow = user1
+//    let userToShow = user
+    var photoToShow = [Photo]()
     var likeCount = 0
     var shareCount = 0
                                                                                                         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        animatedFotoView2.image = userToShow.userFotos[i]
+        Alamofire.request("https://api.vk.com/method/photos.get?owner_id=\(currentUserID)&album_id=wall&count=30&access_token=\(currentSession.token)&v=5.95").responseObject {
+            (response: DataResponse<PhotoResponse>) in
+            let photoResponse = response.result.value
+            self.photoToShow = photoResponse!.response
+            self.animatedFotoView2?.downloaded(from: self.photoToShow[self.i].photoURL)
+        }
         
         animatedView.isUserInteractionEnabled = true
         
@@ -72,7 +79,7 @@ class AnimatedFotoViewController: UIViewController {
     
     @objc func swipeLeft2(recognizer: UISwipeGestureRecognizer){
         let offset = view.bounds.width
-        guard i < user1.userFotos.count-1 else { return }
+        guard i < photoToShow.count-1 else { return }
         if i % 2 == 0 {
             i += 1
             animatedFotoView3.transform = CGAffineTransform(translationX: offset, y: 0)
@@ -81,7 +88,7 @@ class AnimatedFotoViewController: UIViewController {
             animation.toValue = 0.5
             animation.duration = 0.6
             self.animatedFotoView2.layer.add(animation, forKey: nil)
-            animatedFotoView3.image = userToShow.userFotos[i]
+            animatedFotoView3.downloaded(from: photoToShow[i].photoURL)
             animatedView.bringSubviewToFront(animatedFotoView3)
             UIView.animate(withDuration: 0.2,
                            delay: 0.2,
@@ -98,7 +105,7 @@ class AnimatedFotoViewController: UIViewController {
             animation.toValue = 0.5
             animation.duration = 0.6
             self.animatedFotoView3.layer.add(animation, forKey: nil)
-            animatedFotoView2.image = userToShow.userFotos[i]
+            animatedFotoView2.downloaded(from: photoToShow[i].photoURL)
             animatedView.bringSubviewToFront(animatedFotoView2)
             UIView.animate(withDuration: 0.2,
                            delay: 0.2,
@@ -121,7 +128,7 @@ class AnimatedFotoViewController: UIViewController {
             animation.toValue = 0.5
             animation.duration = 0.6
             self.animatedFotoView2.layer.add(animation, forKey: nil)
-            animatedFotoView3.image = userToShow.userFotos[i]
+            animatedFotoView3.downloaded(from: photoToShow[i].photoURL)
             animatedView.bringSubviewToFront(animatedFotoView3)
             UIView.animate(withDuration: 0.2,
                            delay: 0.2,
@@ -139,7 +146,7 @@ class AnimatedFotoViewController: UIViewController {
             animation.toValue = 0.5
             animation.duration = 0.6
             self.animatedFotoView3.layer.add(animation, forKey: nil)
-            animatedFotoView2.image = userToShow.userFotos[i]
+            animatedFotoView2.downloaded(from: photoToShow[i].photoURL)
             animatedView.bringSubviewToFront(animatedFotoView2)
             UIView.animate(withDuration: 0.2,
                            delay: 0.2,

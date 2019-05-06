@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireObjectMapper
+import ObjectMapper
 
 
 class MyProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -24,14 +27,16 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
         hideKeyboardGesture.direction = UISwipeGestureRecognizer.Direction.down
         self.view.addGestureRecognizer(hideKeyboardGesture)
         
-        myAvatarView.image = user1.userPic
-        myNameLabel.text = user1.userName
-        myAgeAndCityLabel.text = "\(user1.userAge) years, \(user1.userCity)"
-//        profileView.layer.cornerRadius = 10
-//        profileView.layer.shadowOffset = .zero
-//        profileView.layer.shadowOpacity = 1
-//        profileView.layer.borderWidth = 1
-//        profileView.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        Alamofire.request("https://api.vk.com/method/users.get?lang=0&user_ids=\(currentUserID)&fields=photo_50,city,bdate&access_token=\(currentSession.token)&v=5.95").responseObject {
+            (response: DataResponse<UserResponse>) in
+            let userResponse = response.result.value
+            guard let user = userResponse?.response.first else { return }
+            currentUserID = user.userID
+            self.myNameLabel.text = user.userFirstName + " " + user.userLastName
+            self.myAgeAndCityLabel.text = user.userBDate + ", " + user.userCity
+            self.myAvatarView.photoView.downloaded(from: "\(user.avaURL)")
+        }
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -65,7 +70,7 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
         let newPost = newsList[indexPath.row]
         cell.authorLabel.text = newPost.author.friendName
         cell.timeLabel.text = newPost.currentTime
-        cell.avatarView.image = newPost.author.friendPic
+        cell.avatarView.photoView.image = newPost.author.friendPic
         cell.contentImageView.image = newPost.content
         cell.likeShareControlView.likeImage.image = UIImage(named: "like")
         cell.likeShareControlView.likeCountLabel.text = "\(newPost.likeCount)"

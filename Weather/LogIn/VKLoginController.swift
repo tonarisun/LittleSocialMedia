@@ -9,19 +9,23 @@
 import UIKit
 import WebKit
 import Alamofire
+import AlamofireObjectMapper
+import ObjectMapper
 
 class VKLoginController: UIViewController, WKNavigationDelegate {
 
+    
+    @IBOutlet weak var toNewsButton: UIButton!
     @IBOutlet weak var vkWebView: WKWebView! {
         didSet {
             vkWebView.navigationDelegate = self
         }
     }
    
-    let currentSession = Session.session
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        toNewsButton.isHidden = true
         
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
@@ -60,24 +64,11 @@ class VKLoginController: UIViewController, WKNavigationDelegate {
         }
         
         let token = params["access_token"]
+        if token != nil {
+            toNewsButton.isHidden = false
+        }
         currentSession.token = token!
         print(token ?? "No token")
-        
-        Alamofire.request("https://api.vk.com/method/users.get?user_ids=9539104&lang=ru&access_token=\(token!)&v=5.95").responseJSON { (response) in
-            print(response)
-        }
-        Alamofire.request("https://api.vk.com/method/friends.get?user_id=9539104&access_token=\(token!)&v=5.95").responseJSON { (response) in
-            print(response)
-        }
-        Alamofire.request("https://api.vk.com/method/photos.get?owner_id=9539104&album_id=wall&access_token=\(token!)&v=5.95").responseJSON { (response) in
-            print(response)
-        }
-        Alamofire.request("https://api.vk.com/method/groups.get?&access_token=\(token!)&v=5.95").responseJSON { (response) in
-            print(response)
-        }
-        Alamofire.request("https://api.vk.com/method/groups.search?q=science&count=5&access_token=\(token!)&v=5.95").responseJSON { (response) in
-            print(response)
-        }
         
         decisionHandler(.cancel)
     }

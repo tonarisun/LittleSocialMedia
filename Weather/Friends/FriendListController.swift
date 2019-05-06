@@ -77,7 +77,7 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendNameCell", for: indexPath) as! FriendNameCell
         let letter = filteredFirstLetters[indexPath.section]
         let friend = filteredFriendList[letter]
-        cell.avatarView.image = friend![indexPath.row].friendPic
+        cell.avatarView.photoView.image = friend![indexPath.row].friendPic
         cell.friendName.text = friend![indexPath.row].friendName
         return cell
     }
