@@ -20,6 +20,10 @@
 		D617653C222696D5003E39D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D617653B222696D5003E39D9 /* Assets.xcassets */; };
 		D617653F222696D5003E39D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D617653D222696D5003E39D9 /* LaunchScreen.storyboard */; };
 		D61765632226972D003E39D9 /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61765622226972D003E39D9 /* LoginFormController.swift */; };
+		D61C7DF8227FF0AB006768EA /* ExtensionImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C7DF7227FF0AB006768EA /* ExtensionImageView.swift */; };
+		D61C7DFA227FF54A006768EA /* Avatar.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61C7DF9227FF54A006768EA /* Avatar.xib */; };
+		D61C7DFE22804618006768EA /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C7DFD22804618006768EA /* Photo.swift */; };
+		D61C7E022280738C006768EA /* Commumity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C7E012280738B006768EA /* Commumity.swift */; };
 		D61D0DCD223F3BF40085BA12 /* LikeShareControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61D0DCC223F3BF40085BA12 /* LikeShareControl.xib */; };
 		D61FF0D22243A1C4007DED7E /* CircleIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61FF0D12243A1C3007DED7E /* CircleIndicator.swift */; };
 		D61FF0D42243A200007DED7E /* CircleIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61FF0D32243A200007DED7E /* CircleIndicator.xib */; };
@@ -83,6 +87,10 @@
 		D6176545222696D6003E39D9 /* WeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6176550222696D6003E39D9 /* WeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D61765622226972D003E39D9 /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
+		D61C7DF7227FF0AB006768EA /* ExtensionImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionImageView.swift; sourceTree = "<group>"; };
+		D61C7DF9227FF54A006768EA /* Avatar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Avatar.xib; sourceTree = "<group>"; };
+		D61C7DFD22804618006768EA /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		D61C7E012280738B006768EA /* Commumity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commumity.swift; sourceTree = "<group>"; };
 		D61D0DCC223F3BF40085BA12 /* LikeShareControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeShareControl.xib; sourceTree = "<group>"; };
 		D61FF0D12243A1C3007DED7E /* CircleIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleIndicator.swift; sourceTree = "<group>"; };
 		D61FF0D32243A200007DED7E /* CircleIndicator.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircleIndicator.xib; sourceTree = "<group>"; };
@@ -201,6 +209,7 @@
 				D6113C512232521E00E1CC6F /* MyCommunityCell.swift */,
 				D678766D2232371C00954829 /* CommunitiesList.swift */,
 				D678766F223237EB00954829 /* CommunityCell.swift */,
+				D61C7E012280738B006768EA /* Commumity.swift */,
 			);
 			path = Communities;
 			sourceTree = "<group>";
@@ -213,6 +222,7 @@
 				D6CDE73322337CD900025740 /* FriendFotoController.swift */,
 				D6CDE73522337D0B00025740 /* FriendFotoCell.swift */,
 				D603BE9322659BFF000F3F7B /* Friend.swift */,
+				D61C7DFD22804618006768EA /* Photo.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -230,11 +240,13 @@
 			isa = PBXGroup;
 			children = (
 				D656DBD6223DF5C70076F5D3 /* Avatar.swift */,
+				D61C7DF9227FF54A006768EA /* Avatar.xib */,
 				D656DC0B223E6C690076F5D3 /* LikeShareControl.swift */,
 				D61D0DCC223F3BF40085BA12 /* LikeShareControl.xib */,
 				D61FF0D12243A1C3007DED7E /* CircleIndicator.swift */,
 				D61FF0D32243A200007DED7E /* CircleIndicator.xib */,
 				D60D97D52245D1D9005F345A /* GradientView.swift */,
+				D61C7DF7227FF0AB006768EA /* ExtensionImageView.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -370,6 +382,7 @@
 			files = (
 				D617653F222696D5003E39D9 /* LaunchScreen.storyboard in Resources */,
 				D617653C222696D5003E39D9 /* Assets.xcassets in Resources */,
+				D61C7DFA227FF54A006768EA /* Avatar.xib in Resources */,
 				D61D0DCD223F3BF40085BA12 /* LikeShareControl.xib in Resources */,
 				D61FF0D42243A200007DED7E /* CircleIndicator.xib in Resources */,
 				D617653A222696D4003E39D9 /* Main.storyboard in Resources */,
@@ -496,10 +509,13 @@
 				D6113C522232521E00E1CC6F /* MyCommunityCell.swift in Sources */,
 				D67876642232197F00954829 /* FriendListController.swift in Sources */,
 				D678766E2232371C00954829 /* CommunitiesList.swift in Sources */,
+				D61C7E022280738C006768EA /* Commumity.swift in Sources */,
 				D67AE13822647B4A00665CDC /* NewPost.swift in Sources */,
 				D6A54FC12264449F005BE55E /* MyProfileButton.swift in Sources */,
+				D61C7DF8227FF0AB006768EA /* ExtensionImageView.swift in Sources */,
 				D656DC0C223E6C690076F5D3 /* LikeShareControl.swift in Sources */,
 				D60D97D62245D1D9005F345A /* GradientView.swift in Sources */,
+				D61C7DFE22804618006768EA /* Photo.swift in Sources */,
 				D60FA11C2249C3010069CA98 /* AnimatedFotoViewController.swift in Sources */,
 				D67AE13622647AFF00665CDC /* User.swift in Sources */,
 				D6113C50223251C300E1CC6F /* MyCommunityController.swift in Sources */,

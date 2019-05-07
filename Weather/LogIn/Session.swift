@@ -18,3 +18,5 @@ class Session {
     private init(){}
     
 }
+
+let currentSession = Session.session

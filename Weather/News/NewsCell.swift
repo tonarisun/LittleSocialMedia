@@ -31,7 +31,7 @@ class NewsCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        avatarView.image = nil
+        avatarView.photoView.image = nil
         authorLabel.text = nil
         timeLabel.text = nil
         contentImageView.image = nil

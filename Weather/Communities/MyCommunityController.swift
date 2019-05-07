@@ -5,33 +5,37 @@
 //  Created by Olga Lidman on 08/03/2019.
 //  Copyright © 2019 Home. All rights reserved.
 //
-
-
 import UIKit
-
-struct Community : Equatable {
-    var communityName : String
-    var communityPic : UIImage
-    
-    static func == (lhs:Community, rhs:Community) -> Bool {
-        return lhs.communityName == rhs.communityName && lhs.communityPic == rhs.communityPic
-    }
-}
+import Alamofire
+import AlamofireObjectMapper
+import ObjectMapper
 
 class MyCommunityController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var myCommunitySearchBar: UISearchBar!
     
-    var myCommunities = [Community(communityName: "Gossips. Bikini Bottom", communityPic: #imageLiteral(resourceName: "flower-pot")),
-                         Community(communityName: "Underwater scary tales", communityPic: #imageLiteral(resourceName: "like-2")),
-                         Community(communityName: "Pineapple-house", communityPic: #imageLiteral(resourceName: "cactus"))]
-    
-//    var myCommunities = ["Gossips. Bikini Bottom", "Underwater scary tales", "Pineapple-house"]
+    var myCommunities = [Community]()
     var filteredMyCommunities = [Community]()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        filteredMyCommunities = myCommunities
+        tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        filteredMyCommunities = myCommunities
+        Alamofire.request("https://api.vk.com/method/groups.get?extended=1&user_id=\(currentUserID)&fields=name,photo_50&count=10&access_token=\(currentSession.token)&v=5.95").responseObject {
+            (response: DataResponse<CommunityResponse>) in
+            let groupResp = response.result.value
+            guard let myComm = groupResp?.response else { return }
+            self.myCommunities = myComm
+            self.filteredMyCommunities = self.myCommunities
+            self.tableView.reloadData()
+        }
+        
+        
         setUpSearchBar()
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         self.tableView.addGestureRecognizer(hideKeyboardGesture)
@@ -39,12 +43,6 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
     
     private func setUpSearchBar(){
         myCommunitySearchBar.delegate = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        filteredMyCommunities = myCommunities
-        tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -59,7 +57,7 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCommCell", for: indexPath) as! MyCommunityCell
         let community = filteredMyCommunities[indexPath.row]
         cell.myCommunityNameLabel.text = community.communityName
-        cell.avatarView.image = community.communityPic
+        cell.avatarView.photoView.downloaded(from: "\(community.pictureURL)")
 
         return cell
     }

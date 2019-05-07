@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Foundation
+import ObjectMapper
 
-class Friend: Comparable {
+class Friend : Comparable {
     
     let friendName : String
     var friendPic : UIImage
-    var friendFotos = [UIImage]()
+    var friendFotos : [UIImage]
     
     init(friendName: String, friendPic: UIImage, friendFotos: [UIImage]){
         self.friendName = friendName
@@ -23,11 +25,48 @@ class Friend: Comparable {
     static func < (lhs: Friend, rhs: Friend) -> Bool {
         return lhs.friendName < rhs.friendName
     }
-    
     static func == (lhs: Friend, rhs: Friend) -> Bool {
         return lhs.friendName == rhs.friendName
     }
+    
 }
+
+//class Friend: Comparable, Mappable {
+//
+//    var friendID = 0
+//    var friendFirstName = ""
+//    var friendLastName = ""
+//    var friendPicURL = ""
+//
+//    required init?(map: Map) {}
+//
+//    func mapping(map: Map) {
+//        friendID <- map["id"]
+//        friendFirstName <- map["first_name"]
+//        friendLastName <- map["last_name"]
+//        friendPicURL <- map["photo_50"]
+//    }
+//
+//    static func < (lhs: Friend, rhs: Friend) -> Bool {
+//        return lhs.friendFirstName < rhs.friendFirstName
+//    }
+//
+//    static func == (lhs: Friend, rhs: Friend) -> Bool {
+//        return lhs.friendID == rhs.friendID
+//    }
+//}
+//
+//class FriendResponse : Mappable {
+//
+//    var response = [Friend]()
+//
+//    required init?(map: Map) {}
+//
+//    func mapping(map: Map) {
+//        response <- map["response.items"]
+//    }
+//}
+
 
 var friend1 = Friend(friendName: "SpongeBob SquarePants", friendPic:  UIImage(named: "SpongeBob")!, friendFotos: [#imageLiteral(resourceName: "SpongeBob"), #imageLiteral(resourceName: "cat"), #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "flower-pot")])
 var friend2 = Friend(friendName: "Patrick Star", friendPic:  UIImage(named: "PatrickStar")!, friendFotos: [#imageLiteral(resourceName: "PatrickStar"), #imageLiteral(resourceName: "cactus"), #imageLiteral(resourceName: "like")])

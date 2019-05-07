@@ -6,22 +6,39 @@
 //  Copyright © 2019 Home. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import ObjectMapper
 
-class User {
-    let userName : String
-    var userPic : UIImage
-    var userAge : Int
-    var userCity : String
-    var userFotos = [UIImage]()
+class User : Mappable {
     
-    init(userName: String, userPic: UIImage, userAge: Int, userCity: String, userFotos: [UIImage]) {
-        self.userName = userName
-        self.userPic = userPic
-        self.userAge = userAge
-        self.userCity = userCity
-        self.userFotos = userFotos
+    var userID = ""
+    var userFirstName = ""
+    var userLastName = ""
+    var userCity = ""
+    var userBDate = ""
+    var avaURL = ""
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        userID <- map["id"]
+        userFirstName <- map["first_name"]
+        userLastName <- map["last_name"]
+        userCity <- map["city.title"]
+        userBDate <- map["bdate"]
+        avaURL <- map["photo_50"]
     }
 }
 
-var user1 = User(userName: "Olga Lidman", userPic: #imageLiteral(resourceName: "my face"), userAge: 32, userCity: "Novosibirsk", userFotos: [UIImage(named: "like-1")!, UIImage(named: "plant")!, UIImage(named: "share")!, UIImage(named: "mail")!, UIImage(named: "news")!])
+class UserResponse : Mappable {
+    
+    var response = [User]()
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        response <- map["response"]
+    }
+}
+
+public var currentUserID = "1935616"
