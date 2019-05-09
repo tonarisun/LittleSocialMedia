@@ -67,6 +67,7 @@ class VKLoginController: UIViewController, WKNavigationDelegate {
         if token != nil {
             toNewsButton.isHidden = false
         }
+
         currentSession.token = token!
         print(token ?? "No token")
         

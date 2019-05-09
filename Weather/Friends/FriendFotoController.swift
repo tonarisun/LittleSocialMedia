@@ -11,9 +11,16 @@ import UIKit
 class FriendFotoController: UICollectionViewController {
     
     var friendToShow : Friend!
+    var friendPhotos = [Photo]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let vkRequest = VKRequest()
+        vkRequest.loadPhoto(url: "\(friendToShow!.friendID)") { photos in
+            self.friendPhotos = photos
+            self.collectionView.reloadData()
+        }
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -21,12 +28,12 @@ class FriendFotoController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return friendToShow.friendFotos.count
+        return friendPhotos.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "fotoCell", for: indexPath) as! FriendFotoCell
-        cell.friendFoto.image = friendToShow.friendFotos[indexPath.row]
+        cell.friendFoto.downloaded(from: friendPhotos[indexPath.row].photoURL)
         cell.likeSharecontrolView.onTapLike = {
             if cell.likeSharecontrolView.likeImage.image == UIImage(named: "like") {
                 cell.likeSharecontrolView.likeCount += 1

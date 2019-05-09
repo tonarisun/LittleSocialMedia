@@ -26,15 +26,13 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Alamofire.request("https://api.vk.com/method/groups.get?extended=1&user_id=\(currentUserID)&fields=name,photo_50&count=10&access_token=\(currentSession.token)&v=5.95").responseObject {
-            (response: DataResponse<CommunityResponse>) in
-            let groupResp = response.result.value
-            guard let myComm = groupResp?.response else { return }
+        
+        let vkRequest = VKRequest()
+        vkRequest.loadCommunities { myComm in
             self.myCommunities = myComm
             self.filteredMyCommunities = self.myCommunities
             self.tableView.reloadData()
         }
-        
         
         setUpSearchBar()
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -57,7 +55,7 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCommCell", for: indexPath) as! MyCommunityCell
         let community = filteredMyCommunities[indexPath.row]
         cell.myCommunityNameLabel.text = community.communityName
-        cell.avatarView.photoView.downloaded(from: "\(community.pictureURL)")
+        cell.avatarView.photoView.downloaded(from: community.pictureURL)
 
         return cell
     }

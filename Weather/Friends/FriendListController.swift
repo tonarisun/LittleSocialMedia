@@ -12,6 +12,7 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var friendListSearchBar: UISearchBar!
     
+    var friendList = [Friend]()
     var sortedFriendList = [Friend]()
     var friendsForLetter = [Friend]()
     var firstLetters = [String]()
@@ -23,23 +24,28 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let vkRequest = VKRequest()
+        vkRequest.loadFriend { friendList in
+            self.friendList = friendList
+            self.sortedFriendList = friendList.sorted { $0.friendFirstName < $1.friendFirstName }
+            self.getFirstLetters()
+            self.groupFriends()
+            self.filteredFriendList = self.groupedFriendList
+            self.filteredFirstLetters = self.firstLetters
+            self.tableView.reloadData()
+        }
+        
         let hideKeyboardGesture = UISwipeGestureRecognizer(target: self, action: #selector(hideKeyboard))
         hideKeyboardGesture.direction = UISwipeGestureRecognizer.Direction.down
         self.tableView.addGestureRecognizer(hideKeyboardGesture)
         
-        sortedFriendList = friendList.sorted { $0.friendName < $1.friendName }
-        
-        getFirstLetters()
-        groupFriends()
         setUpSearchBar()
-        filteredFriendList = groupedFriendList
-        filteredFirstLetters = firstLetters
     }
     
     func getFirstLetters(){
         for friend in sortedFriendList {
-            if !firstLetters.contains(String(friend.friendName.prefix(1))) {
-                firstLetters.append(String(friend.friendName.prefix(1)))
+            if !firstLetters.contains(String(friend.friendFirstName.prefix(1))) {
+                firstLetters.append(String(friend.friendFirstName.prefix(1)))
             }
         }
     }
@@ -48,7 +54,7 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         for letter in firstLetters {
             friendsForLetter.removeAll()
             for friend in sortedFriendList {
-                if letter == friend.friendName.prefix(1) {
+                if letter == friend.friendFirstName.prefix(1) {
                     friendsForLetter.append(friend)
                     groupedFriendList.updateValue(friendsForLetter, forKey: letter)
                 }
@@ -77,8 +83,8 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendNameCell", for: indexPath) as! FriendNameCell
         let letter = filteredFirstLetters[indexPath.section]
         let friend = filteredFriendList[letter]
-        cell.avatarView.photoView.image = friend![indexPath.row].friendPic
-        cell.friendName.text = friend![indexPath.row].friendName
+        cell.avatarView.photoView.downloaded(from: friend![indexPath.row].friendPicURL)
+        cell.friendName.text = friend![indexPath.row].friendFirstName + " " + friend![indexPath.row].friendLastName
         return cell
     }
     
@@ -91,12 +97,8 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "ShowFriendFoto" else {
-            return
-        }
-        guard let indexPath = tableView.indexPathForSelectedRow else {
-            return
-        }
+        guard segue.identifier == "ShowFriendFoto" else { return }
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
         let letter = filteredFirstLetters[indexPath.section]
         let friends = filteredFriendList[letter]
         let friend = friends![indexPath.row]
@@ -115,7 +117,8 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         for key in firstLetters {
             friendsForLetter.removeAll()
             for friend in sortedFriendList {
-                if friend.friendName.lowercased().contains(searchText.lowercased()) && friend.friendName.prefix(1) == key{
+                let searchName = friend.friendFirstName + friend.friendLastName
+                if searchName.lowercased().contains(searchText.lowercased()) && friend.friendFirstName.prefix(1) == key {
                     friendsForLetter.append(friend)
                     filteredFriendList.updateValue(friendsForLetter, forKey: key)
                     if !filteredFirstLetters.contains(key){

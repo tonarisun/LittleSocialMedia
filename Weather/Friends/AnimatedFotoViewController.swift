@@ -26,10 +26,10 @@ class AnimatedFotoViewController: UIViewController {
                                                                                                         
     override func viewDidLoad() {
         super.viewDidLoad()
-        Alamofire.request("https://api.vk.com/method/photos.get?owner_id=\(currentUserID)&album_id=wall&count=30&access_token=\(currentSession.token)&v=5.95").responseObject {
-            (response: DataResponse<PhotoResponse>) in
-            let photoResponse = response.result.value
-            self.photoToShow = photoResponse!.response
+        
+        let vkRequest = VKRequest()
+        vkRequest.loadPhoto(url: currentUserID) { photos in
+            self.photoToShow = photos
             self.animatedFotoView2?.downloaded(from: self.photoToShow[self.i].photoURL)
         }
         

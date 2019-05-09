@@ -27,16 +27,13 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
         hideKeyboardGesture.direction = UISwipeGestureRecognizer.Direction.down
         self.view.addGestureRecognizer(hideKeyboardGesture)
         
-        Alamofire.request("https://api.vk.com/method/users.get?lang=0&user_ids=\(currentUserID)&fields=photo_50,city,bdate&access_token=\(currentSession.token)&v=5.95").responseObject {
-            (response: DataResponse<UserResponse>) in
-            let userResponse = response.result.value
-            guard let user = userResponse?.response.first else { return }
-            currentUserID = user.userID
+        let vkRequest = VKRequest()
+        
+        vkRequest.loadUserInfo { user in
             self.myNameLabel.text = user.userFirstName + " " + user.userLastName
             self.myAgeAndCityLabel.text = user.userBDate + ", " + user.userCity
-            self.myAvatarView.photoView.downloaded(from: "\(user.avaURL)")
+            self.myAvatarView.photoView.downloaded(from: user.avaURL)
         }
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -68,9 +65,9 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
         let newPost = newsList[indexPath.row]
-        cell.authorLabel.text = newPost.author.friendName
+        cell.authorLabel.text = newPost.authorName
         cell.timeLabel.text = newPost.currentTime
-        cell.avatarView.photoView.image = newPost.author.friendPic
+        cell.avatarView.photoView.image = newPost.authorPic
         cell.contentImageView.image = newPost.content
         cell.likeShareControlView.likeImage.image = UIImage(named: "like")
         cell.likeShareControlView.likeCountLabel.text = "\(newPost.likeCount)"

@@ -40,6 +40,7 @@
 		D6A3414B2276D78C00777AC5 /* VKLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A3414A2276D78C00777AC5 /* VKLoginController.swift */; };
 		D6A54FBF226443D6005BE55E /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A54FBE226443D5005BE55E /* MyProfileViewController.swift */; };
 		D6A54FC12264449F005BE55E /* MyProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A54FC02264449F005BE55E /* MyProfileButton.swift */; };
+		D6BD26162283DB2500C856F3 /* VKRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BD26152283DB2500C856F3 /* VKRequest.swift */; };
 		D6CDE73422337CD900025740 /* FriendFotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CDE73322337CD900025740 /* FriendFotoController.swift */; };
 		D6CDE73622337D0B00025740 /* FriendFotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CDE73522337D0B00025740 /* FriendFotoCell.swift */; };
 		DFDAD345DF6859A154BABC79 /* Pods_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A87DAE3B4A8FF1D8146F2D05 /* Pods_Weather.framework */; };
@@ -107,6 +108,7 @@
 		D6A3414A2276D78C00777AC5 /* VKLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginController.swift; sourceTree = "<group>"; };
 		D6A54FBE226443D5005BE55E /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		D6A54FC02264449F005BE55E /* MyProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileButton.swift; sourceTree = "<group>"; };
+		D6BD26152283DB2500C856F3 /* VKRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKRequest.swift; sourceTree = "<group>"; };
 		D6CDE73322337CD900025740 /* FriendFotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendFotoController.swift; sourceTree = "<group>"; };
 		D6CDE73522337D0B00025740 /* FriendFotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendFotoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,6 +241,7 @@
 		D61FF08C2241DD90007DED7E /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				D6BD26152283DB2500C856F3 /* VKRequest.swift */,
 				D656DBD6223DF5C70076F5D3 /* Avatar.swift */,
 				D61C7DF9227FF54A006768EA /* Avatar.xib */,
 				D656DC0B223E6C690076F5D3 /* LikeShareControl.swift */,
@@ -255,8 +258,8 @@
 			isa = PBXGroup;
 			children = (
 				D61765622226972D003E39D9 /* LoginFormController.swift */,
-				D603D4FF2270200B00BCF4A0 /* Session.swift */,
 				D6A3414A2276D78C00777AC5 /* VKLoginController.swift */,
+				D603D4FF2270200B00BCF4A0 /* Session.swift */,
 			);
 			path = LogIn;
 			sourceTree = "<group>";
@@ -266,8 +269,8 @@
 			children = (
 				D6A54FBE226443D5005BE55E /* MyProfileViewController.swift */,
 				D6A54FC02264449F005BE55E /* MyProfileButton.swift */,
-				D67AE13522647AFF00665CDC /* User.swift */,
 				D60FA11B2249C3010069CA98 /* AnimatedFotoViewController.swift */,
+				D67AE13522647AFF00665CDC /* User.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				D61765632226972D003E39D9 /* LoginFormController.swift in Sources */,
 				D6CDE73422337CD900025740 /* FriendFotoController.swift in Sources */,
 				D61FF0D22243A1C4007DED7E /* CircleIndicator.swift in Sources */,
+				D6BD26162283DB2500C856F3 /* VKRequest.swift in Sources */,
 				D6A3414B2276D78C00777AC5 /* VKLoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
