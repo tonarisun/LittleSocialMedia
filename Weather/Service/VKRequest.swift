@@ -42,8 +42,8 @@ class VKRequest {
         }
     }
     
-    func loadPhoto(url: String, completion: @escaping ([Photo]) -> Void) {
-        Alamofire.request("https://api.vk.com/method/photos.get?owner_id=\(url)&album_id=wall&count=30&access_token=\(currentSession.token)&v=5.95").responseObject {
+    func loadPhoto(userID: String, completion: @escaping ([Photo]) -> Void) {
+        Alamofire.request("https://api.vk.com/method/photos.get?owner_id=\(userID)&album_id=wall&count=30&access_token=\(currentSession.token)&v=5.95").responseObject {
             (response: DataResponse<PhotoResponse>) in
             let photoResponse = response.result.value
             guard let photos = photoResponse?.response else { return }

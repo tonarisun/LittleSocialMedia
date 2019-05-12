@@ -13,12 +13,12 @@ class CommunityCell: UITableViewCell {
     var community: Community?
 
 //    Функция конфигурации ячейки 
-//    func configure(community: Community) {
-//        self.community = community
-//        communityNameLabel.text = community.communityName
-//    }
-//
-//    var addCommunityTapped : ((Community) -> Void)?
+    func configure(community: Community) {
+        self.community = community
+        communityNameLabel.text = community.communityName
+    }
+
+    var addCommunityTapped : ((Community) -> Void)?
 
     @IBOutlet weak var communityNameLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
@@ -33,7 +33,7 @@ class CommunityCell: UITableViewCell {
     }
 
     @IBAction func addCommunity(_ sender: Any) {
-//        addCommunityTapped?(community!)
+        addCommunityTapped?(community!)
         }
 }
 

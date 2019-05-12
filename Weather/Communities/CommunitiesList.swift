@@ -43,16 +43,15 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
         let community = allCommunities[indexPath.row]
         cell.communityNameLabel.text = community.communityName
         cell.avatarView.photoView.downloaded(from: "\(community.pictureURL)")
-// Конфигурация ячейки для добавления группы к myCommunities, почему-то не работает с сервером
-//        cell.configure(community: community)
-//        cell.addCommunityTapped = { community in
-//            guard let myCommunityVC = self.myCommunityVC else {
-//                return
-//            }
-//            if !myCommunityVC.myCommunities.contains(community){
-//            myCommunityVC.myCommunities.append(community)
-//            }
-//        }
+        cell.configure(community: community)
+        cell.addCommunityTapped = { community in
+            guard let myCommunityVC = self.myCommunityVC else {
+                return
+            }
+            if !myCommunityVC.myCommunities.contains(community){
+            myCommunityVC.myCommunities.append(community)
+            }
+        }
         return cell
     }
 

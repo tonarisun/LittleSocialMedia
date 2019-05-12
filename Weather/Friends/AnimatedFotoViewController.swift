@@ -28,7 +28,7 @@ class AnimatedFotoViewController: UIViewController {
         super.viewDidLoad()
         
         let vkRequest = VKRequest()
-        vkRequest.loadPhoto(url: currentUserID) { photos in
+        vkRequest.loadPhoto(userID: currentUserID) { photos in
             self.photoToShow = photos
             self.animatedFotoView2?.downloaded(from: self.photoToShow[self.i].photoURL)
         }
