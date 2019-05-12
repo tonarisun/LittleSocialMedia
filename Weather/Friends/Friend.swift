@@ -31,12 +31,12 @@ import ObjectMapper
 //
 //}
 
-class Friend: Comparable, Mappable {
+class Friend: Object, Comparable, Mappable {
 
-    var friendID = 0
-    var friendFirstName = ""
-    var friendLastName = ""
-    var friendPicURL = ""
+    @objc dynamic var friendID = 0
+    @objc dynamic var friendFirstName = ""
+    @objc dynamic var friendLastName = ""
+    @objc dynamic var friendPicURL = ""
 
     required init?(map: Map) {}
 
@@ -56,9 +56,9 @@ class Friend: Comparable, Mappable {
     }
 }
 
-class FriendResponse : Mappable {
+class FriendResponse : Object, Mappable {
 
-    var response = [Friend]()
+    @objc dynamic var response = [Friend]()
 
     required init?(map: Map) {}
 

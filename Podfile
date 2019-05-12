@@ -23,4 +23,6 @@ pod 'Alamofire'
 
 pod 'AlamofireObjectMapper'
 
+pod 'RealmSwift'
+
 end

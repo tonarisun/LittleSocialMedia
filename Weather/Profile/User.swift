@@ -8,15 +8,16 @@
 
 import Foundation
 import ObjectMapper
+import RealmSwift
 
-class User : Mappable {
+class User : Object, Mappable {
     
-    var userID = ""
-    var userFirstName = ""
-    var userLastName = ""
-    var userCity = ""
-    var userBDate = ""
-    var avaURL = ""
+    @objc dynamic var userID = ""
+    @objc dynamic var userFirstName = ""
+    @objc dynamic var userLastName = ""
+    @objc dynamic var userCity = ""
+    @objc dynamic var userBDate = ""
+    @objc dynamic var avaURL = ""
     
     required init?(map: Map) {}
     
@@ -30,9 +31,9 @@ class User : Mappable {
     }
 }
 
-class UserResponse : Mappable {
+class UserResponse : Object, Mappable {
     
-    var response = [User]()
+    @objc dynamic var response = [User]()
     
     required init?(map: Map) {}
     

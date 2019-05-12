@@ -11,9 +11,9 @@ import Foundation
 import ObjectMapper
 
 
-class PhotoResponse : Mappable {
+class PhotoResponse : Object, Mappable {
     
-    var response = [Photo]()
+    @objc dynamic var response = [Photo]()
     
     required init?(map: Map) {}
     
@@ -22,9 +22,9 @@ class PhotoResponse : Mappable {
     }
 }
 
-class Photo : Mappable {
+class Photo : Object, Mappable {
     
-    var photoURL = "123"
+    @objc dynamic var photoURL = "123"
     
     required init?(map: Map) {}
     

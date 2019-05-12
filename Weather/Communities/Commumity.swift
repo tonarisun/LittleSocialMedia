@@ -9,9 +9,9 @@
 import Foundation
 import ObjectMapper
 
-class CommunityResponse : Mappable {
+class CommunityResponse : Object, Mappable {
     
-    var response = [Community]()
+    @objc dynamic var response = [Community]()
     
     required init?(map: Map) {}
     
@@ -20,10 +20,10 @@ class CommunityResponse : Mappable {
     }
 }
 
-class Community : Equatable, Mappable {
+class Community : Object, Equatable, Mappable {
 
-    var communityName = ""
-    var pictureURL = ""
+    @objc dynamic var communityName = ""
+    @objc dynamic var pictureURL = ""
     
     required init?(map: Map) {}
     
