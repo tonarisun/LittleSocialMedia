@@ -29,6 +29,9 @@ class VKRequest {
             (response: DataResponse<UserResponse>) in
             let userResponse = response.result.value
             guard let user = userResponse?.response[0] else { return }
+            let userData = UserDefaults.standard
+            userData.set("\(user.userFirstName) \(user.userLastName)", forKey: "UserName")
+            print(userData)
             completion(user)
         }
     }

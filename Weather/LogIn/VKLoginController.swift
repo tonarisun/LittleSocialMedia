@@ -11,6 +11,7 @@ import WebKit
 import Alamofire
 import AlamofireObjectMapper
 import ObjectMapper
+import SwiftKeychainWrapper
 
 class VKLoginController: UIViewController, WKNavigationDelegate {
 
@@ -68,7 +69,8 @@ class VKLoginController: UIViewController, WKNavigationDelegate {
             toNewsButton.isHidden = false
         }
 
-        currentSession.token = token!
+        KeychainWrapper.standard.set("\(token!)", forKey: "access token")
+        currentSession.token = KeychainWrapper.standard.string(forKey: "access token")!
         print(token ?? "No token")
         
         decisionHandler(.cancel)

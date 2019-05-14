@@ -29,10 +29,10 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
         
         let vkRequest = VKRequest()
         
-        vkRequest.loadUserInfo { user in
-            self.myNameLabel.text = user.userFirstName + " " + user.userLastName
-            self.myAgeAndCityLabel.text = user.userBDate + ", " + user.userCity
-            self.myAvatarView.photoView.downloaded(from: user.avaURL)
+        vkRequest.loadUserInfo { [ weak self ] user in
+            self?.myNameLabel.text = user.userFirstName + " " + user.userLastName
+            self?.myAgeAndCityLabel.text = user.userBDate + ", " + user.userCity
+            self?.myAvatarView.photoView.downloaded(from: user.avaURL)
         }
     }
     

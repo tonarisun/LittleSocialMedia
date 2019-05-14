@@ -10,7 +10,8 @@
 #endif
 #endif
 
+#import "SwiftKeychainWrapper.h"
 
-FOUNDATION_EXPORT double Pods_WeatherTestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_WeatherTestsVersionString[];
+FOUNDATION_EXPORT double SwiftKeychainWrapperVersionNumber;
+FOUNDATION_EXPORT const unsigned char SwiftKeychainWrapperVersionString[];
 

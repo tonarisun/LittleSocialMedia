@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
+
 
 class Session {
     
@@ -20,3 +22,4 @@ class Session {
 }
 
 let currentSession = Session.session
+
