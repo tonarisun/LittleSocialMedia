@@ -24,7 +24,7 @@ class PhotoResponse : Mappable {
 
 class Photo : Mappable {
     
-    var photoURL = "123"
+    var photoURL = ""
     
     required init?(map: Map) {}
     

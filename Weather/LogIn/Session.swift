@@ -14,12 +14,11 @@ class Session {
     
     static let session = Session()
     
-    var token : String = ""
-    var userID : Int = 0
+    var token = ""
+    var userID = 0
     
     private init(){}
     
 }
 
 let currentSession = Session.session
-

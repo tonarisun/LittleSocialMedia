@@ -28,9 +28,9 @@ class AnimatedFotoViewController: UIViewController {
         super.viewDidLoad()
         
         let vkRequest = VKRequest()
-        vkRequest.loadPhoto(userID: currentUserID) { photos in
-            self.photoToShow = photos
-            self.animatedFotoView2?.downloaded(from: self.photoToShow[self.i].photoURL)
+        vkRequest.loadPhoto(userID: currentUserID) { [weak self] photos in
+            self?.photoToShow = photos
+            self?.animatedFotoView2?.downloaded(from: (self?.photoToShow[(self?.i)!].photoURL)!)
         }
         
         animatedView.isUserInteractionEnabled = true

@@ -16,6 +16,7 @@ import SwiftKeychainWrapper
 class VKLoginController: UIViewController, WKNavigationDelegate {
 
     
+    @IBOutlet weak var circleIndicator: CircleIndicator!
     @IBOutlet weak var toNewsButton: UIButton!
     @IBOutlet weak var vkWebView: WKWebView! {
         didSet {
@@ -66,11 +67,13 @@ class VKLoginController: UIViewController, WKNavigationDelegate {
         
         let token = params["access_token"]
         if token != nil {
+            circleIndicator.isHidden = true
             toNewsButton.isHidden = false
         }
 
         KeychainWrapper.standard.set("\(token!)", forKey: "access token")
         currentSession.token = KeychainWrapper.standard.string(forKey: "access token")!
+        currentSession.userID = currentUserID
         print(token ?? "No token")
         
         decisionHandler(.cancel)

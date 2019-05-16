@@ -338,7 +338,7 @@
                                                 <fragment content="Label">
                                                     <attributes>
                                                         <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="17" name="Avenir-Medium"/>
+                                                        <font key="NSFont" size="17" name="PTMono-Regular"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
@@ -468,7 +468,7 @@
                                                 <fragment content="Label">
                                                     <attributes>
                                                         <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="17" name="Avenir-Medium"/>
+                                                        <font key="NSFont" size="17" name="PTMono-Regular"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
@@ -603,7 +603,7 @@
                                                 <fragment content="Label">
                                                     <attributes>
                                                         <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="17" name="Avenir-Medium"/>
+                                                        <font key="NSFont" size="17" name="PTMono-Regular"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
@@ -719,14 +719,14 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJc-Qu-zok">
-                                        <rect key="frame" x="40" y="4.5" width="41.5" height="21"/>
+                                        <rect key="frame" x="40" y="4.5" width="42" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="eAx-7i-zzL"/>
                                         </constraints>
                                         <attributedString key="attributedText">
                                             <fragment content="Label">
                                                 <attributes>
-                                                    <font key="NSFont" size="17" name="Avenir-Light"/>
+                                                    <font key="NSFont" size="17" name="PTMono-Regular"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -740,14 +740,14 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leZ-nh-164">
-                                        <rect key="frame" x="195.5" y="4.5" width="41.5" height="21"/>
+                                        <rect key="frame" x="195.5" y="4.5" width="42" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="zNm-kd-DlX"/>
                                         </constraints>
                                         <attributedString key="attributedText">
                                             <fragment content="Label">
                                                 <attributes>
-                                                    <font key="NSFont" size="17" name="Avenir-Light"/>
+                                                    <font key="NSFont" size="17" name="PTMono-Regular"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -790,7 +790,7 @@
                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                <color key="value" red="0.84511757330000004" green="1" blue="0.95769866169999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" red="0.67384380102157593" green="0.86953872442245483" blue="0.79052382707595825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
                                 <point key="value" x="1" y="0.0"/>
@@ -806,7 +806,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ayq-wG-hxo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2382" y="-948"/>
+            <point key="canvasLocation" x="2382" y="-949"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="mVW-Vi-HNT">
@@ -828,7 +828,7 @@
                         <viewLayoutGuide key="safeArea" id="fBa-nP-mSf"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                <color key="value" red="0.60246364730000002" green="0.7988974271" blue="0.72196555920000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" red="0.73170655965805054" green="0.92819690704345703" blue="0.84928309917449951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="endColor">
                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -879,12 +879,12 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNj-Bm-m3S">
-                                                    <rect key="frame" x="40" y="3.5" width="41.5" height="23.5"/>
+                                                    <rect key="frame" x="40" y="5" width="36" height="20"/>
                                                     <attributedString key="attributedText">
-                                                        <fragment content="Label">
+                                                        <fragment content="label">
                                                             <attributes>
-                                                                <font key="NSFont" size="17" name="Avenir-Light"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                <font key="NSFont" size="17" name="PTMono-Regular"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -898,13 +898,12 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRZ-1i-kOa">
-                                                    <rect key="frame" x="179" y="3.5" width="41.5" height="23.5"/>
+                                                    <rect key="frame" x="179" y="5" width="36" height="20"/>
                                                     <attributedString key="attributedText">
-                                                        <fragment content="Label">
+                                                        <fragment content="label">
                                                             <attributes>
-                                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="17" name="Avenir-Light"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                <font key="NSFont" size="17" name="PTMono-Regular"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -969,19 +968,19 @@
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1NV-0h-Ol6">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AUA-QN-AwG">
-                                <rect key="frame" x="0.0" y="315.5" width="375" height="36.5"/>
+                                <rect key="frame" x="0.0" y="315" width="375" height="37"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="GO --&gt;">
                                             <attributes>
-                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <font key="NSFont" size="18" name="Avenir-Black"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
@@ -992,21 +991,70 @@
                                     <segue destination="vR8-ma-vD7" kind="show" id="wvY-K2-rGi"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E6e-R8-y2A" customClass="CircleIndicator" customModule="Weather" customModuleProvider="target">
+                                <rect key="frame" x="154.5" y="323.5" width="66" height="20"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="hcd-dk-ZKq">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="DD8-m4-syO"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="kE8-Ff-Wot">
+                                        <rect key="frame" x="23" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="Q4K-eV-8bL"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="lTn-Dl-JRZ">
+                                        <rect key="frame" x="46" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="0OP-Cz-7ge"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="kE8-Ff-Wot" firstAttribute="centerX" secondItem="E6e-R8-y2A" secondAttribute="centerX" id="10F-ek-MeF"/>
+                                    <constraint firstAttribute="height" constant="20" id="Atp-hC-aIi"/>
+                                    <constraint firstItem="kE8-Ff-Wot" firstAttribute="top" secondItem="E6e-R8-y2A" secondAttribute="top" id="JJf-C7-vhU"/>
+                                    <constraint firstAttribute="bottom" secondItem="hcd-dk-ZKq" secondAttribute="bottom" id="L2y-nq-4du"/>
+                                    <constraint firstItem="lTn-Dl-JRZ" firstAttribute="top" secondItem="E6e-R8-y2A" secondAttribute="top" id="T4a-H5-tIo"/>
+                                    <constraint firstAttribute="bottom" secondItem="lTn-Dl-JRZ" secondAttribute="bottom" id="ddP-k4-pss"/>
+                                    <constraint firstItem="hcd-dk-ZKq" firstAttribute="leading" secondItem="E6e-R8-y2A" secondAttribute="leading" id="eLS-pg-YkO"/>
+                                    <constraint firstAttribute="bottom" secondItem="kE8-Ff-Wot" secondAttribute="bottom" id="euc-yJ-YIF"/>
+                                    <constraint firstAttribute="width" constant="66" id="gCW-Qc-uVF"/>
+                                    <constraint firstAttribute="trailing" secondItem="lTn-Dl-JRZ" secondAttribute="trailing" id="w2s-Iz-OwJ"/>
+                                    <constraint firstItem="hcd-dk-ZKq" firstAttribute="top" secondItem="E6e-R8-y2A" secondAttribute="top" id="yQL-fc-S4p"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="circle1" destination="hcd-dk-ZKq" id="TVf-en-flg"/>
+                                    <outlet property="circle2" destination="kE8-Ff-Wot" id="gHm-tD-apF"/>
+                                    <outlet property="circle3" destination="lTn-Dl-JRZ" id="z0V-Hz-nq5"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="E6e-R8-y2A" firstAttribute="centerY" secondItem="pmL-nU-5rH" secondAttribute="centerY" id="28K-jF-fxk"/>
+                            <constraint firstItem="E6e-R8-y2A" firstAttribute="centerX" secondItem="AUA-QN-AwG" secondAttribute="centerX" id="4zB-zf-uXd"/>
+                            <constraint firstItem="E6e-R8-y2A" firstAttribute="centerX" secondItem="AUA-QN-AwG" secondAttribute="centerX" id="Jow-ri-10p"/>
                             <constraint firstItem="9lR-yT-VHR" firstAttribute="trailing" secondItem="AUA-QN-AwG" secondAttribute="trailing" id="NCf-H1-43x"/>
                             <constraint firstItem="1NV-0h-Ol6" firstAttribute="top" secondItem="9lR-yT-VHR" secondAttribute="top" id="Nkm-uU-JQ8"/>
                             <constraint firstItem="9lR-yT-VHR" firstAttribute="trailing" secondItem="1NV-0h-Ol6" secondAttribute="trailing" id="PRw-wi-4ZD"/>
                             <constraint firstItem="AUA-QN-AwG" firstAttribute="centerY" secondItem="pmL-nU-5rH" secondAttribute="centerY" id="TLQ-an-OpL"/>
                             <constraint firstItem="9lR-yT-VHR" firstAttribute="bottom" secondItem="1NV-0h-Ol6" secondAttribute="bottom" id="aqm-aS-vXO"/>
+                            <constraint firstItem="E6e-R8-y2A" firstAttribute="centerY" secondItem="AUA-QN-AwG" secondAttribute="centerY" id="d7w-oG-H8D"/>
                             <constraint firstItem="1NV-0h-Ol6" firstAttribute="leading" secondItem="9lR-yT-VHR" secondAttribute="leading" id="lpf-D8-C4X"/>
                             <constraint firstItem="AUA-QN-AwG" firstAttribute="centerX" secondItem="pmL-nU-5rH" secondAttribute="centerX" id="oSq-Me-e7Z"/>
+                            <constraint firstItem="E6e-R8-y2A" firstAttribute="centerY" secondItem="AUA-QN-AwG" secondAttribute="centerY" id="rWo-Lf-hS6"/>
+                            <constraint firstItem="E6e-R8-y2A" firstAttribute="centerX" secondItem="pmL-nU-5rH" secondAttribute="centerX" id="wNx-Zl-NGp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9lR-yT-VHR"/>
                     </view>
                     <navigationItem key="navigationItem" id="46h-SI-6Kk"/>
                     <connections>
+                        <outlet property="circleIndicator" destination="E6e-R8-y2A" id="4kx-dq-VCa"/>
                         <outlet property="toNewsButton" destination="AUA-QN-AwG" id="sdd-6K-qeS"/>
                         <outlet property="vkWebView" destination="1NV-0h-Ol6" id="77V-Q9-dse"/>
                     </connections>
@@ -1071,15 +1119,16 @@
                                         </connections>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgA-pB-QjZ">
-                                        <rect key="frame" x="80" y="5" width="104.5" height="35"/>
+                                        <rect key="frame" x="80" y="5" width="131" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="5BH-L7-S4H"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="VKL-lH-rDI"/>
                                         </constraints>
                                         <attributedString key="attributedText">
-                                            <fragment content="User Name">
+                                            <fragment content="Имя Фамилия">
                                                 <attributes>
-                                                    <font key="NSFont" size="20" name="Avenir-Heavy"/>
+                                                    <font key="NSFont" size="20" name="PTMono-Regular"/>
+                                                    <font key="NSOriginalFont" size="20" name="Palatino-Roman"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -1087,12 +1136,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qd-mI-MtY">
-                                        <rect key="frame" x="80" y="41" width="138.5" height="20.5"/>
+                                        <rect key="frame" x="80" y="41" width="158.5" height="17"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="user bdate, user city">
+                                            <fragment content="день рождения, город">
                                                 <attributes>
                                                     <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="15" name="Avenir-Medium"/>
+                                                    <font key="NSFont" size="15" name="PTMono-Regular"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -1127,10 +1176,13 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                        <color key="value" red="0.71103870520000001" green="0.94287347399999999" blue="0.85207706500000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.74228298664093018" green="0.9361463189125061" blue="0.85721445083618164" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="endColor">
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                        <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -1181,7 +1233,7 @@
                                                     </connections>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27z-mF-Vz3">
-                                                    <rect key="frame" x="75" y="21" width="57" height="21"/>
+                                                    <rect key="frame" x="75" y="21" width="54" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="x74-tT-1fs"/>
                                                     </constraints>
@@ -1189,7 +1241,7 @@
                                                         <fragment content="Author">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="18" name="Avenir-Medium"/>
+                                                                <font key="NSFont" size="18" name="PTMono-Regular"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -1197,7 +1249,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APJ-C3-cwf">
-                                                    <rect key="frame" x="75" y="52" width="34" height="18"/>
+                                                    <rect key="frame" x="75" y="52" width="33" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="e9Y-Lw-md6"/>
                                                     </constraints>
@@ -1205,7 +1257,7 @@
                                                         <fragment content="Time">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="15" name="Avenir-Medium"/>
+                                                                <font key="NSFont" size="15" name="PTMono-Regular"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -1358,7 +1410,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GHd-15-KYG" userLabel="friendsButton" customClass="MyProfileButton" customModule="Weather" customModuleProvider="target">
                                         <rect key="frame" x="5" y="0.0" width="100" height="60"/>
-                                        <color key="backgroundColor" red="0.84511757330000004" green="1" blue="0.95769866169999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.7500150203704834" green="0.94396960735321045" blue="0.86504989862442017" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="bb4-BO-WWZ"/>
                                         </constraints>
@@ -1371,7 +1423,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBC-45-eDv" userLabel="myPicButton" customClass="MyProfileButton" customModule="Weather" customModuleProvider="target">
                                         <rect key="frame" x="137.5" y="0.0" width="100" height="60"/>
-                                        <color key="backgroundColor" red="0.84511757330000004" green="1" blue="0.95769866169999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.7500150203704834" green="0.94396960735321045" blue="0.86504989862442017" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="Zw2-dY-c5h"/>
                                         </constraints>
@@ -1382,7 +1434,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XT0-0o-vWC" userLabel="myCommunityButton" customClass="MyProfileButton" customModule="Weather" customModuleProvider="target">
                                         <rect key="frame" x="270" y="0.0" width="100" height="60"/>
-                                        <color key="backgroundColor" red="0.84511757330000004" green="1" blue="0.95769866169999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.7500150203704834" green="0.94396960735321045" blue="0.86504989862442017" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="CBR-Cr-M28"/>
                                         </constraints>
@@ -1449,6 +1501,7 @@
     <resources>
         <image name="bud" width="240" height="240"/>
         <image name="cactus" width="256" height="256"/>
+        <image name="circle" width="240" height="240"/>
         <image name="circle-1" width="240" height="240"/>
         <image name="community" width="80" height="40"/>
         <image name="friends" width="60" height="40"/>

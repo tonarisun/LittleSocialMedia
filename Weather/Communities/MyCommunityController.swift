@@ -28,10 +28,10 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         
         let vkRequest = VKRequest()
-        vkRequest.loadCommunities { myComm in
-            self.myCommunities = myComm
-            self.filteredMyCommunities = self.myCommunities
-            self.tableView.reloadData()
+        vkRequest.loadCommunities { [weak self] myComm in
+            self?.myCommunities = myComm
+            self?.filteredMyCommunities = self!.myCommunities
+            self?.tableView.reloadData()
         }
         
         setUpSearchBar()

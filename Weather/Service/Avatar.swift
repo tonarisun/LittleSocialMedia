@@ -22,7 +22,7 @@ class Avatar: UIView {
         subView.layer.shadowOpacity = 0.7
         
         photoView.clipsToBounds = true
-        photoView.layer.borderColor = UIColor.black.cgColor
+        photoView.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         photoView.layer.borderWidth = 1
         photoView.layer.cornerRadius = layer.frame.width / 2
     }

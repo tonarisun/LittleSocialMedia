@@ -11,7 +11,7 @@ import ObjectMapper
 
 class User : Mappable {
     
-    var userID = ""
+    var userID = 0
     var userFirstName = ""
     var userLastName = ""
     var userCity = ""
@@ -41,4 +41,4 @@ class UserResponse : Mappable {
     }
 }
 
-public var currentUserID = "1935616"
+public var currentUserID = 1936616

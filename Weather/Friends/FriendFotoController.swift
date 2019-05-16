@@ -17,9 +17,9 @@ class FriendFotoController: UICollectionViewController {
         super.viewDidLoad()
         
         let vkRequest = VKRequest()
-        vkRequest.loadPhoto(userID: "\(friendToShow!.friendID)") { photos in
-            self.friendPhotos = photos
-            self.collectionView.reloadData()
+        vkRequest.loadPhoto(userID: friendToShow!.friendID) { [weak self] photos in
+            self?.friendPhotos = photos
+            self?.collectionView.reloadData()
         }
     }
 
