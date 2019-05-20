@@ -9,38 +9,47 @@
 import UIKit
 import Foundation
 import ObjectMapper
+import RealmSwift
 
-class Friend: Comparable, Mappable {
-
-    var friendID = 0
-    var friendFirstName = ""
-    var friendLastName = ""
-    var friendPicURL = ""
-
-    required init?(map: Map) {}
-
+class Friend: Object, Comparable, Mappable {
+    
+    @objc dynamic var friendID = 0
+    @objc dynamic var friendFirstName = ""
+    @objc dynamic var friendLastName = ""
+    @objc dynamic var friendPicURL = ""
+    
+    required convenience init?(map: Map) {
+        self.init()
+    }
+    
     func mapping(map: Map) {
         friendID <- map["id"]
         friendFirstName <- map["first_name"]
         friendLastName <- map["last_name"]
         friendPicURL <- map["photo_50"]
     }
-
+    
     static func < (lhs: Friend, rhs: Friend) -> Bool {
         return lhs.friendFirstName < rhs.friendFirstName
     }
-
+    
     static func == (lhs: Friend, rhs: Friend) -> Bool {
         return lhs.friendID == rhs.friendID
     }
+    
+    override static func primaryKey() -> String? {
+        return "friendID"
+    }
+    
 }
 
-class FriendResponse : Mappable {
-
+class FriendResponse: Mappable {
+    
     var response = [Friend]()
-
-    required init?(map: Map) {}
-
+    
+    required init?(map: Map) {
+    }
+    
     func mapping(map: Map) {
         response <- map["response.items"]
     }

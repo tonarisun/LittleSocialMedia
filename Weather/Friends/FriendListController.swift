@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FriendListController: UITableViewController, UISearchBarDelegate {
     
@@ -25,14 +26,16 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         
         let vkRequest = VKRequest()
-        vkRequest.loadFriend { friendList in
-            self.friendList = friendList
-            self.sortedFriendList = friendList.sorted { $0.friendFirstName < $1.friendFirstName }
-            self.getFirstLetters()
-            self.groupFriends()
-            self.filteredFriendList = self.groupedFriendList
-            self.filteredFirstLetters = self.firstLetters
-            self.tableView.reloadData()
+        vkRequest.loadFriend { [weak self] friendList in
+            self!.friendList = friendList
+            self!.sortedFriendList = friendList.sorted { $0.friendFirstName < $1.friendFirstName }
+            self!.saveFriendsInRLM(self!.sortedFriendList)
+            self!.getFirstLetters()
+            self!.groupFriends()
+            self!.filteredFriendList = self!.groupedFriendList
+            self!.filteredFirstLetters = self!.firstLetters
+            self!.loadFriendsFromRLM()
+            self!.tableView.reloadData()
         }
         
         let hideKeyboardGesture = UISwipeGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -59,6 +62,30 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
                     groupedFriendList.updateValue(friendsForLetter, forKey: letter)
                 }
             }
+        }
+    }
+    
+    func saveFriendsInRLM(_ friendsToSave: [Friend]){
+        do {
+            let realm = try! Realm()
+            let oldFriendList = realm.objects(Friend.self)
+            realm.beginWrite()
+            realm.delete(oldFriendList)
+            realm.add(friendsToSave)
+            try realm.commitWrite()
+            print(realm.configuration.fileURL ?? "123")
+        } catch {
+            print(error)
+        }
+    }
+    
+    func loadFriendsFromRLM() {
+        do {
+            let realm = try Realm()
+            let friends = realm.objects(Friend.self)
+            self.friendList = Array(friends)
+        } catch {
+            print(error)
         }
     }
     

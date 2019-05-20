@@ -21,7 +21,6 @@ class VKRequest {
             let userData = UserDefaults.standard
             userData.set("\(user.userFirstName) \(user.userLastName)", forKey: "UserName")
             userData.set("\(user.userID)", forKey: "UserID")
-            print(userData.string(forKey: "UserID") ?? "no ID")
             completion(user)
         }
     }

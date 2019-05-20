@@ -13,4 +13,6 @@ pod 'AlamofireObjectMapper', '~> 5.2'
 
 pod 'SwiftKeychainWrapper'
 
+pod 'RealmSwift'
+
 end

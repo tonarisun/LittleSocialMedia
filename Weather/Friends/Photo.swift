@@ -9,24 +9,29 @@
 import Foundation
 import Foundation
 import ObjectMapper
+import RealmSwift
 
 
-class PhotoResponse : Mappable {
+class PhotoResponse : Object, Mappable {
     
-    var response = [Photo]()
+    @objc dynamic var response = [Photo]()
     
-    required init?(map: Map) {}
+    required convenience init?(map: Map) {
+        self.init()
+    }
     
     func mapping(map: Map) {
         response <- map["response.items"]
     }
 }
 
-class Photo : Mappable {
+class Photo : Object, Mappable {
     
-    var photoURL = ""
+    @objc dynamic var photoURL = ""
     
-    required init?(map: Map) {}
+    required convenience init?(map: Map) {
+        self.init()
+    }
     
     func mapping(map: Map) {
         photoURL <- map["sizes.2.url"]

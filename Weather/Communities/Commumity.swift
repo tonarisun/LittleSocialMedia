@@ -8,24 +8,29 @@
 
 import Foundation
 import ObjectMapper
+import RealmSwift
 
-class CommunityResponse : Mappable {
+class CommunityResponse : Object, Mappable {
     
-    var response = [Community]()
+    @objc dynamic var response = [Community]()
     
-    required init?(map: Map) {}
+    required convenience init?(map: Map) {
+        self.init()
+    }
     
     func mapping(map: Map) {
         response <- map["response.items"]
     }
 }
 
-class Community : Equatable, Mappable {
+class Community : Object, Mappable {
 
-    var communityName = ""
-    var pictureURL = ""
+    @objc dynamic var communityName = ""
+    @objc dynamic var pictureURL = ""
     
-    required init?(map: Map) {}
+    required convenience init?(map: Map) {
+        self.init()
+    }
     
     func mapping(map: Map) {
         communityName <- map["name"]
