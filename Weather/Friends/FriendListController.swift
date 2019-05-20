@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireObjectMapper
 import RealmSwift
 
 class FriendListController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var friendListSearchBar: UISearchBar!
     
-    var friendList = [Friend]()
     var sortedFriendList = [Friend]()
     var friendsForLetter = [Friend]()
     var firstLetters = [String]()
@@ -27,15 +28,14 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         
         let vkRequest = VKRequest()
         vkRequest.loadFriend { [weak self] friendList in
-            self!.friendList = friendList
-            self!.sortedFriendList = friendList.sorted { $0.friendFirstName < $1.friendFirstName }
-            self!.saveFriendsInRLM(self!.sortedFriendList)
-            self!.getFirstLetters()
-            self!.groupFriends()
-            self!.filteredFriendList = self!.groupedFriendList
-            self!.filteredFirstLetters = self!.firstLetters
-            self!.loadFriendsFromRLM()
-            self!.tableView.reloadData()
+            self?.sortedFriendList = friendList.sorted { $0.friendFirstName < $1.friendFirstName }
+            self?.saveFriendsInRLM(self!.sortedFriendList)
+            self?.loadFriendsFromRLM()
+            self?.getFirstLetters()
+            self?.groupFriends()
+            self?.filteredFriendList = self!.groupedFriendList
+            self?.filteredFirstLetters = self!.firstLetters
+            self?.tableView.reloadData()
         }
         
         let hideKeyboardGesture = UISwipeGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -83,7 +83,7 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         do {
             let realm = try Realm()
             let friends = realm.objects(Friend.self)
-            self.friendList = Array(friends)
+            self.sortedFriendList = Array(friends)
         } catch {
             print(error)
         }

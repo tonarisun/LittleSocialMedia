@@ -10,13 +10,11 @@ import Foundation
 import ObjectMapper
 import RealmSwift
 
-class CommunityResponse : Object, Mappable {
+class CommunityResponse : Mappable {
     
-    @objc dynamic var response = [Community]()
+    var response = [Community]()
     
-    required convenience init?(map: Map) {
-        self.init()
-    }
+    required init?(map: Map) {}
     
     func mapping(map: Map) {
         response <- map["response.items"]
