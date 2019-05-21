@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import AlamofireObjectMapper
 import ObjectMapper
+import RealmSwift
 
 class MyCommunityController: UITableViewController, UISearchBarDelegate {
     
@@ -29,7 +30,8 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
         
         let vkRequest = VKRequest()
         vkRequest.loadCommunities { [weak self] myComm in
-            self?.myCommunities = myComm
+            self?.saveCommunitiesInRLM(myComm)
+            self?.loadCommunitiesFromRLM()
             self?.filteredMyCommunities = self!.myCommunities
             self?.tableView.reloadData()
         }
@@ -37,6 +39,30 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
         setUpSearchBar()
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         self.tableView.addGestureRecognizer(hideKeyboardGesture)
+    }
+    
+    func saveCommunitiesInRLM(_ communitiesToSave: [Community]){
+        do {
+            let realm = try! Realm()
+            let oldCommunities = realm.objects(Community.self)
+            realm.beginWrite()
+            realm.delete(oldCommunities)
+            realm.add(communitiesToSave)
+            try realm.commitWrite()
+            print(realm.configuration.fileURL ?? "123")
+        } catch {
+            print(error)
+        }
+    }
+    
+    func loadCommunitiesFromRLM() {
+        do {
+            let realm = try Realm()
+            let communities = realm.objects(Community.self)
+            self.myCommunities = Array(communities)
+        } catch {
+            print(error)
+        }
     }
     
     private func setUpSearchBar(){

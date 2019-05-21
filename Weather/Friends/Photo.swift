@@ -12,26 +12,22 @@ import ObjectMapper
 import RealmSwift
 
 
-class PhotoResponse : Object, Mappable {
+class PhotoResponse : Mappable {
     
-    @objc dynamic var response = [Photo]()
+    var response = [Photo]()
     
-    required convenience init?(map: Map) {
-        self.init()
-    }
+    required init?(map: Map) {}
     
     func mapping(map: Map) {
         response <- map["response.items"]
     }
 }
 
-class Photo : Object, Mappable {
+class Photo : Mappable {
     
-    @objc dynamic var photoURL = ""
+    var photoURL = ""
     
-    required convenience init?(map: Map) {
-        self.init()
-    }
+    required init?(map: Map) {}
     
     func mapping(map: Map) {
         photoURL <- map["sizes.2.url"]
