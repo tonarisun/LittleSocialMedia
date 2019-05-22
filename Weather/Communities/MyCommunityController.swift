@@ -15,28 +15,31 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var myCommunitySearchBar: UISearchBar!
     
-    var myCommunities = [Community]()
-    var filteredMyCommunities = [Community]()
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        filteredMyCommunities = myCommunities
-        tableView.reloadData()
-    }
+    var myCommunities : Results<Community>?
+    var filteredMyCommunities : Results<Community>?
+    var token: NotificationToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let vkRequest = VKRequest()
-        vkRequest.loadCommunities { [weak self] myComm in
-            self?.saveCommunitiesInRLM(myComm)
-            self?.loadCommunitiesFromRLM()
-            self?.filteredMyCommunities = self!.myCommunities
-            self?.tableView.reloadData()
+        
+        if !ifCommunitiesInRLM() {
+            vkRequest.loadCommunities { [weak self] myComm in
+                self?.saveCommunitiesInRLM(myComm)
+                self?.loadCommunitiesFromRLM()
+                self?.filteredMyCommunities = self!.myCommunities!
+                self?.addRealmObserve()
+                self?.tableView.reloadData()
+            }
+        } else {
+            loadCommunitiesFromRLM()
+            filteredMyCommunities = myCommunities
+            addRealmObserve()
         }
         
         setUpSearchBar()
+        
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         self.tableView.addGestureRecognizer(hideKeyboardGesture)
     }
@@ -49,7 +52,6 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
             realm.delete(oldCommunities)
             realm.add(communitiesToSave)
             try realm.commitWrite()
-            print(realm.configuration.fileURL ?? "123")
         } catch {
             print(error)
         }
@@ -58,10 +60,43 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
     func loadCommunitiesFromRLM() {
         do {
             let realm = try Realm()
-            let communities = realm.objects(Community.self)
-            self.myCommunities = Array(communities)
+            self.myCommunities = realm.objects(Community.self).sorted(byKeyPath: "communityName")
         } catch {
             print(error)
+        }
+    }
+    
+    func ifCommunitiesInRLM() -> Bool {
+        var result = true
+        do {
+            let realm = try Realm()
+            if realm.objects(Community.self).isEmpty {
+                result = false
+            }
+        } catch {
+            print(error)
+        }
+        return result
+    }
+    
+    func addRealmObserve() {
+        self.token = myCommunities?.observe { [weak self] (changes: RealmCollectionChange) in
+            guard let tableView = self?.tableView else { return }
+            switch changes {
+            case .initial:
+                tableView.reloadData()
+            case .update(_, let deletions, let insertions, let modifications):
+                tableView.beginUpdates()
+                tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .middle)
+                tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+                                     with: .middle)
+                tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .middle)
+                tableView.endUpdates()
+            case .error(let error):
+                fatalError("\(error)")
+            }
         }
     }
     
@@ -74,12 +109,12 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredMyCommunities.count
+        return filteredMyCommunities?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCommCell", for: indexPath) as! MyCommunityCell
-        let community = filteredMyCommunities[indexPath.row]
+        let community = filteredMyCommunities![indexPath.row]
         cell.myCommunityNameLabel.text = community.communityName
         cell.avatarView.photoView.downloaded(from: community.pictureURL)
 
@@ -88,8 +123,16 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
   
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            filteredMyCommunities.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            do {
+                let realm = try Realm()
+                realm.beginWrite()
+                realm.delete((filteredMyCommunities?[indexPath.row])!)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                try realm.commitWrite()
+            }
+            catch {
+                print(error)
+            }
         }
     }
     
@@ -102,12 +145,10 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
-            filteredMyCommunities = myCommunities
+            filteredMyCommunities = myCommunities!
             tableView.reloadData()
             return }
-        filteredMyCommunities = myCommunities.filter({community -> Bool in
-            return community.communityName.lowercased().contains(searchText.lowercased())
-        })
+        filteredMyCommunities = myCommunities?.filter("communityName CONTAINS '\(searchText.lowercased())'") // Как сделать, чтобы communityName был тоже lowercased?
         tableView.reloadData()
     }
     
@@ -144,4 +185,3 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
 //            }
 //        }
 //    }
-

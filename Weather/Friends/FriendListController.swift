@@ -27,14 +27,22 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         
         let vkRequest = VKRequest()
-        vkRequest.loadFriend { [weak self] friendList in
-            self?.saveFriendsInRLM(friendList.sorted { $0.friendFirstName < $1.friendFirstName })
-            self?.loadFriendsFromRLM()
-            self?.getFirstLetters()
-            self?.groupFriends()
-            self?.filteredFriendList = self!.groupedFriendList
-            self?.filteredFirstLetters = self!.firstLetters
-            self?.tableView.reloadData()
+        if !ifFriendsInRLM(){
+            vkRequest.loadFriend { [weak self] friendList in
+                self?.saveFriendsInRLM(friendList)
+                self?.loadFriendsFromRLM()
+                self?.getFirstLetters()
+                self?.groupFriends()
+                self?.filteredFriendList = self!.groupedFriendList
+                self?.filteredFirstLetters = self!.firstLetters
+                self?.tableView.reloadData()
+            }
+        } else {
+            loadFriendsFromRLM()
+            getFirstLetters()
+            groupFriends()
+            filteredFriendList = groupedFriendList
+            filteredFirstLetters = firstLetters
         }
         
         let hideKeyboardGesture = UISwipeGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -72,7 +80,6 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
             realm.delete(oldFriendList)
             realm.add(friendsToSave)
             try realm.commitWrite()
-            print(realm.configuration.fileURL ?? "123")
         } catch {
             print(error)
         }
@@ -82,10 +89,23 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         do {
             let realm = try Realm()
             let friends = realm.objects(Friend.self).filter("friendFirstName != 'DELETED'")
-            self.sortedFriendList = Array(friends)
+            self.sortedFriendList = Array(friends.sorted { $0.friendFirstName < $1.friendFirstName })
         } catch {
             print(error)
         }
+    }
+    
+    func ifFriendsInRLM() -> Bool {
+        var result = true
+        do {
+            let realm = try Realm()
+            if realm.objects(Friend.self).isEmpty {
+                result = false
+            }
+        } catch {
+            print(error)
+        }
+        return result
     }
     
     private func setUpSearchBar(){
