@@ -13,7 +13,7 @@ import ObjectMapper
 import RealmSwift
 
 class VKRequest {
-    
+        
     func loadUserInfo(completion: @escaping (User) -> Void) {
         Alamofire.request("https://api.vk.com/method/users.get?lang=0&user_ids=\(currentSession.userID)&fields=photo_50,city,bdate&access_token=\(currentSession.token)&v=5.95").responseObject {
             (response: DataResponse<UserResponse>) in

@@ -28,8 +28,7 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         
         let vkRequest = VKRequest()
         vkRequest.loadFriend { [weak self] friendList in
-            self?.sortedFriendList = friendList.sorted { $0.friendFirstName < $1.friendFirstName }
-            self?.saveFriendsInRLM(self!.sortedFriendList)
+            self?.saveFriendsInRLM(friendList.sorted { $0.friendFirstName < $1.friendFirstName })
             self?.loadFriendsFromRLM()
             self?.getFirstLetters()
             self?.groupFriends()
@@ -82,7 +81,7 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
     func loadFriendsFromRLM() {
         do {
             let realm = try Realm()
-            let friends = realm.objects(Friend.self)
+            let friends = realm.objects(Friend.self).filter("friendFirstName != 'DELETED'")
             self.sortedFriendList = Array(friends)
         } catch {
             print(error)

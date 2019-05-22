@@ -17,9 +17,9 @@ class AnimatedFotoViewController: UIViewController {
     @IBOutlet weak var animatedFotoView3: UIImageView!
     @IBOutlet weak var animatedView: UIView!
     @IBOutlet weak var likeShareControlView: LikeShareControl!
+    @IBOutlet weak var noPhotoView: UIImageView!
     
     var i = 0
-//    let userToShow = user
     var photoToShow = [Photo]()
     var likeCount = 0
     var shareCount = 0
@@ -27,10 +27,19 @@ class AnimatedFotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        noPhotoView.isHidden = true
+        
         let vkRequest = VKRequest()
         vkRequest.loadPhoto(userID: currentUserID) { [weak self] photos in
-            self?.photoToShow = photos
-            self?.animatedFotoView2?.downloaded(from: (self?.photoToShow[(self?.i)!].photoURL)!)
+            if photos.count != 0 {
+                self?.photoToShow = photos
+                let url = self?.photoToShow[(self?.i)!].photoURL
+                self?.animatedFotoView2?.downloaded(from: url!)
+            } else {
+                self?.likeShareControlView.isHidden = true
+                self?.noPhotoView.isHidden = false
+                self?.noPhotoView.image = #imageLiteral(resourceName: "No photo 1")
+            }
         }
         
         animatedView.isUserInteractionEnabled = true

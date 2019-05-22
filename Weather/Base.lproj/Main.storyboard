@@ -775,14 +775,24 @@
                                     <outlet property="shareImage" destination="JA3-gX-ecY" id="G74-QQ-zgb"/>
                                 </connections>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="06C-Xl-95T">
+                                <rect key="frame" x="10" y="156" width="355" height="355"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="6yB-0e-c18" firstAttribute="centerX" secondItem="7aE-3b-Lpy" secondAttribute="centerX" id="1kd-d9-2DI"/>
+                            <constraint firstItem="6yB-0e-c18" firstAttribute="centerY" secondItem="7aE-3b-Lpy" secondAttribute="centerY" id="74y-FP-Os4"/>
                             <constraint firstAttribute="trailing" secondItem="6yB-0e-c18" secondAttribute="trailing" constant="10" id="Q4P-3x-IQ8"/>
+                            <constraint firstItem="06C-Xl-95T" firstAttribute="width" secondItem="6yB-0e-c18" secondAttribute="width" id="RVE-bj-EqK"/>
+                            <constraint firstItem="06C-Xl-95T" firstAttribute="centerX" secondItem="7aE-3b-Lpy" secondAttribute="centerX" id="Rhm-eb-88n"/>
                             <constraint firstItem="nZ9-hr-xoR" firstAttribute="leading" secondItem="7aE-3b-Lpy" secondAttribute="leading" constant="10" id="TTO-PL-1Bi"/>
                             <constraint firstAttribute="trailing" secondItem="nZ9-hr-xoR" secondAttribute="trailing" constant="10" id="Zth-2L-RdU"/>
                             <constraint firstItem="6yB-0e-c18" firstAttribute="centerY" secondItem="7aE-3b-Lpy" secondAttribute="centerY" id="e37-u7-oOQ"/>
+                            <constraint firstItem="06C-Xl-95T" firstAttribute="centerY" secondItem="7aE-3b-Lpy" secondAttribute="centerY" id="eoA-jT-g0K"/>
                             <constraint firstItem="nZ9-hr-xoR" firstAttribute="top" secondItem="6yB-0e-c18" secondAttribute="bottom" constant="5" id="lPo-YF-E9W"/>
                             <constraint firstItem="6yB-0e-c18" firstAttribute="leading" secondItem="7aE-3b-Lpy" secondAttribute="leading" constant="10" id="rlF-kK-AJu"/>
+                            <constraint firstItem="06C-Xl-95T" firstAttribute="height" secondItem="6yB-0e-c18" secondAttribute="height" id="rnQ-pN-Sld"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m1a-rl-xJu"/>
                         <userDefinedRuntimeAttributes>
@@ -802,6 +812,7 @@
                         <outlet property="animatedFotoView3" destination="jAu-Da-ciZ" id="Tmc-Qf-yow"/>
                         <outlet property="animatedView" destination="6yB-0e-c18" id="7NC-4W-rOH"/>
                         <outlet property="likeShareControlView" destination="nZ9-hr-xoR" id="luD-Nf-dzi"/>
+                        <outlet property="noPhotoView" destination="06C-Xl-95T" id="iSN-SP-IcI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ayq-wG-hxo" userLabel="First Responder" sceneMemberID="firstResponder"/>
