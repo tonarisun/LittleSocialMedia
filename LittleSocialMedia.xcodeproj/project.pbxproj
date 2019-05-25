@@ -71,14 +71,14 @@
 		D60FA11B2249C3010069CA98 /* AnimatedFotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedFotoViewController.swift; sourceTree = "<group>"; };
 		D6113C4F223251C300E1CC6F /* MyCommunityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunityController.swift; sourceTree = "<group>"; };
 		D6113C512232521E00E1CC6F /* MyCommunityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunityCell.swift; sourceTree = "<group>"; };
-		D6176531222696D4003E39D9 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6176531222696D4003E39D9 /* LittleSocialMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleSocialMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6176534222696D4003E39D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6176539222696D4003E39D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D617653B222696D5003E39D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D617653E222696D5003E39D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6176540222696D5003E39D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D6176545222696D6003E39D9 /* WeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6176550222696D6003E39D9 /* WeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6176545222696D6003E39D9 /* LittleSocialMediaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LittleSocialMediaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6176550222696D6003E39D9 /* LittleSocialMediaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LittleSocialMediaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D61765622226972D003E39D9 /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
 		D61C7DF7227FF0AB006768EA /* ExtensionImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionImageView.swift; sourceTree = "<group>"; };
 		D61C7DF9227FF54A006768EA /* Avatar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Avatar.xib; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 		D6176528222696D4003E39D9 = {
 			isa = PBXGroup;
 			children = (
-				D6176533222696D4003E39D9 /* Weather */,
+				D6176533222696D4003E39D9 /* LittleSocialMedia */,
 				D6176532222696D4003E39D9 /* Products */,
 				63190DAC6D630E9E660B5617 /* Pods */,
 				51E3B0E9342B039C37180A92 /* Frameworks */,
@@ -163,14 +163,14 @@
 		D6176532222696D4003E39D9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D6176531222696D4003E39D9 /* Weather.app */,
-				D6176545222696D6003E39D9 /* WeatherTests.xctest */,
-				D6176550222696D6003E39D9 /* WeatherUITests.xctest */,
+				D6176531222696D4003E39D9 /* LittleSocialMedia.app */,
+				D6176545222696D6003E39D9 /* LittleSocialMediaTests.xctest */,
+				D6176550222696D6003E39D9 /* LittleSocialMediaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D6176533222696D4003E39D9 /* Weather */ = {
+		D6176533222696D4003E39D9 /* LittleSocialMedia */ = {
 			isa = PBXGroup;
 			children = (
 				D6176534222696D4003E39D9 /* AppDelegate.swift */,
@@ -186,7 +186,7 @@
 				D61FF0892241DBF3007DED7E /* Communities */,
 				D61FF08C2241DD90007DED7E /* Service */,
 			);
-			path = Weather;
+			path = LittleSocialMedia;
 			sourceTree = "<group>";
 		};
 		D61FF0892241DBF3007DED7E /* Communities */ = {
@@ -270,9 +270,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D6176530222696D4003E39D9 /* Weather */ = {
+		D6176530222696D4003E39D9 /* LittleSocialMedia */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D6176559222696D6003E39D9 /* Build configuration list for PBXNativeTarget "Weather" */;
+			buildConfigurationList = D6176559222696D6003E39D9 /* Build configuration list for PBXNativeTarget "LittleSocialMedia" */;
 			buildPhases = (
 				61B8362ADF059F8335CC5B35 /* [CP] Check Pods Manifest.lock */,
 				D617652D222696D4003E39D9 /* Sources */,
@@ -284,14 +284,14 @@
 			);
 			dependencies = (
 			);
-			name = Weather;
+			name = LittleSocialMedia;
 			productName = Weather;
-			productReference = D6176531222696D4003E39D9 /* Weather.app */;
+			productReference = D6176531222696D4003E39D9 /* LittleSocialMedia.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D6176544222696D6003E39D9 /* WeatherTests */ = {
+		D6176544222696D6003E39D9 /* LittleSocialMediaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D617655C222696D6003E39D9 /* Build configuration list for PBXNativeTarget "WeatherTests" */;
+			buildConfigurationList = D617655C222696D6003E39D9 /* Build configuration list for PBXNativeTarget "LittleSocialMediaTests" */;
 			buildPhases = (
 				D6176541222696D6003E39D9 /* Sources */,
 				D6176542222696D6003E39D9 /* Frameworks */,
@@ -302,14 +302,14 @@
 			dependencies = (
 				D6176547222696D6003E39D9 /* PBXTargetDependency */,
 			);
-			name = WeatherTests;
+			name = LittleSocialMediaTests;
 			productName = WeatherTests;
-			productReference = D6176545222696D6003E39D9 /* WeatherTests.xctest */;
+			productReference = D6176545222696D6003E39D9 /* LittleSocialMediaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D617654F222696D6003E39D9 /* WeatherUITests */ = {
+		D617654F222696D6003E39D9 /* LittleSocialMediaUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D617655F222696D6003E39D9 /* Build configuration list for PBXNativeTarget "WeatherUITests" */;
+			buildConfigurationList = D617655F222696D6003E39D9 /* Build configuration list for PBXNativeTarget "LittleSocialMediaUITests" */;
 			buildPhases = (
 				D617654C222696D6003E39D9 /* Sources */,
 				D617654D222696D6003E39D9 /* Frameworks */,
@@ -320,9 +320,9 @@
 			dependencies = (
 				D6176552222696D6003E39D9 /* PBXTargetDependency */,
 			);
-			name = WeatherUITests;
+			name = LittleSocialMediaUITests;
 			productName = WeatherUITests;
-			productReference = D6176550222696D6003E39D9 /* WeatherUITests.xctest */;
+			productReference = D6176550222696D6003E39D9 /* LittleSocialMediaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -348,7 +348,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D617652C222696D4003E39D9 /* Build configuration list for PBXProject "Weather" */;
+			buildConfigurationList = D617652C222696D4003E39D9 /* Build configuration list for PBXProject "LittleSocialMedia" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -361,9 +361,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D6176530222696D4003E39D9 /* Weather */,
-				D6176544222696D6003E39D9 /* WeatherTests */,
-				D617654F222696D6003E39D9 /* WeatherUITests */,
+				D6176530222696D4003E39D9 /* LittleSocialMedia */,
+				D6176544222696D6003E39D9 /* LittleSocialMediaTests */,
+				D617654F222696D6003E39D9 /* LittleSocialMediaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -509,12 +509,12 @@
 /* Begin PBXTargetDependency section */
 		D6176547222696D6003E39D9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D6176530222696D4003E39D9 /* Weather */;
+			target = D6176530222696D4003E39D9 /* LittleSocialMedia */;
 			targetProxy = D6176546222696D6003E39D9 /* PBXContainerItemProxy */;
 		};
 		D6176552222696D6003E39D9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D6176530222696D4003E39D9 /* Weather */;
+			target = D6176530222696D4003E39D9 /* LittleSocialMedia */;
 			targetProxy = D6176551222696D6003E39D9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -662,7 +662,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TF56ZZML3P;
-				INFOPLIST_FILE = Weather/Info.plist;
+				INFOPLIST_FILE = LittleSocialMedia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -681,7 +681,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TF56ZZML3P;
-				INFOPLIST_FILE = Weather/Info.plist;
+				INFOPLIST_FILE = LittleSocialMedia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -709,7 +709,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather.app/Weather";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LittleSocialMedia.app/LittleSocialMedia";
 			};
 			name = Debug;
 		};
@@ -729,7 +729,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather.app/Weather";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LittleSocialMedia.app/LittleSocialMedia";
 			};
 			name = Release;
 		};
@@ -774,7 +774,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D617652C222696D4003E39D9 /* Build configuration list for PBXProject "Weather" */ = {
+		D617652C222696D4003E39D9 /* Build configuration list for PBXProject "LittleSocialMedia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D6176557222696D6003E39D9 /* Debug */,
@@ -783,7 +783,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D6176559222696D6003E39D9 /* Build configuration list for PBXNativeTarget "Weather" */ = {
+		D6176559222696D6003E39D9 /* Build configuration list for PBXNativeTarget "LittleSocialMedia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D617655A222696D6003E39D9 /* Debug */,
@@ -792,7 +792,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D617655C222696D6003E39D9 /* Build configuration list for PBXNativeTarget "WeatherTests" */ = {
+		D617655C222696D6003E39D9 /* Build configuration list for PBXNativeTarget "LittleSocialMediaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D617655D222696D6003E39D9 /* Debug */,
@@ -801,7 +801,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D617655F222696D6003E39D9 /* Build configuration list for PBXNativeTarget "WeatherUITests" */ = {
+		D617655F222696D6003E39D9 /* Build configuration list for PBXNativeTarget "LittleSocialMediaUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D6176560222696D6003E39D9 /* Debug */,
