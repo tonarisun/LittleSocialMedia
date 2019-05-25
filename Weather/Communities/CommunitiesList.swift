@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import AlamofireObjectMapper
 import ObjectMapper
+import RealmSwift
 
 class CommunitiesList: UITableViewController, UISearchBarDelegate {
     
@@ -48,17 +49,25 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
             guard let myCommunityVC = self.myCommunityVC else {
                 return
             }
-            if !myCommunityVC.myCommunities.contains(community){
-            myCommunityVC.myCommunities.append(community)
+            if !myCommunityVC.myCommunities!.contains(community){
+                do {
+                    let realm = try! Realm()
+                    realm.beginWrite()
+                    realm.add(community)
+                    try realm.commitWrite()
+                }
+                catch {
+                    print(error)
+                }
             }
         }
         return cell
     }
 
-    @IBAction func searchCommunity(_ sender: UIButton) {
+    @IBAction func searchCommunity(_ sender: UIButton) { // Почему-то не работает поиск русских слов, хотя если запрос к ВК проверить, то результат есть. И ещё пока не ищет фразы с пробелами, только по одному слову или с + вместо пробела.
         
-        guard let searchText = self.communitySearchBar.text else { return }
-        Alamofire.request("https://api.vk.com/method/groups.search?q=\(searchText)&type=group&count=20&access_token=\(currentSession.token)&v=5.95").responseObject {
+        guard let searchText = self.communitySearchBar.text?.lowercased() else { return }
+        Alamofire.request("https://api.vk.com/method/groups.search?q=\(searchText.lowercased())&type=group&count=50&access_token=\(currentSession.token)&v=5.95").responseObject {
             (response: DataResponse<CommunityResponse>) in
             
             let groupResp = response.result.value

@@ -12,6 +12,7 @@ import Alamofire
 import AlamofireObjectMapper
 import ObjectMapper
 import SwiftKeychainWrapper
+import RealmSwift
 
 class VKLoginController: UIViewController, WKNavigationDelegate {
 
@@ -76,6 +77,26 @@ class VKLoginController: UIViewController, WKNavigationDelegate {
         currentSession.userID = currentUserID
         print(token ?? "No token")
         
+        do {
+            let realm = try Realm()
+            realm.beginWrite()
+            realm.deleteAll()
+            try! realm.commitWrite()
+            print(realm.configuration.fileURL ?? "No fileURL")
+        }
+            catch {
+                print(error)
+            }
+        
+        let vkRequest = VKRequest()
+        vkRequest.loadCommunities { myComm in
+            vkRequest.saveCommunitiesInRLM(myComm)
+        }
+        
+        vkRequest.loadFriends { friends in
+            vkRequest.saveFriendsInRLM(friends)
+        }
+
         decisionHandler(.cancel)
     }
 }

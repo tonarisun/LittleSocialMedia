@@ -26,16 +26,12 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let vkRequest = VKRequest()
-        vkRequest.loadFriend { [weak self] friendList in
-            self?.saveFriendsInRLM(friendList.sorted { $0.friendFirstName < $1.friendFirstName })
-            self?.loadFriendsFromRLM()
-            self?.getFirstLetters()
-            self?.groupFriends()
-            self?.filteredFriendList = self!.groupedFriendList
-            self?.filteredFirstLetters = self!.firstLetters
-            self?.tableView.reloadData()
-        }
+        loadFriendsFromRLM()
+        getFirstLetters()
+        groupFriends()
+        filteredFriendList = groupedFriendList
+        filteredFirstLetters = firstLetters
+        tableView.reloadData()
         
         let hideKeyboardGesture = UISwipeGestureRecognizer(target: self, action: #selector(hideKeyboard))
         hideKeyboardGesture.direction = UISwipeGestureRecognizer.Direction.down
@@ -64,25 +60,11 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         }
     }
     
-    func saveFriendsInRLM(_ friendsToSave: [Friend]){
-        do {
-            let realm = try! Realm()
-            let oldFriendList = realm.objects(Friend.self)
-            realm.beginWrite()
-            realm.delete(oldFriendList)
-            realm.add(friendsToSave)
-            try realm.commitWrite()
-            print(realm.configuration.fileURL ?? "123")
-        } catch {
-            print(error)
-        }
-    }
-    
     func loadFriendsFromRLM() {
         do {
             let realm = try Realm()
             let friends = realm.objects(Friend.self).filter("friendFirstName != 'DELETED'")
-            self.sortedFriendList = Array(friends)
+            self.sortedFriendList = Array(friends.sorted { $0.friendFirstName < $1.friendFirstName })
         } catch {
             print(error)
         }
@@ -143,7 +125,7 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         for key in firstLetters {
             friendsForLetter.removeAll()
             for friend in sortedFriendList {
-                let searchName = friend.friendFirstName + friend.friendLastName
+                let searchName = friend.friendFirstName + " " + friend.friendLastName
                 if searchName.lowercased().contains(searchText.lowercased()) && friend.friendFirstName.prefix(1) == key {
                     friendsForLetter.append(friend)
                     filteredFriendList.updateValue(friendsForLetter, forKey: key)

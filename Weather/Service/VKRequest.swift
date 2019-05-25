@@ -26,12 +26,25 @@ class VKRequest {
         }
     }
     
-    func loadFriend(completion: @escaping ([Friend]) -> Void) {
+    func loadFriends(completion: @escaping ([Friend]) -> Void) {
         Alamofire.request("https://api.vk.com/method/friends.get?user_id=\(currentSession.userID)&fields=nickname,photo_50&access_token=\(currentSession.token)&v=5.95").responseObject {
             (response: DataResponse<FriendResponse>) in
             let friendResponse = response.result.value
             guard let friendList = friendResponse?.response else { return }
             completion(friendList)
+        }
+    }
+    
+    func saveFriendsInRLM(_ friendsToSave: [Friend]){
+        do {
+            let realm = try! Realm()
+            let oldFriendList = realm.objects(Friend.self)
+            realm.beginWrite()
+            realm.delete(oldFriendList)
+            realm.add(friendsToSave)
+            try realm.commitWrite()
+        } catch {
+            print(error)
         }
     }
     
@@ -50,6 +63,19 @@ class VKRequest {
             let groupResp = response.result.value
             guard let myComm = groupResp?.response else { return }
             completion(myComm)
+        }
+    }
+    
+    func saveCommunitiesInRLM(_ communitiesToSave: [Community]){
+        do {
+            let realm = try! Realm()
+            let oldCommunities = realm.objects(Community.self)
+            realm.beginWrite()
+            realm.delete(oldCommunities)
+            realm.add(communitiesToSave)
+            try realm.commitWrite()
+        } catch {
+            print(error)
         }
     }
 }

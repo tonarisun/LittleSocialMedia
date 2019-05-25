@@ -23,13 +23,15 @@ class PhotoResponse : Mappable {
     }
 }
 
-class Photo : Mappable {
+class Photo : Object, Mappable {
     
-    var photoURL = ""
+    @objc dynamic var photoURL = ""
     
-    required init?(map: Map) {}
+    required convenience init?(map: Map) {
+        self.init()
+    }
     
     func mapping(map: Map) {
-        photoURL <- map["sizes.2.url"]
+        photoURL <- map["sizes.3.url"]
     }
 }
