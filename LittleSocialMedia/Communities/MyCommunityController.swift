@@ -23,8 +23,6 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         
         loadCommunitiesFromRLM()
-        
-        filteredMyCommunities = myCommunities
 
         addRealmObserve()
 
@@ -34,18 +32,19 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
         self.tableView.addGestureRecognizer(hideKeyboardGesture)
     }
     
-    
     func loadCommunitiesFromRLM() {
         do {
             let realm = try Realm()
             self.myCommunities = realm.objects(Community.self).sorted(byKeyPath: "communityName")
+            self.filteredMyCommunities = self.myCommunities
+
         } catch {
             print(error)
         }
     }
     
     func addRealmObserve() {
-        self.token = myCommunities?.observe { [weak self] (changes: RealmCollectionChange) in
+        self.token = filteredMyCommunities?.observe { [weak self] (changes: RealmCollectionChange) in
             guard let tableView = self?.tableView else { return }
             switch changes {
             case .initial:
@@ -91,7 +90,7 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
             do {
                 let realm = try Realm()
                 realm.beginWrite()
-                realm.delete((filteredMyCommunities?[indexPath.row])!)
+                realm.delete(filteredMyCommunities![indexPath.row])
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 try realm.commitWrite()
             }
@@ -110,7 +109,7 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
-            filteredMyCommunities = myCommunities!
+            filteredMyCommunities = myCommunities
             tableView.reloadData()
             return }
         filteredMyCommunities = myCommunities?.filter("communityName CONTAINS '\(searchText.lowercased())'") // Как сделать, чтобы communityName был тоже lowercased?
