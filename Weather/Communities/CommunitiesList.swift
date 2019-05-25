@@ -66,8 +66,8 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
 
     @IBAction func searchCommunity(_ sender: UIButton) { // Почему-то не работает поиск русских слов, хотя если запрос к ВК проверить, то результат есть. И ещё пока не ищет фразы с пробелами, только по одному слову или с + вместо пробела.
         
-        guard let searchText = self.communitySearchBar.text else { return }
-        Alamofire.request("https://api.vk.com/method/groups.search?q=\(searchText)&type=group&count=50&access_token=\(currentSession.token)&v=5.95").responseObject {
+        guard let searchText = self.communitySearchBar.text?.lowercased() else { return }
+        Alamofire.request("https://api.vk.com/method/groups.search?q=\(searchText.lowercased())&type=group&count=50&access_token=\(currentSession.token)&v=5.95").responseObject {
             (response: DataResponse<CommunityResponse>) in
             
             let groupResp = response.result.value

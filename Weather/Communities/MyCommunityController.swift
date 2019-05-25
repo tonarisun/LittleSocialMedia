@@ -22,40 +22,18 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let vkRequest = VKRequest()
+        loadCommunitiesFromRLM()
         
-        if !ifCommunitiesInRLM() {
-            vkRequest.loadCommunities { [weak self] myComm in
-                self?.saveCommunitiesInRLM(myComm)
-                self?.loadCommunitiesFromRLM()
-                self?.filteredMyCommunities = self!.myCommunities!
-                self?.addRealmObserve()
-                self?.tableView.reloadData()
-            }
-        } else {
-            loadCommunitiesFromRLM()
-            filteredMyCommunities = myCommunities
-            addRealmObserve()
-        }
-        
+        filteredMyCommunities = myCommunities
+
+        addRealmObserve()
+
         setUpSearchBar()
         
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         self.tableView.addGestureRecognizer(hideKeyboardGesture)
     }
     
-    func saveCommunitiesInRLM(_ communitiesToSave: [Community]){
-        do {
-            let realm = try! Realm()
-            let oldCommunities = realm.objects(Community.self)
-            realm.beginWrite()
-            realm.delete(oldCommunities)
-            realm.add(communitiesToSave)
-            try realm.commitWrite()
-        } catch {
-            print(error)
-        }
-    }
     
     func loadCommunitiesFromRLM() {
         do {
@@ -64,19 +42,6 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
         } catch {
             print(error)
         }
-    }
-    
-    func ifCommunitiesInRLM() -> Bool {
-        var result = true
-        do {
-            let realm = try Realm()
-            if realm.objects(Community.self).isEmpty {
-                result = false
-            }
-        } catch {
-            print(error)
-        }
-        return result
     }
     
     func addRealmObserve() {

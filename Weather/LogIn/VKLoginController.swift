@@ -87,8 +87,16 @@ class VKLoginController: UIViewController, WKNavigationDelegate {
             catch {
                 print(error)
             }
-
         
+        let vkRequest = VKRequest()
+        vkRequest.loadCommunities { myComm in
+            vkRequest.saveCommunitiesInRLM(myComm)
+        }
+        
+        vkRequest.loadFriends { friends in
+            vkRequest.saveFriendsInRLM(friends)
+        }
+
         decisionHandler(.cancel)
     }
 }
