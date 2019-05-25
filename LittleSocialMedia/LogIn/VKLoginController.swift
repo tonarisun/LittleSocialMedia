@@ -74,7 +74,6 @@ class VKLoginController: UIViewController, WKNavigationDelegate {
 
         KeychainWrapper.standard.set("\(token!)", forKey: "access token")
         currentSession.token = KeychainWrapper.standard.string(forKey: "access token")!
-        currentSession.userID = currentUserID
         print(token ?? "No token")
         
         do {
@@ -89,12 +88,10 @@ class VKLoginController: UIViewController, WKNavigationDelegate {
             }
         
         let vkRequest = VKRequest()
-        vkRequest.loadCommunities { myComm in
-            vkRequest.saveCommunitiesInRLM(myComm)
-        }
         
-        vkRequest.loadFriends { friends in
-            vkRequest.saveFriendsInRLM(friends)
+        vkRequest.loadUserInfo { user in
+            currentSession.userID = user.userID
+            vkRequest.saveUserInRLM(user)
         }
 
         decisionHandler(.cancel)

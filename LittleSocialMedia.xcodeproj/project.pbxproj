@@ -42,7 +42,7 @@
 		D6BD26162283DB2500C856F3 /* VKRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BD26152283DB2500C856F3 /* VKRequest.swift */; };
 		D6CDE73422337CD900025740 /* FriendFotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CDE73322337CD900025740 /* FriendFotoController.swift */; };
 		D6CDE73622337D0B00025740 /* FriendFotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CDE73522337D0B00025740 /* FriendFotoCell.swift */; };
-		DFDAD345DF6859A154BABC79 /* Pods_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A87DAE3B4A8FF1D8146F2D05 /* Pods_Weather.framework */; };
+		FD3A1C434E6CD05D1444C7D1 /* Pods_LittleSocialMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD71C02A2F80A6D49E7918CF /* Pods_LittleSocialMedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,9 +63,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A08E69716C2263A106948637 /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.release.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
-		A87DAE3B4A8FF1D8146F2D05 /* Pods_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEEB9DCD4459AF4CC6DCADA4 /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
+		B587BFC72170BAC75C950C08 /* Pods-LittleSocialMedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleSocialMedia.debug.xcconfig"; path = "Target Support Files/Pods-LittleSocialMedia/Pods-LittleSocialMedia.debug.xcconfig"; sourceTree = "<group>"; };
+		BE19E14A25B4D749F3848477 /* Pods-LittleSocialMedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleSocialMedia.release.xcconfig"; path = "Target Support Files/Pods-LittleSocialMedia/Pods-LittleSocialMedia.release.xcconfig"; sourceTree = "<group>"; };
+		CD71C02A2F80A6D49E7918CF /* Pods_LittleSocialMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LittleSocialMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D603BE9322659BFF000F3F7B /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		D603D4FF2270200B00BCF4A0 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D60D97D52245D1D9005F345A /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6A341472276BD5000777AC5 /* WebKit.framework in Frameworks */,
-				DFDAD345DF6859A154BABC79 /* Pods_Weather.framework in Frameworks */,
+				FD3A1C434E6CD05D1444C7D1 /* Pods_LittleSocialMedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				D6A341462276BD4F00777AC5 /* WebKit.framework */,
-				A87DAE3B4A8FF1D8146F2D05 /* Pods_Weather.framework */,
+				CD71C02A2F80A6D49E7918CF /* Pods_LittleSocialMedia.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -146,8 +146,8 @@
 		63190DAC6D630E9E660B5617 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CEEB9DCD4459AF4CC6DCADA4 /* Pods-Weather.debug.xcconfig */,
-				A08E69716C2263A106948637 /* Pods-Weather.release.xcconfig */,
+				B587BFC72170BAC75C950C08 /* Pods-LittleSocialMedia.debug.xcconfig */,
+				BE19E14A25B4D749F3848477 /* Pods-LittleSocialMedia.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -242,8 +242,8 @@
 		D61FF0D522452D3D007DED7E /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
-				D61765622226972D003E39D9 /* LoginFormController.swift */,
 				D6A3414A2276D78C00777AC5 /* VKLoginController.swift */,
+				D61765622226972D003E39D9 /* LoginFormController.swift */,
 				D603D4FF2270200B00BCF4A0 /* Session.swift */,
 			);
 			path = LogIn;
@@ -411,13 +411,21 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Weather/Pods-Weather-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-LittleSocialMedia/Pods-LittleSocialMedia-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -425,14 +433,22 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Weather/Pods-Weather-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LittleSocialMedia/Pods-LittleSocialMedia-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		61B8362ADF059F8335CC5B35 /* [CP] Check Pods Manifest.lock */ = {
@@ -450,7 +466,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Weather-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-LittleSocialMedia-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -661,7 +677,7 @@
 		};
 		D617655A222696D6003E39D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CEEB9DCD4459AF4CC6DCADA4 /* Pods-Weather.debug.xcconfig */;
+			baseConfigurationReference = B587BFC72170BAC75C950C08 /* Pods-LittleSocialMedia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -680,7 +696,7 @@
 		};
 		D617655B222696D6003E39D9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A08E69716C2263A106948637 /* Pods-Weather.release.xcconfig */;
+			baseConfigurationReference = BE19E14A25B4D749F3848477 /* Pods-LittleSocialMedia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

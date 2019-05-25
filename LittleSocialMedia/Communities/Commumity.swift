@@ -10,17 +10,6 @@ import Foundation
 import ObjectMapper
 import RealmSwift
 
-class CommunityResponse : Mappable {
-    
-    var response = [Community]()
-    
-    required init?(map: Map) {}
-    
-    func mapping(map: Map) {
-        response <- map["response.items"]
-    }
-}
-
 class Community : Object, Mappable {
 
     @objc dynamic var communityName = ""
@@ -37,5 +26,16 @@ class Community : Object, Mappable {
     
     static func == (lhs:Community, rhs:Community) -> Bool {
         return lhs.communityName == rhs.communityName
+    }
+}
+
+class CommunityResponse : Mappable {
+    
+    var response = [Community]()
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        response <- map["response.items"]
     }
 }

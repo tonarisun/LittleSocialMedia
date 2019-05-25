@@ -30,7 +30,7 @@ class AnimatedFotoViewController: UIViewController {
         noPhotoView.isHidden = true
         
         let vkRequest = VKRequest()
-        vkRequest.loadPhoto(userID: currentUserID) { [weak self] photos in
+        vkRequest.loadPhoto(userID: currentSession.userID) { [weak self] photos in
             if photos.count != 0 {
                 self?.photoToShow = photos
                 let url = self?.photoToShow[(self?.i)!].photoURL

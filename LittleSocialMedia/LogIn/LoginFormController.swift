@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginFormController: UIViewController {
     
-    private let singInSegID = "singInSegue"
+    private let singInSegID = "enterSegue"
     @IBOutlet weak var loginScrollView: UIScrollView!
     @IBOutlet weak var LoginTextField: UITextField!
     @IBOutlet weak var PasswordTextField: UITextField!
+    var listener: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,12 @@ class LoginFormController: UIViewController {
                                                selector: #selector(keyboardWillShow),
                                                name: UIResponder.keyboardWillShowNotification,
                                                object: nil)
+        
+        listener = Auth.auth().addStateDidChangeListener { _, user in
+            if user != nil {
+                self.performSegue(withIdentifier: "enterSegue", sender: self)
+            }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -35,6 +43,11 @@ class LoginFormController: UIViewController {
                                                selector: #selector(keyboardWillBeHidden),
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
+        if listener != nil {
+            Auth.auth().removeStateDidChangeListener(listener!)
+        } else {
+            return
+        }
     }
     
     @objc func keyboardWillShow(notification: Notification) {
@@ -58,17 +71,46 @@ class LoginFormController: UIViewController {
         loginScrollView?.scrollIndicatorInsets = contentInsets
     }
     
-    @IBAction func SingInButton(_ sender: Any) {
-        if let loginText = LoginTextField.text,
-            let passwordText = PasswordTextField.text {
-            if loginText == "a" && passwordText == "1" {
-                performSegue(withIdentifier: singInSegID, sender: self)
-            } else {
-                let alert = UIAlertController(title: "Что-то не так", message: "Неверное имя пользователи или пароль", preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                alert.addAction(action)
-                present(alert, animated: true, completion: nil)
-            }
+    @IBAction func logIn(_ sender: Any) {
+        if let email = LoginTextField.text,
+            let password = PasswordTextField.text {
+            Auth.auth().signIn(withEmail: email, password: password, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Что-то не так", message: "Неверное имя пользователи или пароль", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func signUp(_ sender: Any) {
+        guard let email = LoginTextField.text,
+              let password = PasswordTextField.text else { return }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { user, error in
+            if let error = error {
+                print(error)
+            } else {
+                Auth.auth().signIn(withEmail: email, password: password)
+            }
+
+        }
+    }
+    
+    
+//  Вход по нажатию на кнопку 'log in'
+//
+//    @IBAction func SingInButton(_ sender: Any) {
+//        if let loginText = LoginTextField.text,
+//            let passwordText = PasswordTextField.text {
+//            if loginText == "a" && passwordText == "1" {
+//                performSegue(withIdentifier: singInSegID, sender: self)
+//            } else {
+//                let alert = UIAlertController(title: "Что-то не так", message: "Неверное имя пользователи или пароль", preferredStyle: .alert)
+//                let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+//                alert.addAction(action)
+//                present(alert, animated: true, completion: nil)
+//            }
+//        }
+//    }
 }

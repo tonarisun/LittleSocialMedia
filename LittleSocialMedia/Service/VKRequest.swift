@@ -15,14 +15,23 @@ import RealmSwift
 class VKRequest {
         
     func loadUserInfo(completion: @escaping (User) -> Void) {
-        Alamofire.request("https://api.vk.com/method/users.get?lang=0&user_ids=\(currentSession.userID)&fields=photo_50,city,bdate&access_token=\(currentSession.token)&v=5.95").responseObject {
+        Alamofire.request("https://api.vk.com/method/users.get?lang=0&fields=photo_50,city,bdate&access_token=\(currentSession.token)&v=5.95").responseObject {
             (response: DataResponse<UserResponse>) in
             let userResponse = response.result.value
             guard let user = userResponse?.response[0] else { return }
-            let userData = UserDefaults.standard
-            userData.set("\(user.userFirstName) \(user.userLastName)", forKey: "UserName")
-            userData.set("\(user.userID)", forKey: "UserID")
+            
             completion(user)
+        }
+    }
+    
+    func saveUserInRLM(_ currentUser: User) {
+        do {
+            let realm = try! Realm()
+            realm.beginWrite()
+            realm.add(currentUser)
+            try realm.commitWrite()
+        } catch {
+            print(error)
         }
     }
     
@@ -37,10 +46,8 @@ class VKRequest {
     
     func saveFriendsInRLM(_ friendsToSave: [Friend]){
         do {
-            let realm = try! Realm()
-            let oldFriendList = realm.objects(Friend.self)
+            let realm = try Realm()
             realm.beginWrite()
-            realm.delete(oldFriendList)
             realm.add(friendsToSave)
             try realm.commitWrite()
         } catch {

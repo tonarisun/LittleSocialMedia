@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '12.1'
+ platform :ios, '12.1'
 
 inhibit_all_warnings!
 
@@ -14,5 +14,11 @@ pod 'AlamofireObjectMapper', '~> 5.2'
 pod 'SwiftKeychainWrapper'
 
 pod 'RealmSwift'
+
+pod 'Firebase/Core'
+
+pod 'Firebase/Auth'
+
+pod 'Firebase/Firestore'
 
 end

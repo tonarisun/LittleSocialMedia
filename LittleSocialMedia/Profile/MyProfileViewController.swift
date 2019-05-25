@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 import AlamofireObjectMapper
 import ObjectMapper
+import FirebaseAuth
+import RealmSwift
 
 
 class MyProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -19,20 +21,41 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var myAgeAndCityLabel: UILabel!
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var newsTableView: UITableView!
+    var users: Results<User>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let hideKeyboardGesture = UISwipeGestureRecognizer(target: self, action: #selector(hideKeyboard))
-        hideKeyboardGesture.direction = UISwipeGestureRecognizer.Direction.down
-        self.view.addGestureRecognizer(hideKeyboardGesture)
+        loadUserDataFromRLM()
+        
+        guard let currentUser = users?.first else { return }
+        
+        myNameLabel.text = currentUser.userFirstName + " " + currentUser.userLastName
+        myAgeAndCityLabel.text = currentUser.userBDate + " " + currentUser.userCity
+        myAvatarView.photoView.downloaded(from: currentUser.avaURL)
+        
         
         let vkRequest = VKRequest()
         
-        vkRequest.loadUserInfo { [weak self] user in
-            self?.myNameLabel.text = UserDefaults.standard.string(forKey: "UserName")
-            self?.myAgeAndCityLabel.text = user.userBDate + ", " + user.userCity
-            self?.myAvatarView.photoView.downloaded(from: user.avaURL)
+        vkRequest.loadCommunities { myComm in
+            vkRequest.saveCommunitiesInRLM(myComm)
+        }
+        
+        vkRequest.loadFriends { friends in
+            vkRequest.saveFriendsInRLM(friends)
+        }
+        
+        let hideKeyboardGesture = UISwipeGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        hideKeyboardGesture.direction = UISwipeGestureRecognizer.Direction.down
+        self.view.addGestureRecognizer(hideKeyboardGesture)
+    }
+    
+    func loadUserDataFromRLM() {
+        do {
+            let realm = try Realm()
+            self.users = realm.objects(User.self)
+        } catch {
+            print(error)
         }
     }
     
@@ -45,6 +68,7 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
             object: nil
         )
     }
+    
     @objc func hideKeyboard() {
         self.view?.endEditing(true)
     }
@@ -55,8 +79,14 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
         newsTableView?.scrollIndicatorInsets = contentInsets
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    @IBAction func logOut(_ sender: Any) {
+        do {
+         try Auth.auth().signOut()
+        } catch {
+            print(error)
+        }
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsList.count
