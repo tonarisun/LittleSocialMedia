@@ -35,7 +35,7 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
     func loadCommunitiesFromRLM() {
         do {
             let realm = try Realm()
-            self.myCommunities = realm.objects(Community.self).sorted(byKeyPath: "communityName")
+            self.myCommunities = realm.objects(Community.self).sorted(byKeyPath: "communityID")
             self.filteredMyCommunities = self.myCommunities
 
         } catch {
@@ -91,7 +91,6 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
                 let realm = try Realm()
                 realm.beginWrite()
                 realm.delete(filteredMyCommunities![indexPath.row])
-                tableView.deleteRows(at: [indexPath], with: .fade)
                 try realm.commitWrite()
             }
             catch {

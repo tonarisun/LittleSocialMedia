@@ -74,30 +74,37 @@ class LoginFormController: UIViewController {
     @IBAction func logIn(_ sender: Any) {
         if let email = LoginTextField.text,
             let password = PasswordTextField.text {
-            Auth.auth().signIn(withEmail: email, password: password, completion: nil)
-        } else {
-            let alert = UIAlertController(title: "Что-то не так", message: "Неверное имя пользователи или пароль", preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alert.addAction(action)
-            present(alert, animated: true, completion: nil)
+            Auth.auth().signIn(withEmail: email, password: password) { [weak self] user, error in
+                guard self != nil else { return }
+                if user != nil {
+                    print("---------- совершен вход ----------")
+                } else {
+                    let alert = UIAlertController(title: "Что-то пошло не так", message: "Проверьте email и пароль", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alert.addAction(action)
+                    self!.present(alert, animated: true, completion: nil)
+                }
+            }
         }
     }
     
     @IBAction func signUp(_ sender: Any) {
         guard let email = LoginTextField.text,
-              let password = PasswordTextField.text else { return }
-        
-        Auth.auth().createUser(withEmail: email, password: password) { user, error in
-            if let error = error {
-                print(error)
+            let password = PasswordTextField.text else { return }
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if authResult != nil {
+                print("---------- юзер создан, вход совершен ----------")
+                Auth.auth().signIn(withEmail: email, password: password, completion: nil)
             } else {
-                Auth.auth().signIn(withEmail: email, password: password)
+                let alert = UIAlertController(title: "Ошибка регистрации", message: "\(String(describing: error))", preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
             }
-
         }
     }
     
-    
+}
 //  Вход по нажатию на кнопку 'log in'
 //
 //    @IBAction func SingInButton(_ sender: Any) {
@@ -113,4 +120,4 @@ class LoginFormController: UIViewController {
 //            }
 //        }
 //    }
-}
+

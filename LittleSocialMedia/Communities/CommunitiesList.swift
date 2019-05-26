@@ -11,6 +11,7 @@ import Alamofire
 import AlamofireObjectMapper
 import ObjectMapper
 import RealmSwift
+import FirebaseFirestore
 
 class CommunitiesList: UITableViewController, UISearchBarDelegate {
     
@@ -19,6 +20,8 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchButton: UIButton!
     var allCommunities = [Community]()
     var myCommunityVC : MyCommunityController?
+    let db = Firestore.firestore()
+    var ref: DocumentReference? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,13 +62,23 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
                 catch {
                     print(error)
                 }
+                self.db.collection("communities").document("\(community.communityID)").setData([
+                    "communityName": "\(community.communityName)",
+                    "pictureURL": "\(community.pictureURL)"
+                ]) { err in
+                    if let err = err {
+                        print("Error writing document: \(err)")
+                    } else {
+                        print("Document successfully written!")
+                    }
+                }
             }
         }
         return cell
     }
 
     @IBAction func searchCommunity(_ sender: UIButton) { // Почему-то не работает поиск русских слов, хотя если запрос к ВК проверить, то результат есть. И ещё пока не ищет фразы с пробелами, только по одному слову или с + вместо пробела.
-        
+
         guard let searchText = self.communitySearchBar.text?.lowercased() else { return }
         Alamofire.request("https://api.vk.com/method/groups.search?q=\(searchText.lowercased())&type=group&count=50&access_token=\(currentSession.token)&v=5.95").responseObject {
             (response: DataResponse<CommunityResponse>) in

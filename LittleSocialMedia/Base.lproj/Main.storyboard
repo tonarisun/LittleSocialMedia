@@ -918,23 +918,6 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AUA-QN-AwG">
-                                <rect key="frame" x="0.0" y="315" width="375" height="37"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content=" GO ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="18" name="Avenir-Black"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="aaZ-O9-e9r"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E6e-R8-y2A" customClass="CircleIndicator" customModule="LittleSocialMedia" customModuleProvider="target">
                                 <rect key="frame" x="154.5" y="323.5" width="66" height="20"/>
                                 <subviews>
@@ -980,15 +963,10 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="E6e-R8-y2A" firstAttribute="centerY" secondItem="pmL-nU-5rH" secondAttribute="centerY" id="28K-jF-fxk"/>
-                            <constraint firstItem="E6e-R8-y2A" firstAttribute="centerX" secondItem="AUA-QN-AwG" secondAttribute="centerX" id="4zB-zf-uXd"/>
-                            <constraint firstItem="9lR-yT-VHR" firstAttribute="trailing" secondItem="AUA-QN-AwG" secondAttribute="trailing" id="NCf-H1-43x"/>
                             <constraint firstItem="1NV-0h-Ol6" firstAttribute="top" secondItem="9lR-yT-VHR" secondAttribute="top" id="Nkm-uU-JQ8"/>
                             <constraint firstItem="9lR-yT-VHR" firstAttribute="trailing" secondItem="1NV-0h-Ol6" secondAttribute="trailing" id="PRw-wi-4ZD"/>
-                            <constraint firstItem="AUA-QN-AwG" firstAttribute="centerY" secondItem="pmL-nU-5rH" secondAttribute="centerY" id="TLQ-an-OpL"/>
                             <constraint firstItem="9lR-yT-VHR" firstAttribute="bottom" secondItem="1NV-0h-Ol6" secondAttribute="bottom" id="aqm-aS-vXO"/>
-                            <constraint firstItem="E6e-R8-y2A" firstAttribute="centerY" secondItem="AUA-QN-AwG" secondAttribute="centerY" id="d7w-oG-H8D"/>
                             <constraint firstItem="1NV-0h-Ol6" firstAttribute="leading" secondItem="9lR-yT-VHR" secondAttribute="leading" id="lpf-D8-C4X"/>
-                            <constraint firstItem="AUA-QN-AwG" firstAttribute="centerX" secondItem="pmL-nU-5rH" secondAttribute="centerX" id="oSq-Me-e7Z"/>
                             <constraint firstItem="E6e-R8-y2A" firstAttribute="centerX" secondItem="pmL-nU-5rH" secondAttribute="centerX" id="wNx-Zl-NGp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9lR-yT-VHR"/>
@@ -996,8 +974,8 @@
                     <navigationItem key="navigationItem" id="46h-SI-6Kk"/>
                     <connections>
                         <outlet property="circleIndicator" destination="E6e-R8-y2A" id="4kx-dq-VCa"/>
-                        <outlet property="toNewsButton" destination="AUA-QN-AwG" id="sdd-6K-qeS"/>
                         <outlet property="vkWebView" destination="1NV-0h-Ol6" id="77V-Q9-dse"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toLoginController" id="ZZX-CE-LYr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcR-sW-cEj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1174,8 +1152,8 @@
                                                         <outlet property="subView" destination="Im1-3c-mn1" id="40p-KI-Lwc"/>
                                                     </connections>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27z-mF-Vz3">
-                                                    <rect key="frame" x="75" y="21" width="54" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27z-mF-Vz3">
+                                                    <rect key="frame" x="75" y="21" width="100" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="x74-tT-1fs"/>
                                                     </constraints>
@@ -1184,14 +1162,14 @@
                                                             <attributes>
                                                                 <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <font key="NSFont" size="18" name="PTMono-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APJ-C3-cwf">
-                                                    <rect key="frame" x="75" y="52" width="33" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APJ-C3-cwf">
+                                                    <rect key="frame" x="75" y="52" width="100" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="e9Y-Lw-md6"/>
                                                     </constraints>
@@ -1200,7 +1178,7 @@
                                                             <attributes>
                                                                 <color key="NSColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <font key="NSFont" size="15" name="PTMono-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -1309,11 +1287,13 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="tcx-YN-5zZ" secondAttribute="trailing" constant="45" id="01a-hg-dbg"/>
                                                 <constraint firstItem="9Tn-6w-yeI" firstAttribute="leading" secondItem="1zV-hI-2oG" secondAttribute="leading" constant="5" id="106-0R-pOg"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="APJ-C3-cwf" secondAttribute="trailing" constant="200" id="32q-3H-Kmx"/>
                                                 <constraint firstItem="s1k-1V-KCR" firstAttribute="leading" secondItem="1zV-hI-2oG" secondAttribute="leading" constant="5" id="3kp-v6-Jij"/>
                                                 <constraint firstItem="2va-x2-GG6" firstAttribute="leading" secondItem="tcx-YN-5zZ" secondAttribute="trailing" constant="5" id="4aH-yd-Wdd"/>
                                                 <constraint firstItem="tcx-YN-5zZ" firstAttribute="leading" secondItem="1zV-hI-2oG" secondAttribute="leading" constant="5" id="8wW-je-V9E"/>
                                                 <constraint firstAttribute="trailing" secondItem="9Tn-6w-yeI" secondAttribute="trailing" constant="5" id="AfW-50-BKo"/>
                                                 <constraint firstItem="tcx-YN-5zZ" firstAttribute="top" secondItem="s1k-1V-KCR" secondAttribute="bottom" constant="10" id="FRQ-rY-L1m"/>
+                                                <constraint firstItem="27z-mF-Vz3" firstAttribute="leading" secondItem="r01-ZQ-3Ic" secondAttribute="trailing" constant="15" id="FwD-6z-Ipz"/>
                                                 <constraint firstAttribute="trailing" secondItem="s1k-1V-KCR" secondAttribute="trailing" constant="5" id="IEk-mt-vWM"/>
                                                 <constraint firstItem="2va-x2-GG6" firstAttribute="top" secondItem="tcx-YN-5zZ" secondAttribute="top" id="Joz-hO-1ai"/>
                                                 <constraint firstItem="s1k-1V-KCR" firstAttribute="top" secondItem="9Tn-6w-yeI" secondAttribute="bottom" constant="5" id="N3r-PV-SDj"/>
@@ -1322,11 +1302,10 @@
                                                 <constraint firstItem="r01-ZQ-3Ic" firstAttribute="leading" secondItem="1zV-hI-2oG" secondAttribute="leading" constant="10" id="Vv4-Bp-Nz1"/>
                                                 <constraint firstAttribute="trailing" secondItem="2va-x2-GG6" secondAttribute="trailing" constant="5" id="e37-a0-N8c"/>
                                                 <constraint firstItem="27z-mF-Vz3" firstAttribute="top" secondItem="r01-ZQ-3Ic" secondAttribute="top" id="fc3-2y-OYv"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="27z-mF-Vz3" secondAttribute="trailing" constant="200" id="nIy-Ac-QBY"/>
                                                 <constraint firstItem="r01-ZQ-3Ic" firstAttribute="top" secondItem="1zV-hI-2oG" secondAttribute="topMargin" constant="10" id="nmn-rX-6wB"/>
                                                 <constraint firstItem="9Tn-6w-yeI" firstAttribute="top" secondItem="r01-ZQ-3Ic" secondAttribute="bottom" constant="15" id="rOg-Ie-pDO"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="27z-mF-Vz3" secondAttribute="trailing" constant="20" symbolic="YES" id="ru4-R5-vLm"/>
                                                 <constraint firstAttribute="bottom" secondItem="tcx-YN-5zZ" secondAttribute="bottom" constant="11.5" id="t7T-T7-AWy"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="APJ-C3-cwf" secondAttribute="trailing" constant="20" symbolic="YES" id="uAr-xH-X1d"/>
                                                 <constraint firstItem="2va-x2-GG6" firstAttribute="height" secondItem="tcx-YN-5zZ" secondAttribute="height" id="vvN-MF-oWl"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1451,6 +1430,6 @@
         <image name="plant (1)" width="240" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tJf-Ce-HkH"/>
+        <segue reference="ZZX-CE-LYr"/>
     </inferredMetricsTieBreakers>
 </document>

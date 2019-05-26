@@ -26,7 +26,7 @@ class VKRequest {
     
     func saveUserInRLM(_ currentUser: User) {
         do {
-            let realm = try! Realm()
+            let realm = try Realm()
             realm.beginWrite()
             realm.add(currentUser)
             try realm.commitWrite()

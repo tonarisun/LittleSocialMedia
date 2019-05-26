@@ -7,6 +7,31 @@
 //
 
 import UIKit
+import Foundation
+import ObjectMapper
+import RealmSwift
+
+//class NewsPost: Object, Mappable{
+//
+//    @objc dynamic var author : Community?
+//    @objc dynamic var time : Date?
+//    @objc dynamic var contentURL = ""
+//    @objc dynamic var likesCount = 0
+//    @objc dynamic var sharesCount = 0
+//
+//
+//    required convenience init?(map: Map) {
+//        self.init()
+//    }
+//
+//    func mapping(map: Map) {
+//        <#code#>
+//    }
+//
+//
+//
+//
+//}
 
 class NewPost {
     
@@ -44,10 +69,10 @@ func getTodayString() -> String {
     return today_string
 }
 
-var post1 = NewPost(authorName: "Squidward Tentacles", authorPic: #imageLiteral(resourceName: "SquidwardTentacles"), currentTime : getTodayString(), content : #imageLiteral(resourceName: "SquidwardTentacles"), likeCount: 8, shareCount: 3)
+var post1 = NewPost(authorName: "Missis Puff", authorPic: #imageLiteral(resourceName: "Puff"), currentTime : getTodayString(), content: #imageLiteral(resourceName: "bud"), likeCount: 9, shareCount: 1)
 var post2 = NewPost(authorName: "Karen", authorPic: #imageLiteral(resourceName: "Karen"), currentTime: getTodayString(), content: #imageLiteral(resourceName: "Plankton"), likeCount: 3, shareCount: 1)
 var post3 = NewPost(authorName: "Patrick Star", authorPic: #imageLiteral(resourceName: "PatrickStar"), currentTime : getTodayString(), content : #imageLiteral(resourceName: "Bob Patrick Squidward small"), likeCount: 6, shareCount: 2)
-var post4 = NewPost(authorName: "Missis Puff", authorPic: #imageLiteral(resourceName: "Puff"), currentTime : getTodayString(), content: #imageLiteral(resourceName: "bud"), likeCount: 9, shareCount: 1)
+var post4 = NewPost(authorName: "Squidward Tentacles", authorPic: #imageLiteral(resourceName: "SquidwardTentacles"), currentTime : getTodayString(), content : #imageLiteral(resourceName: "SquidwardTentacles"), likeCount: 8, shareCount: 3)
 var post5 = NewPost(authorName: "Mister Krubs", authorPic: #imageLiteral(resourceName: "MrKrabs"), currentTime : getTodayString(), content: #imageLiteral(resourceName: "Pearl Krabs"), likeCount: 12, shareCount: 0)
 var post6 = NewPost(authorName: "Cosmo Cat", authorPic: #imageLiteral(resourceName: "cat"), currentTime : getTodayString(), content: #imageLiteral(resourceName: "picture"), likeCount: 1, shareCount: 1)
 var post7 = NewPost(authorName: "Little Plant", authorPic: #imageLiteral(resourceName: "flower-pot"), currentTime : getTodayString(), content: #imageLiteral(resourceName: "plant"), likeCount: 7, shareCount: 0)
