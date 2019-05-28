@@ -35,6 +35,16 @@ class VKRequest {
         }
     }
     
+    func loadNews(completion: @escaping ([NewsPost], [NewsAuthor]) -> Void) {
+        Alamofire.request("https://api.vk.com/method/newsfeed.get?&filters=post&source_ids=groups&count=60&access_token=\(currentSession.token)&v=5.95").responseObject {
+            (response: DataResponse<NewsResponse>) in
+            let newsResponse = response.result.value
+            guard let newsList = newsResponse?.responseNews else { return }
+            guard let authorsList = newsResponse?.responseAuthors else { return }
+            completion(newsList, authorsList)
+        }
+    }
+    
     func loadFriends(completion: @escaping ([Friend]) -> Void) {
         Alamofire.request("https://api.vk.com/method/friends.get?user_id=\(currentSession.userID)&fields=nickname,photo_50&access_token=\(currentSession.token)&v=5.95").responseObject {
             (response: DataResponse<FriendResponse>) in

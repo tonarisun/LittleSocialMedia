@@ -37,8 +37,7 @@ class FriendFotoCell: UICollectionViewCell {
     }
     
     @objc func likeTapTap(recognizer: UITapGestureRecognizer){
-//        likeSharecontrolView.likeTap(recognizer: recognizer)
-        if likeSharecontrolView.likeImage.image == UIImage(named: "like") {
+        if likeSharecontrolView.likeImage.image == UIImage(named: "dislike") {
             likeSharecontrolView.likeCount += 1
             likeSharecontrolView.like()
         } else {

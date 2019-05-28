@@ -1184,12 +1184,20 @@
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Tn-6w-yeI">
-                                                    <rect key="frame" x="5" y="86" width="365" height="365"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcy-Fb-8ZE">
+                                                    <rect key="frame" x="15" y="85" width="345" height="356"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="9Tn-6w-yeI" secondAttribute="height" multiplier="1:1" id="04M-rG-iYJ"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="APB-gS-NZh"/>
                                                     </constraints>
-                                                </imageView>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Label">
+                                                            <attributes>
+                                                                <font key="NSFont" size="17" name="PTMono-Regular"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s1k-1V-KCR" customClass="LikeShareControl" customModule="LittleSocialMedia" customModuleProvider="target">
                                                     <rect key="frame" x="5" y="456" width="365" height="30"/>
                                                     <subviews>
@@ -1286,26 +1294,26 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="tcx-YN-5zZ" secondAttribute="trailing" constant="45" id="01a-hg-dbg"/>
-                                                <constraint firstItem="9Tn-6w-yeI" firstAttribute="leading" secondItem="1zV-hI-2oG" secondAttribute="leading" constant="5" id="106-0R-pOg"/>
                                                 <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="APJ-C3-cwf" secondAttribute="trailing" constant="200" id="32q-3H-Kmx"/>
                                                 <constraint firstItem="s1k-1V-KCR" firstAttribute="leading" secondItem="1zV-hI-2oG" secondAttribute="leading" constant="5" id="3kp-v6-Jij"/>
+                                                <constraint firstItem="rcy-Fb-8ZE" firstAttribute="leading" secondItem="1zV-hI-2oG" secondAttribute="leading" constant="15" id="4S6-25-X3t"/>
                                                 <constraint firstItem="2va-x2-GG6" firstAttribute="leading" secondItem="tcx-YN-5zZ" secondAttribute="trailing" constant="5" id="4aH-yd-Wdd"/>
                                                 <constraint firstItem="tcx-YN-5zZ" firstAttribute="leading" secondItem="1zV-hI-2oG" secondAttribute="leading" constant="5" id="8wW-je-V9E"/>
-                                                <constraint firstAttribute="trailing" secondItem="9Tn-6w-yeI" secondAttribute="trailing" constant="5" id="AfW-50-BKo"/>
                                                 <constraint firstItem="tcx-YN-5zZ" firstAttribute="top" secondItem="s1k-1V-KCR" secondAttribute="bottom" constant="10" id="FRQ-rY-L1m"/>
+                                                <constraint firstItem="rcy-Fb-8ZE" firstAttribute="top" secondItem="APJ-C3-cwf" secondAttribute="bottom" constant="15" id="Fg3-jY-UY3"/>
                                                 <constraint firstItem="27z-mF-Vz3" firstAttribute="leading" secondItem="r01-ZQ-3Ic" secondAttribute="trailing" constant="15" id="FwD-6z-Ipz"/>
                                                 <constraint firstAttribute="trailing" secondItem="s1k-1V-KCR" secondAttribute="trailing" constant="5" id="IEk-mt-vWM"/>
                                                 <constraint firstItem="2va-x2-GG6" firstAttribute="top" secondItem="tcx-YN-5zZ" secondAttribute="top" id="Joz-hO-1ai"/>
-                                                <constraint firstItem="s1k-1V-KCR" firstAttribute="top" secondItem="9Tn-6w-yeI" secondAttribute="bottom" constant="5" id="N3r-PV-SDj"/>
                                                 <constraint firstItem="APJ-C3-cwf" firstAttribute="leading" secondItem="27z-mF-Vz3" secondAttribute="leading" id="Obi-6g-f4W"/>
                                                 <constraint firstItem="APJ-C3-cwf" firstAttribute="top" secondItem="27z-mF-Vz3" secondAttribute="bottom" constant="10" id="VJj-Qa-ZNU"/>
                                                 <constraint firstItem="r01-ZQ-3Ic" firstAttribute="leading" secondItem="1zV-hI-2oG" secondAttribute="leading" constant="10" id="Vv4-Bp-Nz1"/>
                                                 <constraint firstAttribute="trailing" secondItem="2va-x2-GG6" secondAttribute="trailing" constant="5" id="e37-a0-N8c"/>
+                                                <constraint firstItem="s1k-1V-KCR" firstAttribute="top" secondItem="rcy-Fb-8ZE" secondAttribute="bottom" constant="15" id="ePD-Ql-hon"/>
                                                 <constraint firstItem="27z-mF-Vz3" firstAttribute="top" secondItem="r01-ZQ-3Ic" secondAttribute="top" id="fc3-2y-OYv"/>
                                                 <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="27z-mF-Vz3" secondAttribute="trailing" constant="200" id="nIy-Ac-QBY"/>
                                                 <constraint firstItem="r01-ZQ-3Ic" firstAttribute="top" secondItem="1zV-hI-2oG" secondAttribute="topMargin" constant="10" id="nmn-rX-6wB"/>
-                                                <constraint firstItem="9Tn-6w-yeI" firstAttribute="top" secondItem="r01-ZQ-3Ic" secondAttribute="bottom" constant="15" id="rOg-Ie-pDO"/>
                                                 <constraint firstAttribute="bottom" secondItem="tcx-YN-5zZ" secondAttribute="bottom" constant="11.5" id="t7T-T7-AWy"/>
+                                                <constraint firstAttribute="trailing" secondItem="rcy-Fb-8ZE" secondAttribute="trailing" constant="15" id="vH0-if-0P9"/>
                                                 <constraint firstItem="2va-x2-GG6" firstAttribute="height" secondItem="tcx-YN-5zZ" secondAttribute="height" id="vvN-MF-oWl"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1314,7 +1322,7 @@
                                             <outlet property="authorLabel" destination="27z-mF-Vz3" id="nFi-4l-d7Z"/>
                                             <outlet property="avatarView" destination="r01-ZQ-3Ic" id="QXC-ub-IDi"/>
                                             <outlet property="commentTextField" destination="tcx-YN-5zZ" id="nar-av-lfT"/>
-                                            <outlet property="contentImageView" destination="9Tn-6w-yeI" id="1h3-fh-GU4"/>
+                                            <outlet property="contentLabel" destination="rcy-Fb-8ZE" id="07Z-mh-PRz"/>
                                             <outlet property="likeShareControlView" destination="s1k-1V-KCR" id="a90-W0-f6K"/>
                                             <outlet property="sendCommentButton" destination="2va-x2-GG6" id="enq-GR-Gbl"/>
                                             <outlet property="timeLabel" destination="APJ-C3-cwf" id="uuC-cM-kNP"/>
@@ -1416,7 +1424,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="345-Jl-dkI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1713" y="-233"/>
+            <point key="canvasLocation" x="1712.8" y="-233.43328335832086"/>
         </scene>
     </scenes>
     <resources>
@@ -1430,6 +1438,6 @@
         <image name="plant (1)" width="240" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZZX-CE-LYr"/>
+        <segue reference="tJf-Ce-HkH"/>
     </inferredMetricsTieBreakers>
 </document>

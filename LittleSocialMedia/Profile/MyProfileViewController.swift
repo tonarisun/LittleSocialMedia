@@ -22,6 +22,8 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var newsTableView: UITableView!
     var users: Results<User>?
+    var newsList = [NewsPost]()
+    var authorsList = [NewsAuthor]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,19 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
         
         
         let vkRequest = VKRequest()
+        
+        vkRequest.loadNews { [weak self] newsList, authorsList in
+            self?.newsList = newsList
+            self?.authorsList = authorsList
+            for new in newsList {
+                for author in authorsList {
+                    if author.id == -new.sourceID {
+                        new.author = author
+                    }
+                }
+            }
+            self?.newsTableView.reloadData()
+        }
         
         vkRequest.loadCommunities { myComm in
             vkRequest.saveCommunitiesInRLM(myComm)
@@ -87,7 +102,6 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsList.count
     }
@@ -95,38 +109,69 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
         let newPost = newsList[indexPath.row]
-        cell.authorLabel.text = newPost.authorName
-        cell.timeLabel.text = newPost.currentTime
-        cell.avatarView.photoView.image = newPost.authorPic
-        cell.contentImageView.image = newPost.content
-        cell.likeShareControlView.likeImage.image = UIImage(named: "like")
-        cell.likeShareControlView.likeCountLabel.text = "\(newPost.likeCount)"
-        cell.likeShareControlView.shareImage.image = UIImage(named: "share")
-        cell.likeShareControlView.shareCountLabel.text = "\(newPost.shareCount)"
-        cell.likeShareControlView.onTapLike = {
-            if cell.likeShareControlView.likeImage.image == UIImage(named: "like") {
-                newPost.likeCount += 1
-                cell.likeShareControlView.likeCount = newPost.likeCount
-                cell.likeShareControlView.likeImage.image = UIImage(named: "like-2")
-                cell.likeShareControlView.like()
-            } else {
-                newPost.likeCount -= 1
-                cell.likeShareControlView.likeCount = newPost.likeCount
-                cell.likeShareControlView.likeImage.image = UIImage(named: "like")
-                cell.likeShareControlView.dislike()
-            }
+        cell.authorLabel.text = newPost.author?.authorName
+        cell.timeLabel.text = getTimeFromUNIXTime(date: newPost.time)
+        cell.avatarView.photoView.downloaded(from: newPost.author!.authorPicURL)
+        cell.contentLabel.text = newPost.content
+        if newPost.didLike == 0 {
+            cell.likeShareControlView.likeImage.image = UIImage(named: "dislike")
+        } else {
+            cell.likeShareControlView.likeImage.image = UIImage(named: "like")
+            cell.likeShareControlView.likeCountLabel.textColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
         }
+        cell.likeShareControlView.likeCountLabel.text = "\(newPost.likesCount)"
+        if newPost.didShare == 0 {
+            cell.likeShareControlView.shareImage.image = UIImage(named: "unshare")
+        } else {
+            cell.likeShareControlView.shareImage.image = UIImage(named: "share")
+            cell.likeShareControlView.shareCountLabel.textColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
+        }
+        cell.likeShareControlView.shareCountLabel.text = "\(newPost.sharesCount)"
+        cell.likeShareControlView.onTapLike = {
+            self.likeOnNewsPost(cell: cell, newPost: newPost)
+            self.shareOnNewsPost(cell: cell, newPost: newPost)
+        }
+        return cell
+    }
+    
+    func likeOnNewsPost(cell: NewsCell, newPost: NewsPost) {
+        if cell.likeShareControlView.likeImage.image == UIImage(named: "dislike") {
+            newPost.likesCount += 1
+            newPost.didLike = 1
+            cell.likeShareControlView.likeCount = newPost.likesCount
+            cell.likeShareControlView.likeImage.image = UIImage(named: "like")
+            cell.likeShareControlView.like()
+        } else {
+            newPost.likesCount -= 1
+            newPost.didLike = 0
+            cell.likeShareControlView.likeCount = newPost.likesCount
+            cell.likeShareControlView.likeImage.image = UIImage(named: "dislike")
+            cell.likeShareControlView.dislike()
+        }
+    }
+    
+    func shareOnNewsPost(cell: NewsCell, newPost: NewsPost) {
         cell.likeShareControlView.onTapShare = {
-            if cell.likeShareControlView.shareImage.image == UIImage(named: "share") {
-                newPost.shareCount += 1
-                cell.likeShareControlView.shareCount = newPost.shareCount
+            if cell.likeShareControlView.shareImage.image == UIImage(named: "unshare") {
+                newPost.sharesCount += 1
+                newPost.didShare = 1
+                cell.likeShareControlView.shareCount = newPost.sharesCount
                 cell.likeShareControlView.share()
             } else {
-                newPost.shareCount -= 1
-                cell.likeShareControlView.shareCount = newPost.shareCount
+                newPost.sharesCount -= 1
+                newPost.didShare = 0
+                cell.likeShareControlView.shareCount = newPost.sharesCount
                 cell.likeShareControlView.unshare()
             }
         }
-        return cell
+    }
+    
+    func getTimeFromUNIXTime(date: Double) -> String {
+        let date = Date(timeIntervalSince1970: date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+        dateFormatter.locale = NSLocale.current
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        return dateFormatter.string(from: date)
     }
 }

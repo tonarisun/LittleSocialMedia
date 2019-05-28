@@ -66,7 +66,7 @@ class AnimatedFotoViewController: UIViewController {
         likeShareControlView.likeCountLabel.text = String(likeCount)
         likeShareControlView.shareCountLabel.text = String(shareCount)
         likeShareControlView.onTapLike = {
-            if self.likeShareControlView.likeImage.image == UIImage(named: "like") {
+            if self.likeShareControlView.likeImage.image == UIImage(named: "dislike") {
                 self.likeShareControlView.likeCount += 1
                 self.likeShareControlView.like()
             } else {
@@ -75,7 +75,7 @@ class AnimatedFotoViewController: UIViewController {
             }
         }
         likeShareControlView.onTapShare = {
-            if self.likeShareControlView.shareImage.image == UIImage(named: "share") {
+            if self.likeShareControlView.shareImage.image == UIImage(named: "unshare") {
                 self.likeShareControlView.shareCount += 1
                 self.likeShareControlView.share()
             } else {
