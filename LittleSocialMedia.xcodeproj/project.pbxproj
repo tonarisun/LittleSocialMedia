@@ -66,6 +66,7 @@
 		B587BFC72170BAC75C950C08 /* Pods-LittleSocialMedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleSocialMedia.debug.xcconfig"; path = "Target Support Files/Pods-LittleSocialMedia/Pods-LittleSocialMedia.debug.xcconfig"; sourceTree = "<group>"; };
 		BE19E14A25B4D749F3848477 /* Pods-LittleSocialMedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleSocialMedia.release.xcconfig"; path = "Target Support Files/Pods-LittleSocialMedia/Pods-LittleSocialMedia.release.xcconfig"; sourceTree = "<group>"; };
 		CD71C02A2F80A6D49E7918CF /* Pods_LittleSocialMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LittleSocialMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+
 		D603BE9322659BFF000F3F7B /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		D603D4FF2270200B00BCF4A0 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D60D97D52245D1D9005F345A /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 			files = (
 				D6A341472276BD5000777AC5 /* WebKit.framework in Frameworks */,
 				FD3A1C434E6CD05D1444C7D1 /* Pods_LittleSocialMedia.framework in Frameworks */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +141,7 @@
 			children = (
 				D6A341462276BD4F00777AC5 /* WebKit.framework */,
 				CD71C02A2F80A6D49E7918CF /* Pods_LittleSocialMedia.framework */,
+
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -244,7 +247,7 @@
 			children = (
 				D6A3414A2276D78C00777AC5 /* VKLoginController.swift */,
 				D61765622226972D003E39D9 /* LoginFormController.swift */,
-				D603D4FF2270200B00BCF4A0 /* Session.swift */,
+        D603D4FF2270200B00BCF4A0 /* Session.swift */,
 			);
 			path = LogIn;
 			sourceTree = "<group>";

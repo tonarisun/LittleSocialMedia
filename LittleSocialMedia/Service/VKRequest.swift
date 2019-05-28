@@ -19,7 +19,6 @@ class VKRequest {
             (response: DataResponse<UserResponse>) in
             let userResponse = response.result.value
             guard let user = userResponse?.response[0] else { return }
-            
             completion(user)
         }
     }

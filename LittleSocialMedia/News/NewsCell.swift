@@ -44,5 +44,4 @@ class NewsCell: UITableViewCell {
         likeShareControlView.shareCountLabel.textColor = .black
         likeShareControlView.shareImage.image = nil
     }
-
 }

@@ -15,6 +15,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginFormController" customModule="LittleSocialMedia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="GradientView" customModule="LittleSocialMedia" customModuleProvider="target">
+
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -26,6 +27,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYu-63-zm9">
                                                 <rect key="frame" x="137" y="94.5" width="101" height="28"/>
+
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="CnT-Az-w12"/>
                                                 </constraints>
@@ -82,7 +84,6 @@
                                                 <rect key="frame" x="150" y="418.5" width="75" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="SMm-Yw-lpG"/>
-                                                </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
                                                 <state key="normal">
@@ -90,6 +91,7 @@
                                                         <fragment content="sign up">
                                                             <attributes>
                                                                 <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+
                                                                 <font key="NSFont" size="22" name="Avenir-Heavy"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
@@ -101,6 +103,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="amb-K3-0zE" userLabel="PlantView">
+
                                                 <rect key="frame" x="0.0" y="542" width="375" height="125"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bud" translatesAutoresizingMaskIntoConstraints="NO" id="kot-Oe-AE6">
@@ -200,6 +203,7 @@
                                             <constraint firstAttribute="bottom" secondItem="amb-K3-0zE" secondAttribute="bottom" id="rYy-4G-2gD"/>
                                             <constraint firstItem="EYu-63-zm9" firstAttribute="centerX" secondItem="Ucw-yu-BY6" secondAttribute="centerX" id="wGJ-gX-uLo"/>
                                             <constraint firstItem="hdG-Rg-YP5" firstAttribute="top" secondItem="XDo-8p-nbL" secondAttribute="bottom" constant="20" id="z8i-Bg-sD7"/>
+
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -278,6 +282,7 @@
         <scene sceneID="Na5-P3-BMs">
             <objects>
                 <tableViewController id="zDi-kc-Pts" customClass="MyCommunityController" customModule="LittleSocialMedia" customModuleProvider="target" sceneMemberID="viewController">
+
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Nhb-T7-QgE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -292,6 +297,7 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCommCell" id="Z5L-2r-DVb" customClass="MyCommunityCell" customModule="LittleSocialMedia" customModuleProvider="target">
+
                                 <rect key="frame" x="0.0" y="72" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z5L-2r-DVb" id="OdQ-TX-MGD">
@@ -384,6 +390,7 @@
         <scene sceneID="ncd-Ln-uK9">
             <objects>
                 <tableViewController id="p45-10-jLN" customClass="CommunitiesList" customModule="LittleSocialMedia" customModuleProvider="target" sceneMemberID="viewController">
+
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="28" id="IyQ-XO-CXn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -422,6 +429,7 @@
                         </stackView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CommunityCell" id="oGF-HI-v6u" customClass="CommunityCell" customModule="LittleSocialMedia" customModuleProvider="target">
+
                                 <rect key="frame" x="0.0" y="72" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oGF-HI-v6u" id="hOr-MM-L8f">
@@ -465,6 +473,7 @@
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="32h-mV-BF7" customClass="Avatar" customModule="LittleSocialMedia" customModuleProvider="target">
+
                                             <rect key="frame" x="5" y="5" width="50" height="50"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7r-dj-upP">
@@ -557,6 +566,7 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendNameCell" id="tES-vf-3wu" customClass="FriendNameCell" customModule="LittleSocialMedia" customModuleProvider="target">
+
                                 <rect key="frame" x="0.0" y="69" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tES-vf-3wu" id="VHq-dl-Cwi">
@@ -637,6 +647,7 @@
             <objects>
                 <viewController title="My pictures" id="PVR-mY-Sr5" customClass="AnimatedFotoViewController" customModule="LittleSocialMedia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" id="7aE-3b-Lpy" customClass="GradientView" customModule="LittleSocialMedia" customModuleProvider="target">
+
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -723,6 +734,7 @@
                                     <constraint firstItem="BJc-Qu-zok" firstAttribute="leading" secondItem="3I0-pE-w2m" secondAttribute="trailing" constant="10" id="VNe-aB-Go8"/>
                                     <constraint firstItem="JA3-gX-ecY" firstAttribute="centerX" secondItem="nZ9-hr-xoR" secondAttribute="centerX" id="Z1G-x2-iMc"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="leZ-nh-164" secondAttribute="trailing" constant="20" symbolic="YES" id="aPq-c1-oOq"/>
+
                                     <constraint firstItem="3I0-pE-w2m" firstAttribute="leading" secondItem="nZ9-hr-xoR" secondAttribute="leading" constant="10" id="ctL-4t-gBl"/>
                                     <constraint firstItem="JA3-gX-ecY" firstAttribute="centerY" secondItem="nZ9-hr-xoR" secondAttribute="centerY" id="f2K-Cj-EVB"/>
                                     <constraint firstItem="BJc-Qu-zok" firstAttribute="centerY" secondItem="nZ9-hr-xoR" secondAttribute="centerY" id="f3x-mt-jVP"/>
@@ -731,6 +743,7 @@
                                     <constraint firstItem="leZ-nh-164" firstAttribute="centerY" secondItem="nZ9-hr-xoR" secondAttribute="centerY" id="qIJ-YW-Tbc"/>
                                     <constraint firstItem="JA3-gX-ecY" firstAttribute="centerX" secondItem="nZ9-hr-xoR" secondAttribute="centerX" id="tr2-2b-Idd"/>
                                     <constraint firstItem="JA3-gX-ecY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BJc-Qu-zok" secondAttribute="trailing" constant="8" symbolic="YES" id="z5n-wZ-GQ0"/>
+
                                 </constraints>
                                 <connections>
                                     <outlet property="likeCountLabel" destination="BJc-Qu-zok" id="iQ1-J0-J5w"/>
@@ -787,6 +800,7 @@
         <scene sceneID="VNs-bl-YNr">
             <objects>
                 <collectionViewController id="59o-PR-nKo" customClass="FriendFotoController" customModule="LittleSocialMedia" customModuleProvider="target" sceneMemberID="viewController">
+
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="qsE-y1-701">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -799,6 +813,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="fotoCell" id="NPe-dM-5Pg" customClass="FriendFotoCell" customModule="LittleSocialMedia" customModuleProvider="target">
+
                                 <rect key="frame" x="28.5" y="0.0" width="318" height="362"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -812,6 +827,7 @@
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHF-nb-ov4" customClass="LikeShareControl" customModule="LittleSocialMedia" customModuleProvider="target">
+
                                             <rect key="frame" x="0.0" y="328" width="318" height="30"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V9e-o7-QQo">
@@ -863,6 +879,7 @@
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wRZ-1i-kOa" secondAttribute="trailing" constant="20" symbolic="YES" id="NWJ-7x-lEf"/>
                                                 <constraint firstItem="jNj-Bm-m3S" firstAttribute="leading" secondItem="V9e-o7-QQo" secondAttribute="trailing" constant="10" id="WEm-KF-4Is"/>
                                                 <constraint firstItem="6zn-XL-JPJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jNj-Bm-m3S" secondAttribute="trailing" constant="8" symbolic="YES" id="bEg-mB-VUP"/>
+
                                                 <constraint firstAttribute="height" constant="30" id="dPg-LD-WrJ"/>
                                                 <constraint firstItem="6zn-XL-JPJ" firstAttribute="centerY" secondItem="dHF-nb-ov4" secondAttribute="centerY" id="faV-T6-8F5"/>
                                                 <constraint firstItem="wRZ-1i-kOa" firstAttribute="centerY" secondItem="dHF-nb-ov4" secondAttribute="centerY" id="gIn-JR-lsk"/>
@@ -900,11 +917,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0HV-ef-WvB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3050" y="-233"/>
+
         </scene>
         <!--VK Login Controller-->
         <scene sceneID="CXe-rN-kCB">
             <objects>
                 <viewController id="vhW-fc-MNF" userLabel="VK Login Controller" customClass="VKLoginController" customModule="LittleSocialMedia" customModuleProvider="target" sceneMemberID="viewController">
+
                     <view key="view" contentMode="scaleToFill" id="pmL-nU-5rH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -919,6 +938,7 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E6e-R8-y2A" customClass="CircleIndicator" customModule="LittleSocialMedia" customModuleProvider="target">
+
                                 <rect key="frame" x="154.5" y="323.5" width="66" height="20"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="hcd-dk-ZKq">
@@ -967,6 +987,7 @@
                             <constraint firstItem="9lR-yT-VHR" firstAttribute="trailing" secondItem="1NV-0h-Ol6" secondAttribute="trailing" id="PRw-wi-4ZD"/>
                             <constraint firstItem="9lR-yT-VHR" firstAttribute="bottom" secondItem="1NV-0h-Ol6" secondAttribute="bottom" id="aqm-aS-vXO"/>
                             <constraint firstItem="1NV-0h-Ol6" firstAttribute="leading" secondItem="9lR-yT-VHR" secondAttribute="leading" id="lpf-D8-C4X"/>
+
                             <constraint firstItem="E6e-R8-y2A" firstAttribute="centerX" secondItem="pmL-nU-5rH" secondAttribute="centerX" id="wNx-Zl-NGp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9lR-yT-VHR"/>
@@ -1007,6 +1028,7 @@
         <scene sceneID="n4J-CN-DNn">
             <objects>
                 <viewController id="vR8-ma-vD7" customClass="MyProfileViewController" customModule="LittleSocialMedia" customModuleProvider="target" sceneMemberID="viewController">
+
                     <view key="view" contentMode="scaleToFill" id="n1v-Fg-O65">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1120,11 +1142,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r01-ZQ-3Ic" userLabel="Avatar View" customClass="Avatar" customModule="LittleSocialMedia" customModuleProvider="target">
+
                                                     <rect key="frame" x="10" y="21" width="50" height="50"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Im1-3c-mn1">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="FHh-Ta-zrT"/>
                                                                 <constraint firstAttribute="height" constant="50" id="X6G-ct-ctu"/>
@@ -1146,6 +1170,7 @@
                                                         <constraint firstItem="Im1-3c-mn1" firstAttribute="top" secondItem="r01-ZQ-3Ic" secondAttribute="top" id="ZX4-0L-tgd"/>
                                                         <constraint firstItem="Im1-3c-mn1" firstAttribute="leading" secondItem="r01-ZQ-3Ic" secondAttribute="leading" id="koX-8g-xxf"/>
                                                         <constraint firstAttribute="width" constant="50" id="zOQ-1H-41E"/>
+
                                                     </constraints>
                                                     <connections>
                                                         <outlet property="photoView" destination="oMg-MH-d7k" id="Nhr-FO-X2A"/>
@@ -1163,6 +1188,7 @@
                                                                 <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <font key="NSFont" size="18" name="PTMono-Regular"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -1179,6 +1205,7 @@
                                                                 <color key="NSColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <font key="NSFont" size="15" name="PTMono-Regular"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -1200,6 +1227,7 @@
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s1k-1V-KCR" customClass="LikeShareControl" customModule="LittleSocialMedia" customModuleProvider="target">
                                                     <rect key="frame" x="5" y="749" width="365" height="30"/>
+
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zs8-1N-pHd">
                                                             <rect key="frame" x="10" y="5" width="20" height="20"/>
@@ -1249,6 +1277,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="z8U-Q3-M5p" secondAttribute="trailing" constant="20" symbolic="YES" id="1a7-7S-L22"/>
                                                         <constraint firstItem="hdt-WW-pPe" firstAttribute="centerX" secondItem="s1k-1V-KCR" secondAttribute="centerX" id="1eZ-Ym-Tma"/>
+
                                                         <constraint firstItem="z8U-Q3-M5p" firstAttribute="leading" secondItem="hdt-WW-pPe" secondAttribute="trailing" constant="10" id="7Zf-L3-2cL"/>
                                                         <constraint firstItem="Zs8-1N-pHd" firstAttribute="leading" secondItem="s1k-1V-KCR" secondAttribute="leading" constant="10" id="Ey7-xH-WCu"/>
                                                         <constraint firstItem="Zs8-1N-pHd" firstAttribute="centerY" secondItem="s1k-1V-KCR" secondAttribute="centerY" id="FVh-1p-YOm"/>
@@ -1259,6 +1288,7 @@
                                                         <constraint firstItem="91p-AJ-n26" firstAttribute="leading" secondItem="Zs8-1N-pHd" secondAttribute="trailing" constant="10" id="aUT-Tn-anq"/>
                                                         <constraint firstAttribute="height" constant="30" id="gqR-xk-sBT"/>
                                                         <constraint firstItem="hdt-WW-pPe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="91p-AJ-n26" secondAttribute="trailing" constant="8" symbolic="YES" id="x9G-X5-8RH"/>
+
                                                     </constraints>
                                                     <connections>
                                                         <outlet property="likeCountLabel" destination="91p-AJ-n26" id="OYx-UM-rC6"/>
@@ -1269,6 +1299,7 @@
                                                 </view>
                                                 <textField contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="comment" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tcx-YN-5zZ">
                                                     <rect key="frame" x="5" y="789" width="325" height="30"/>
+
                                                     <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -1279,6 +1310,7 @@
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2va-x2-GG6">
                                                     <rect key="frame" x="335" y="789" width="35" height="30"/>
+
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal">
                                                         <attributedString key="attributedTitle">
@@ -1323,6 +1355,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="aUf-83-wcw" secondAttribute="trailing" constant="10" id="oLJ-1H-J1g"/>
                                                 <constraint firstAttribute="bottom" secondItem="tcx-YN-5zZ" secondAttribute="bottom" constant="11.5" id="t7T-T7-AWy"/>
                                                 <constraint firstAttribute="trailing" secondItem="rcy-Fb-8ZE" secondAttribute="trailing" constant="15" id="vH0-if-0P9"/>
+
                                                 <constraint firstItem="2va-x2-GG6" firstAttribute="height" secondItem="tcx-YN-5zZ" secondAttribute="height" id="vvN-MF-oWl"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1348,6 +1381,7 @@
                                 <rect key="frame" x="0.0" y="602" width="375" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GHd-15-KYG" userLabel="friendsButton" customClass="MyProfileButton" customModule="LittleSocialMedia" customModuleProvider="target">
+
                                         <rect key="frame" x="5" y="0.0" width="100" height="60"/>
                                         <color key="backgroundColor" red="0.7500150203704834" green="0.94396960735321045" blue="0.86504989862442017" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1361,6 +1395,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBC-45-eDv" userLabel="myPicButton" customClass="MyProfileButton" customModule="LittleSocialMedia" customModuleProvider="target">
+
                                         <rect key="frame" x="137.5" y="0.0" width="100" height="60"/>
                                         <color key="backgroundColor" red="0.7500150203704834" green="0.94396960735321045" blue="0.86504989862442017" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1372,6 +1407,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XT0-0o-vWC" userLabel="myCommunityButton" customClass="MyProfileButton" customModule="LittleSocialMedia" customModuleProvider="target">
+
                                         <rect key="frame" x="270" y="0.0" width="100" height="60"/>
                                         <color key="backgroundColor" red="0.7500150203704834" green="0.94396960735321045" blue="0.86504989862442017" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>

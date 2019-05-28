@@ -36,6 +36,7 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
         do {
             let realm = try Realm()
             self.myCommunities = realm.objects(Community.self).sorted(byKeyPath: "communityID")
+
             self.filteredMyCommunities = self.myCommunities
 
         } catch {
