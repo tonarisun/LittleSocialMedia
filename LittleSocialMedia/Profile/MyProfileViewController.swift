@@ -36,7 +36,6 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
         myAgeAndCityLabel.text = currentUser.userBDate + " " + currentUser.userCity
         myAvatarView.photoView.downloaded(from: currentUser.avaURL)
         
-        
         let vkRequest = VKRequest()
         
         vkRequest.loadNews { [weak self] newsList, authorsList in
@@ -113,6 +112,7 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
         cell.timeLabel.text = getTimeFromUNIXTime(date: newPost.time)
         cell.avatarView.photoView.downloaded(from: newPost.author!.authorPicURL)
         cell.contentLabel.text = newPost.content
+        cell.contentImageView.downloaded(from: newPost.contentPicURL)
         if newPost.didLike == 0 {
             cell.likeShareControlView.likeImage.image = UIImage(named: "dislike")
         } else {
@@ -128,39 +128,39 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
         }
         cell.likeShareControlView.shareCountLabel.text = "\(newPost.sharesCount)"
         cell.likeShareControlView.onTapLike = {
-            self.likeOnNewsPost(cell: cell, newPost: newPost)
-            self.shareOnNewsPost(cell: cell, newPost: newPost)
+            self.likeOnNewsPost(cell: cell, post: newPost)
+            self.shareOnNewsPost(cell: cell, post: newPost)
         }
         return cell
     }
     
-    func likeOnNewsPost(cell: NewsCell, newPost: NewsPost) {
+    func likeOnNewsPost(cell: NewsCell, post: NewsPost) {
         if cell.likeShareControlView.likeImage.image == UIImage(named: "dislike") {
-            newPost.likesCount += 1
-            newPost.didLike = 1
-            cell.likeShareControlView.likeCount = newPost.likesCount
+            post.likesCount += 1
+            post.didLike = 1
+            cell.likeShareControlView.likeCount = post.likesCount
             cell.likeShareControlView.likeImage.image = UIImage(named: "like")
             cell.likeShareControlView.like()
         } else {
-            newPost.likesCount -= 1
-            newPost.didLike = 0
-            cell.likeShareControlView.likeCount = newPost.likesCount
+            post.likesCount -= 1
+            post.didLike = 0
+            cell.likeShareControlView.likeCount = post.likesCount
             cell.likeShareControlView.likeImage.image = UIImage(named: "dislike")
             cell.likeShareControlView.dislike()
         }
     }
     
-    func shareOnNewsPost(cell: NewsCell, newPost: NewsPost) {
+    func shareOnNewsPost(cell: NewsCell, post: NewsPost) {
         cell.likeShareControlView.onTapShare = {
             if cell.likeShareControlView.shareImage.image == UIImage(named: "unshare") {
-                newPost.sharesCount += 1
-                newPost.didShare = 1
-                cell.likeShareControlView.shareCount = newPost.sharesCount
+                post.sharesCount += 1
+                post.didShare = 1
+                cell.likeShareControlView.shareCount = post.sharesCount
                 cell.likeShareControlView.share()
             } else {
-                newPost.sharesCount -= 1
-                newPost.didShare = 0
-                cell.likeShareControlView.shareCount = newPost.sharesCount
+                post.sharesCount -= 1
+                post.didShare = 0
+                cell.likeShareControlView.shareCount = post.sharesCount
                 cell.likeShareControlView.unshare()
             }
         }

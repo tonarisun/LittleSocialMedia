@@ -22,6 +22,7 @@ class NewsPost: Mappable {
     var didLike = 0
     var didShare = 0
     var time = 0.0
+    var contentPicURL = ""
     var author : NewsAuthor?
 
     required init?(map: Map) { }
@@ -34,6 +35,7 @@ class NewsPost: Mappable {
         didLike <- map["user_likes"]
         didShare <- map["user_reposted"]
         time <- map["date"]
+        contentPicURL <- map["attachments.0.photo.sizes.3.url"]
     }
 }
 
