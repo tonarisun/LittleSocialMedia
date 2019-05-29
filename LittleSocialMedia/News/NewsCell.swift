@@ -13,6 +13,7 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var avatarView: Avatar!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var contentImageView: UIImageView!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var sendCommentButton: UIButton!
@@ -34,7 +35,7 @@ class NewsCell: UITableViewCell {
         avatarView.photoView.image = nil
         authorLabel.text = nil
         timeLabel.text = nil
-        contentImageView.image = nil
+        contentLabel.text = nil
         commentTextField.text = nil
         likeShareControlView.likeCountLabel.text = nil
         likeShareControlView.likeCountLabel.textColor = .black
@@ -43,5 +44,4 @@ class NewsCell: UITableViewCell {
         likeShareControlView.shareCountLabel.textColor = .black
         likeShareControlView.shareImage.image = nil
     }
-
 }

@@ -35,7 +35,7 @@ class FriendFotoController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "fotoCell", for: indexPath) as! FriendFotoCell
         cell.friendFoto.downloaded(from: friendPhotos[indexPath.row].photoURL)
         cell.likeSharecontrolView.onTapLike = {
-            if cell.likeSharecontrolView.likeImage.image == UIImage(named: "like") {
+            if cell.likeSharecontrolView.likeImage.image == UIImage(named: "dislike") {
                 cell.likeSharecontrolView.likeCount += 1
                 cell.likeSharecontrolView.like()
             } else {
@@ -44,7 +44,7 @@ class FriendFotoController: UICollectionViewController {
             }
         }
         cell.likeSharecontrolView.onTapShare = {
-            if cell.likeSharecontrolView.shareImage.image == UIImage(named: "share") {
+            if cell.likeSharecontrolView.shareImage.image == UIImage(named: "unshare") {
                cell.likeSharecontrolView.shareCount += 1
                cell.likeSharecontrolView.share()
             } else {

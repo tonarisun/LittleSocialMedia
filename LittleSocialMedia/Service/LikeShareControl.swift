@@ -34,7 +34,7 @@ class LikeShareControl: UIControl {
             self.likeCountLabel.textColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
             self.likeCountLabel.text = String(self.likeCount)
         }, completion: nil)
-        self.likeImage.image = UIImage(named: "like-2")
+        self.likeImage.image = UIImage(named: "like")
         let animation = CASpringAnimation(keyPath: "transform.scale")
         animation.fromValue = 0.7
         animation.toValue = 1
@@ -51,7 +51,7 @@ class LikeShareControl: UIControl {
             self.likeCountLabel.textColor = .black
             self.likeCountLabel.text = String(self.likeCount)
         }, completion: nil)
-        self.likeImage.image = UIImage(named: "like")
+        self.likeImage.image = UIImage(named: "dislike")
         let animation = CASpringAnimation(keyPath: "transform.scale")
         animation.fromValue = 0.7
         animation.toValue = 1
@@ -69,7 +69,7 @@ class LikeShareControl: UIControl {
             self.shareCountLabel.text = String(self.shareCount)
         }, completion: nil)
         UIView.transition(with: self.shareImage, duration: 0.5, options: .transitionCrossDissolve, animations: {
-            self.shareImage.image = UIImage(named: "share-2")
+            self.shareImage.image = UIImage(named: "share")
         }, completion: nil)
     }
     
@@ -79,14 +79,14 @@ class LikeShareControl: UIControl {
             self.shareCountLabel.text = String(self.shareCount)
         }, completion: nil)
         UIView.transition(with: self.shareImage, duration: 0.5, options: .transitionCrossDissolve, animations: {
-            self.shareImage.image = UIImage(named: "share")
+            self.shareImage.image = UIImage(named: "unshare")
         }, completion: nil)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        likeImage.image = UIImage(named: "like")
-        shareImage.image = UIImage(named: "share")
+        likeImage.image = UIImage(named: "dislike")
+        shareImage.image = UIImage(named: "unshare")
         
         let likeTap = UITapGestureRecognizer(target: self, action: #selector(likeTap(recognizer:)))
         likeImage.isUserInteractionEnabled = true

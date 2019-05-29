@@ -16,9 +16,8 @@ import RealmSwift
 
 class VKLoginController: UIViewController, WKNavigationDelegate {
 
-    
+    private let toLoginControllerSegueID = "toLoginController"
     @IBOutlet weak var circleIndicator: CircleIndicator!
-    @IBOutlet weak var toNewsButton: UIButton!
     @IBOutlet weak var vkWebView: WKWebView! {
         didSet {
             vkWebView.navigationDelegate = self
@@ -27,9 +26,7 @@ class VKLoginController: UIViewController, WKNavigationDelegate {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        toNewsButton.isHidden = true
-        
+
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "oauth.vk.com"
@@ -38,7 +35,7 @@ class VKLoginController: UIViewController, WKNavigationDelegate {
             URLQueryItem(name: "client_id", value: "6964982"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
-            URLQueryItem(name: "scope", value: "262150"),
+            URLQueryItem(name: "scope", value: "270342"),
             URLQueryItem(name: "response_type", value: "token"),
             URLQueryItem(name: "v", value: "5.95")
         ]
@@ -67,34 +64,34 @@ class VKLoginController: UIViewController, WKNavigationDelegate {
         }
         
         let token = params["access_token"]
-        if token != nil {
-            circleIndicator.isHidden = true
-            toNewsButton.isHidden = false
-        }
 
         KeychainWrapper.standard.set("\(token!)", forKey: "access token")
         currentSession.token = KeychainWrapper.standard.string(forKey: "access token")!
-        currentSession.userID = currentUserID
-        print(token ?? "No token")
-        
+        print("\n\n", token ?? "No token", "\n\n")
+
+        let config = Realm.Configuration(
+            schemaVersion: 2,
+            migrationBlock: { migration, oldSchemaVersion in
+                if (oldSchemaVersion < 1) {
+                }
+        })
+        Realm.Configuration.defaultConfiguration = config
         do {
             let realm = try Realm()
             realm.beginWrite()
             realm.deleteAll()
             try! realm.commitWrite()
-            print(realm.configuration.fileURL ?? "No fileURL")
+            print(realm.configuration.fileURL ?? "No fileURL", "\n\n")
         }
             catch {
                 print(error)
             }
         
-        let vkRequest = VKRequest()
-        vkRequest.loadCommunities { myComm in
-            vkRequest.saveCommunitiesInRLM(myComm)
-        }
-        
-        vkRequest.loadFriends { friends in
-            vkRequest.saveFriendsInRLM(friends)
+        let vkRequest = VKRequest()        
+        vkRequest.loadUserInfo { user in
+            currentSession.userID = user.userID
+            vkRequest.saveUserInRLM(user)
+            self.performSegue(withIdentifier: self.toLoginControllerSegueID, sender: self)
         }
 
         decisionHandler(.cancel)

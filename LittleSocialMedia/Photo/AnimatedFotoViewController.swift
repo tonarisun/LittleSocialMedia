@@ -30,7 +30,7 @@ class AnimatedFotoViewController: UIViewController {
         noPhotoView.isHidden = true
         
         let vkRequest = VKRequest()
-        vkRequest.loadPhoto(userID: currentUserID) { [weak self] photos in
+        vkRequest.loadPhoto(userID: currentSession.userID) { [weak self] photos in
             if photos.count != 0 {
                 self?.photoToShow = photos
                 let url = self?.photoToShow[(self?.i)!].photoURL
@@ -66,7 +66,7 @@ class AnimatedFotoViewController: UIViewController {
         likeShareControlView.likeCountLabel.text = String(likeCount)
         likeShareControlView.shareCountLabel.text = String(shareCount)
         likeShareControlView.onTapLike = {
-            if self.likeShareControlView.likeImage.image == UIImage(named: "like") {
+            if self.likeShareControlView.likeImage.image == UIImage(named: "dislike") {
                 self.likeShareControlView.likeCount += 1
                 self.likeShareControlView.like()
             } else {
@@ -75,7 +75,7 @@ class AnimatedFotoViewController: UIViewController {
             }
         }
         likeShareControlView.onTapShare = {
-            if self.likeShareControlView.shareImage.image == UIImage(named: "share") {
+            if self.likeShareControlView.shareImage.image == UIImage(named: "unshare") {
                 self.likeShareControlView.shareCount += 1
                 self.likeShareControlView.share()
             } else {
