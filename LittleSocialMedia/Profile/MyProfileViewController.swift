@@ -13,6 +13,7 @@ import ObjectMapper
 import FirebaseAuth
 import RealmSwift
 
+
 class MyProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var myAvatarView: Avatar!
@@ -81,7 +82,7 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
             object: nil
         )
     }
-
+    
     @objc func hideKeyboard() {
         self.view?.endEditing(true)
     }
@@ -98,7 +99,7 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
         } catch {
             print(error)
         }
-
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsList.count
@@ -172,6 +173,5 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
         dateFormatter.locale = NSLocale.current
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         return dateFormatter.string(from: date)
-
     }
 }

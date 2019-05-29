@@ -26,7 +26,7 @@ class VKLoginController: UIViewController, WKNavigationDelegate {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "oauth.vk.com"
@@ -76,6 +76,7 @@ class VKLoginController: UIViewController, WKNavigationDelegate {
                 }
         })
         Realm.Configuration.defaultConfiguration = config
+
         do {
             let realm = try Realm()
             realm.beginWrite()
@@ -87,7 +88,8 @@ class VKLoginController: UIViewController, WKNavigationDelegate {
                 print(error)
             }
         
-        let vkRequest = VKRequest()        
+        let vkRequest = VKRequest()
+        
         vkRequest.loadUserInfo { user in
             currentSession.userID = user.userID
             vkRequest.saveUserInRLM(user)
