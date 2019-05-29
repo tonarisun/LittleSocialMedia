@@ -18,7 +18,8 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var sendCommentButton: UIButton!
     @IBOutlet weak var likeShareControlView: LikeShareControl!
-
+    @IBOutlet weak var viewsCountLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         commentTextField.layer.cornerRadius = 8

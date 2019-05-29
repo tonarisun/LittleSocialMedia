@@ -33,7 +33,7 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
         guard let currentUser = users?.first else { return }
         
         myNameLabel.text = currentUser.userFirstName + " " + currentUser.userLastName
-        myAgeAndCityLabel.text = currentUser.userBDate + " " + currentUser.userCity
+        myAgeAndCityLabel.text = currentUser.userBDate + ", " + currentUser.userCity
         myAvatarView.photoView.downloaded(from: currentUser.avaURL)
         
         let vkRequest = VKRequest()
@@ -42,6 +42,7 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
             self?.newsList = newsList
             self?.authorsList = authorsList
             for new in newsList {
+                print("--------PIC \(new.contentPicURL), DOC \(new.contentDocUrl), VID \(new.contentVideoURL), LINK \(new.contentLinkURL)")
                 for author in authorsList {
                     if author.id == -new.sourceID {
                         new.author = author
@@ -112,23 +113,39 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
         cell.timeLabel.text = getTimeFromUNIXTime(date: newPost.time)
         cell.avatarView.photoView.downloaded(from: newPost.author!.authorPicURL)
         cell.contentLabel.text = newPost.content
-        cell.contentImageView.downloaded(from: newPost.contentPicURL)
+        cell.viewsCountLabel.text = "\(newPost.viewsCount)"
+//        Content Image
+        if newPost.contentPicURL != "" {
+            cell.contentImageView.downloaded(from: newPost.contentPicURL)
+        } else if newPost.contentDocUrl != "" {
+            cell.contentImageView.downloaded(from: newPost.contentDocUrl)
+        } else if newPost.contentVideoURL != "" {
+            cell.contentImageView.downloaded(from: newPost.contentVideoURL)
+        } else if newPost.contentLinkURL != ""{
+            cell.contentImageView.downloaded(from: newPost.contentLinkURL)
+        } else {
+            cell.contentImageView.image = #imageLiteral(resourceName: "kosmos")
+        }
+//      Like
+        cell.likeShareControlView.likeCountLabel.text = "\(newPost.likesCount)"
         if newPost.didLike == 0 {
             cell.likeShareControlView.likeImage.image = UIImage(named: "dislike")
         } else {
             cell.likeShareControlView.likeImage.image = UIImage(named: "like")
             cell.likeShareControlView.likeCountLabel.textColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
         }
-        cell.likeShareControlView.likeCountLabel.text = "\(newPost.likesCount)"
+//      Share
+        cell.likeShareControlView.shareCountLabel.text = "\(newPost.sharesCount)"
         if newPost.didShare == 0 {
             cell.likeShareControlView.shareImage.image = UIImage(named: "unshare")
         } else {
             cell.likeShareControlView.shareImage.image = UIImage(named: "share")
             cell.likeShareControlView.shareCountLabel.textColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
         }
-        cell.likeShareControlView.shareCountLabel.text = "\(newPost.sharesCount)"
         cell.likeShareControlView.onTapLike = {
             self.likeOnNewsPost(cell: cell, post: newPost)
+        }
+        cell.likeShareControlView.onTapShare = {
             self.shareOnNewsPost(cell: cell, post: newPost)
         }
         return cell
@@ -151,18 +168,16 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func shareOnNewsPost(cell: NewsCell, post: NewsPost) {
-        cell.likeShareControlView.onTapShare = {
-            if cell.likeShareControlView.shareImage.image == UIImage(named: "unshare") {
-                post.sharesCount += 1
-                post.didShare = 1
-                cell.likeShareControlView.shareCount = post.sharesCount
-                cell.likeShareControlView.share()
-            } else {
-                post.sharesCount -= 1
-                post.didShare = 0
-                cell.likeShareControlView.shareCount = post.sharesCount
-                cell.likeShareControlView.unshare()
-            }
+        if cell.likeShareControlView.shareImage.image == UIImage(named: "unshare") {
+            post.sharesCount += 1
+            post.didShare = 1
+            cell.likeShareControlView.shareCount = post.sharesCount
+            cell.likeShareControlView.share()
+        } else {
+            post.sharesCount -= 1
+            post.didShare = 0
+            cell.likeShareControlView.shareCount = post.sharesCount
+            cell.likeShareControlView.unshare()
         }
     }
     

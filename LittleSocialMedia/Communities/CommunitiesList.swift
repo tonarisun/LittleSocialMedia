@@ -72,6 +72,7 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
                         print("Document successfully written!")
                     }
                 }
+                self.addCommunityAlert(community: community)
             }
         }
         return cell
@@ -105,5 +106,12 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
         let contentInsets = UIEdgeInsets.zero
         tableView?.contentInset = contentInsets
         tableView?.scrollIndicatorInsets = contentInsets
+    }
+    
+    func addCommunityAlert(community: Community){
+        let alert = UIAlertController(title: "Вы подписались на группу", message: "\(community.communityName)", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
 }

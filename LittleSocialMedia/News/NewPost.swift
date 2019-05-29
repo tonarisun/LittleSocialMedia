@@ -19,6 +19,7 @@ class NewsPost: Mappable {
     var content = ""
     var likesCount = 0
     var sharesCount = 0
+    var viewsCount = 0
     var didLike = 0
     var didShare = 0
     var time = 0.0
@@ -35,12 +36,13 @@ class NewsPost: Mappable {
         content <- map["text"]
         likesCount <- map["likes.count"]
         sharesCount <- map["reposts.count"]
+        viewsCount <- map["views.count"]
         didLike <- map["user_likes"]
         didShare <- map["user_reposted"]
         time <- map["date"]
         contentPicURL <- map["attachments.0.photo.sizes.3.url"]
         contentVideoURL <- map["attachments.0.video.photo_800"]
-        contentDocUrl <- map["attachments.0.doc.photo.sizes.2.src"]
+        contentDocUrl <- map["attachments.0.doc.preview.photo.sizes.2.src"]
         contentLinkURL <- map["attachments.0.link.photo.sizes.0.url"]
     }
 }
