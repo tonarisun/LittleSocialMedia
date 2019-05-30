@@ -88,7 +88,7 @@ class VKLoginController: UIViewController, WKNavigationDelegate {
                 print(error)
             }
         
-        let vkRequest = VKRequest()
+        let vkRequest = Service()
         
         vkRequest.loadUserInfo { user in
             currentSession.userID = user.userID

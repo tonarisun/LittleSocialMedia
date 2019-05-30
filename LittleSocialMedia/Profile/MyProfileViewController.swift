@@ -22,25 +22,27 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var newsTableView: UITableView!
     var users: Results<User>?
+    var currentUser : User?
     var newsList = [NewsPost]()
     var authorsList = [NewsAuthor]()
+    let segueID = "showPost"
+    let vkRequest = Service()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        Загрузка данных пользователя из базы Realm
         loadUserDataFromRLM()
         
-        guard let currentUser = users?.first else { return }
+//        Отображение данных пользователя
+        guard let user = users?.first else { return }
+        currentUser = user
+        myNameLabel.text = currentUser!.userFirstName + " " + currentUser!.userLastName
+        myAgeAndCityLabel.text = currentUser!.userBDate + ", " + currentUser!.userCity
+        myAvatarView.photoView.downloaded(from: currentUser!.avaURL)
         
-        myNameLabel.text = currentUser.userFirstName + " " + currentUser.userLastName
-        myAgeAndCityLabel.text = currentUser.userBDate + ", " + currentUser.userCity
-        myAvatarView.photoView.downloaded(from: currentUser.avaURL)
-        
-        let vkRequest = VKRequest()
-        
+//        Загрузка списка новостей из ВК
         vkRequest.loadNews { [weak self] newsList, authorsList in
-            self?.newsList = newsList
-            self?.authorsList = authorsList
             for new in newsList {
                 print("--------PIC \(new.contentPicURL), DOC \(new.contentDocUrl), VID \(new.contentVideoURL), LINK \(new.contentLinkURL)")
                 for author in authorsList {
@@ -49,22 +51,23 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
                     }
                 }
             }
+            self?.newsList = newsList
+            self?.authorsList = authorsList
             self?.newsTableView.reloadData()
         }
         
+//        Загрузка списка моих групп из ВК, сохранение в базу Realm
         vkRequest.loadCommunities { myComm in
-            vkRequest.saveCommunitiesInRLM(myComm)
+            self.vkRequest.saveCommunitiesInRLM(myComm)
         }
         
+//      Загрузка списка друзей из ВК, сохранение в базу Realm
         vkRequest.loadFriends { friends in
-            vkRequest.saveFriendsInRLM(friends)
+            self.vkRequest.saveFriendsInRLM(friends)
         }
-        
-        let hideKeyboardGesture = UISwipeGestureRecognizer(target: self, action: #selector(hideKeyboard))
-        hideKeyboardGesture.direction = UISwipeGestureRecognizer.Direction.down
-        self.view.addGestureRecognizer(hideKeyboardGesture)
     }
     
+//    Звгрузка данных пользователя из базы Realm
     func loadUserDataFromRLM() {
         do {
             let realm = try Realm()
@@ -74,26 +77,7 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillBeHidden),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
-    }
-    
-    @objc func hideKeyboard() {
-        self.view?.endEditing(true)
-    }
-    
-    @objc func keyboardWillBeHidden(notification: Notification) {
-        let contentInsets = UIEdgeInsets.zero
-        newsTableView?.contentInset = contentInsets
-        newsTableView?.scrollIndicatorInsets = contentInsets
-    }
-    
+//    Выход пользователя из системы, переход на экран авторизации
     @IBAction func logOut(_ sender: Any) {
         do {
          try Auth.auth().signOut()
@@ -102,6 +86,7 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
+//    Формирование таблицы новостей
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsList.count
     }
@@ -110,7 +95,7 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
         let newPost = newsList[indexPath.row]
         cell.authorLabel.text = newPost.author?.authorName
-        cell.timeLabel.text = getTimeFromUNIXTime(date: newPost.time)
+        cell.timeLabel.text = self.vkRequest.getTimeFromUNIXTime(date: newPost.time)
         cell.avatarView.photoView.downloaded(from: newPost.author!.authorPicURL)
         cell.contentLabel.text = newPost.content
         cell.viewsCountLabel.text = "\(newPost.viewsCount)"
@@ -143,50 +128,52 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
             cell.likeShareControlView.shareCountLabel.textColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
         }
         cell.likeShareControlView.onTapLike = {
-            self.likeOnNewsPost(cell: cell, post: newPost)
+            self.likeOnNewsPost(cell.likeShareControlView, newPost)
         }
         cell.likeShareControlView.onTapShare = {
-            self.shareOnNewsPost(cell: cell, post: newPost)
+            self.shareOnNewsPost(cell.likeShareControlView, newPost)
         }
         return cell
     }
     
-    func likeOnNewsPost(cell: NewsCell, post: NewsPost) {
-        if cell.likeShareControlView.likeImage.image == UIImage(named: "dislike") {
+//    Переход на CommentNewsController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "showPost" else { return }
+        guard let indexPath = newsTableView.indexPathForSelectedRow else { return }
+        let post = newsList[indexPath.row]
+        let controller = segue.destination as! CommentNewsController
+        controller.postToShow = post
+    }
+    
+//    Отметка Like под постом
+    func likeOnNewsPost(_ likeShareControl: LikeShareControl, _ post: NewsPost) {
+        if likeShareControl.likeImage.image == UIImage(named: "dislike") {
             post.likesCount += 1
             post.didLike = 1
-            cell.likeShareControlView.likeCount = post.likesCount
-            cell.likeShareControlView.likeImage.image = UIImage(named: "like")
-            cell.likeShareControlView.like()
+            likeShareControl.likeCount = post.likesCount
+            likeShareControl.likeImage.image = UIImage(named: "like")
+            likeShareControl.like()
         } else {
             post.likesCount -= 1
             post.didLike = 0
-            cell.likeShareControlView.likeCount = post.likesCount
-            cell.likeShareControlView.likeImage.image = UIImage(named: "dislike")
-            cell.likeShareControlView.dislike()
+            likeShareControl.likeCount = post.likesCount
+            likeShareControl.likeImage.image = UIImage(named: "dislike")
+            likeShareControl.dislike()
         }
     }
     
-    func shareOnNewsPost(cell: NewsCell, post: NewsPost) {
-        if cell.likeShareControlView.shareImage.image == UIImage(named: "unshare") {
+//    Репост новости
+    func shareOnNewsPost(_ likeShareControl: LikeShareControl, _ post: NewsPost) {
+        if likeShareControl.shareImage.image == UIImage(named: "unshare") {
             post.sharesCount += 1
             post.didShare = 1
-            cell.likeShareControlView.shareCount = post.sharesCount
-            cell.likeShareControlView.share()
+            likeShareControl.shareCount = post.sharesCount
+            likeShareControl.share()
         } else {
             post.sharesCount -= 1
             post.didShare = 0
-            cell.likeShareControlView.shareCount = post.sharesCount
-            cell.likeShareControlView.unshare()
+            likeShareControl.shareCount = post.sharesCount
+            likeShareControl.unshare()
         }
-    }
-    
-    func getTimeFromUNIXTime(date: Double) -> String {
-        let date = Date(timeIntervalSince1970: date)
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
-        dateFormatter.locale = NSLocale.current
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        return dateFormatter.string(from: date)
     }
 }

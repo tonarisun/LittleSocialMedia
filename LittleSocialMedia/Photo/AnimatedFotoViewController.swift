@@ -29,7 +29,7 @@ class AnimatedFotoViewController: UIViewController {
         
         noPhotoView.isHidden = true
         
-        let vkRequest = VKRequest()
+        let vkRequest = Service()
         vkRequest.loadPhoto(userID: currentSession.userID) { [weak self] photos in
             if photos.count != 0 {
                 self?.photoToShow = photos

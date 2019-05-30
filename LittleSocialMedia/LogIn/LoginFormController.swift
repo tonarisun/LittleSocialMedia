@@ -103,7 +103,6 @@ class LoginFormController: UIViewController {
             }
         }
     }
-    
 }
 //  Вход по нажатию на кнопку 'log in'
 //

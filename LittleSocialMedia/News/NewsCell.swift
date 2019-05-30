@@ -15,20 +15,12 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var contentImageView: UIImageView!
-    @IBOutlet weak var commentTextField: UITextField!
-    @IBOutlet weak var sendCommentButton: UIButton!
     @IBOutlet weak var likeShareControlView: LikeShareControl!
     @IBOutlet weak var viewsCountLabel: UILabel!
+    var sendCommentButtonTapped : (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        commentTextField.layer.cornerRadius = 8
-        commentTextField.layer.borderColor = #colorLiteral(red: 0.4756349325, green: 0.4756467342, blue: 0.4756404161, alpha: 1)
-        commentTextField.layer.borderWidth = 1
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
     
     override func prepareForReuse() {
@@ -37,7 +29,7 @@ class NewsCell: UITableViewCell {
         authorLabel.text = nil
         timeLabel.text = nil
         contentLabel.text = nil
-        commentTextField.text = nil
+        contentImageView.image = nil
         likeShareControlView.likeCountLabel.text = nil
         likeShareControlView.likeCountLabel.textColor = .black
         likeShareControlView.likeImage.image = nil
@@ -45,5 +37,4 @@ class NewsCell: UITableViewCell {
         likeShareControlView.shareCountLabel.textColor = .black
         likeShareControlView.shareImage.image = nil
     }
-
 }

@@ -13,6 +13,10 @@
 		D60FA11C2249C3010069CA98 /* AnimatedFotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60FA11B2249C3010069CA98 /* AnimatedFotoViewController.swift */; };
 		D6113C50223251C300E1CC6F /* MyCommunityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6113C4F223251C300E1CC6F /* MyCommunityController.swift */; };
 		D6113C522232521E00E1CC6F /* MyCommunityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6113C512232521E00E1CC6F /* MyCommunityCell.swift */; };
+		D6161180229FC3FF00DF175A /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616117F229FC3FE00DF175A /* CommentView.swift */; };
+		D6161182229FC4CC00DF175A /* CommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6161181229FC4CC00DF175A /* CommentView.xib */; };
+		D6161184229FEC3A00DF175A /* CommentNewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6161183229FEC3A00DF175A /* CommentNewsController.swift */; };
+		D616118622A0024F00DF175A /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616118522A0024F00DF175A /* CommentCell.swift */; };
 		D6176535222696D4003E39D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6176534222696D4003E39D9 /* AppDelegate.swift */; };
 		D617653A222696D4003E39D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6176538222696D4003E39D9 /* Main.storyboard */; };
 		D617653C222696D5003E39D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D617653B222696D5003E39D9 /* Assets.xcassets */; };
@@ -72,6 +76,10 @@
 		D60FA11B2249C3010069CA98 /* AnimatedFotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedFotoViewController.swift; sourceTree = "<group>"; };
 		D6113C4F223251C300E1CC6F /* MyCommunityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunityController.swift; sourceTree = "<group>"; };
 		D6113C512232521E00E1CC6F /* MyCommunityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunityCell.swift; sourceTree = "<group>"; };
+		D616117F229FC3FE00DF175A /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommentView.swift; path = ../LogIn/CommentView.swift; sourceTree = "<group>"; };
+		D6161181229FC4CC00DF175A /* CommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentView.xib; sourceTree = "<group>"; };
+		D6161183229FEC3A00DF175A /* CommentNewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentNewsController.swift; sourceTree = "<group>"; };
+		D616118522A0024F00DF175A /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		D6176531222696D4003E39D9 /* LittleSocialMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleSocialMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6176534222696D4003E39D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6176539222696D4003E39D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -219,6 +227,8 @@
 			children = (
 				D656DBE0223E25B00076F5D3 /* NewsCell.swift */,
 				D67AE13722647B4A00665CDC /* NewPost.swift */,
+				D6161183229FEC3A00DF175A /* CommentNewsController.swift */,
+				D616118522A0024F00DF175A /* CommentCell.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -231,6 +241,8 @@
 				D61C7DF9227FF54A006768EA /* Avatar.xib */,
 				D656DC0B223E6C690076F5D3 /* LikeShareControl.swift */,
 				D61D0DCC223F3BF40085BA12 /* LikeShareControl.xib */,
+				D616117F229FC3FE00DF175A /* CommentView.swift */,
+				D6161181229FC4CC00DF175A /* CommentView.xib */,
 				D61FF0D12243A1C3007DED7E /* CircleIndicator.swift */,
 				D61FF0D32243A200007DED7E /* CircleIndicator.xib */,
 				D60D97D52245D1D9005F345A /* GradientView.swift */,
@@ -382,6 +394,7 @@
 				D61D0DCD223F3BF40085BA12 /* LikeShareControl.xib in Resources */,
 				D61FF0D42243A200007DED7E /* CircleIndicator.xib in Resources */,
 				D617653A222696D4003E39D9 /* Main.storyboard in Resources */,
+				D6161182229FC4CC00DF175A /* CommentView.xib in Resources */,
 				D6A64BD722992C7F007D6743 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,6 +498,7 @@
 				D67876642232197F00954829 /* FriendListController.swift in Sources */,
 				D678766E2232371C00954829 /* CommunitiesList.swift in Sources */,
 				D61C7E022280738C006768EA /* Commumity.swift in Sources */,
+				D616118622A0024F00DF175A /* CommentCell.swift in Sources */,
 				D67AE13822647B4A00665CDC /* NewPost.swift in Sources */,
 				D6A54FC12264449F005BE55E /* MyProfileButton.swift in Sources */,
 				D61C7DF8227FF0AB006768EA /* ExtensionImageView.swift in Sources */,
@@ -498,6 +512,7 @@
 				D656DBD7223DF5C70076F5D3 /* Avatar.swift in Sources */,
 				D6176535222696D4003E39D9 /* AppDelegate.swift in Sources */,
 				D6A54FBF226443D6005BE55E /* MyProfileViewController.swift in Sources */,
+				D6161184229FEC3A00DF175A /* CommentNewsController.swift in Sources */,
 				D603BE9422659BFF000F3F7B /* Friend.swift in Sources */,
 				D69DB47B2230C3A90098797D /* FriendNameCell.swift in Sources */,
 				D656DBE1223E25B00076F5D3 /* NewsCell.swift in Sources */,
@@ -506,6 +521,7 @@
 				D6CDE73422337CD900025740 /* FriendFotoController.swift in Sources */,
 				D61FF0D22243A1C4007DED7E /* CircleIndicator.swift in Sources */,
 				D6BD26162283DB2500C856F3 /* VKRequest.swift in Sources */,
+				D6161180229FC3FF00DF175A /* CommentView.swift in Sources */,
 				D6A3414B2276D78C00777AC5 /* VKLoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

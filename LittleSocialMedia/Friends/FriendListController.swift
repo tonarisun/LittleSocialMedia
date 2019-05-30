@@ -40,6 +40,7 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         setUpSearchBar()
     }
     
+//    Получение массива первых букв имён друзей
     func getFirstLetters(){
         for friend in sortedFriendList {
             if !firstLetters.contains(String(friend.friendFirstName.prefix(1))) {
@@ -48,6 +49,7 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         }
     }
     
+//    Группировка друзей по первым буквам имени
     func groupFriends(){
         for letter in firstLetters {
             friendsForLetter.removeAll()
@@ -60,6 +62,7 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         }
     }
     
+//    Загрузка друзей из базы Realm
     func loadFriendsFromRLM() {
         do {
             let realm = try Realm()
@@ -74,6 +77,7 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         friendListSearchBar.delegate = self
     }
     
+//
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         firstLetter = filteredFirstLetters[section]
         return filteredFirstLetters[section]
@@ -104,6 +108,7 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         return filteredFirstLetters
     }
     
+//    Переход на FriendFotoController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "ShowFriendFoto" else { return }
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
@@ -114,6 +119,7 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         friendFotoController.friendToShow = friend
     }
     
+//    Поиск по списку друзей
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
             filteredFirstLetters = firstLetters
@@ -138,6 +144,7 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         }
     }
     
+//    Скрытие клавиатуры
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.addObserver(self,

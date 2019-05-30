@@ -12,7 +12,7 @@ import AlamofireObjectMapper
 import ObjectMapper
 import RealmSwift
 
-class VKRequest {
+class Service {
         
     func loadUserInfo(completion: @escaping (User) -> Void) {
         Alamofire.request("https://api.vk.com/method/users.get?lang=0&fields=photo_50,city,bdate&access_token=\(currentSession.token)&v=5.95").responseObject {
@@ -94,5 +94,14 @@ class VKRequest {
         } catch {
             print(error)
         }
+    }
+    
+    public func getTimeFromUNIXTime(date: Double) -> String {
+        let date = Date(timeIntervalSince1970: date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+        dateFormatter.locale = NSLocale.current
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        return dateFormatter.string(from: date)
     }
 }
