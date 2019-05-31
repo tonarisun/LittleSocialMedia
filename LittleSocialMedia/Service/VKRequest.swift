@@ -24,6 +24,7 @@ class Service {
         }
     }
     
+//    Загрузка данных пользователя в Realm
     func saveUserInRLM(_ currentUser: User) {
         do {
             let realm = try Realm()
@@ -33,6 +34,13 @@ class Service {
         } catch {
             print(error)
         }
+    }
+    
+    //    Звгрузка данных пользователя из базы Realm
+    func loadUserDataFromRLM() -> Results<User> {
+        let realm = try! Realm()
+        let users = realm.objects(User.self)
+        return users
     }
     
     func loadNews(completion: @escaping ([NewsPost], [NewsAuthor]) -> Void) {
@@ -103,5 +111,22 @@ class Service {
         dateFormatter.locale = NSLocale.current
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         return dateFormatter.string(from: date)
+    }
+    
+    func getTodayString() -> String {
+        
+        let date = Date()
+        let calender = Calendar.current
+        let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
+        let year = components.year
+        let month = components.month
+        let day = components.day
+        let hour = components.hour
+        let minute = components.minute
+        let second = components.second
+        
+        let today_string = String(year!) + "-" + String(month!) + "-" + String(day!) + " " + String(hour!)  + ":" + String(minute!) + ":" +  String(second!)
+        
+        return today_string
     }
 }

@@ -30,10 +30,12 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
         searchButton.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         searchButton.layer.cornerRadius = 3
         
+//        Распознавание жеста для скрытия клавиатуры
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         self.tableView.addGestureRecognizer(hideKeyboardGesture)
     }
     
+//    Формирование таблицы
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -52,6 +54,7 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
             guard let myCommunityVC = self.myCommunityVC else {
                 return
             }
+//            Добавление выбранной группы к списку Моих групп и запись в базу Realm
             if !myCommunityVC.myCommunities!.contains(community){
                 do {
                     let realm = try! Realm()
@@ -62,6 +65,7 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
                 catch {
                     print(error)
                 }
+//                Добавление выбранной группы в базу FireBase
                 self.db.collection("communities").document("\(community.communityID)").setData([
                     "communityName": "\(community.communityName)",
                     "pictureURL": "\(community.pictureURL)"
@@ -78,6 +82,7 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
         return cell
     }
 
+//    Поиск групп по названию (запрос к VK API)
     @IBAction func searchCommunity(_ sender: UIButton) { // Почему-то не работает поиск русских слов, хотя если запрос к ВК проверить, то результат есть. И ещё пока не ищет фразы с пробелами, только по одному слову или с + вместо пробела.
 
         guard let searchText = self.communitySearchBar.text?.lowercased() else { return }
@@ -91,23 +96,12 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillBeHidden),
-                                               name: UIResponder.keyboardWillHideNotification,
-                                               object: nil)
-    }
+//    Скрытие клавиатуры
     @objc func hideKeyboard() {
         self.tableView?.endEditing(true)
     }
     
-    @objc func keyboardWillBeHidden(notification: Notification) {
-        let contentInsets = UIEdgeInsets.zero
-        tableView?.contentInset = contentInsets
-        tableView?.scrollIndicatorInsets = contentInsets
-    }
-    
+//    Уведомление о добавлении группы к списку Моих групп
     func addCommunityAlert(community: Community){
         let alert = UIAlertController(title: "Вы подписались на группу", message: "\(community.communityName)", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)

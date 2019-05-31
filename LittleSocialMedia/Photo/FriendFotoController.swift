@@ -16,6 +16,7 @@ class FriendFotoController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        Запрос с API ВК для получения списка фото выбранного друга
         let vkRequest = Service()
         vkRequest.loadPhoto(userID: friendToShow!.friendID) { [weak self] photos in
             self?.friendPhotos = photos
@@ -23,6 +24,7 @@ class FriendFotoController: UICollectionViewController {
         }
     }
 
+//    Формирование ячеек с фото
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }

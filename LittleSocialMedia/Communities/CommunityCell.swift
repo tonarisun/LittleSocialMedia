@@ -23,14 +23,6 @@ class CommunityCell: UITableViewCell {
     @IBOutlet weak var communityNameLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var avatarView: Avatar!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
 
     @IBAction func addCommunity(_ sender: Any) {
         addCommunityTapped?(community!)

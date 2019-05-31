@@ -70,7 +70,7 @@ class VKLoginController: UIViewController, WKNavigationDelegate {
         print("\n\n", token ?? "No token", "\n\n")
 
         let config = Realm.Configuration(
-            schemaVersion: 2,
+            schemaVersion: 3,
             migrationBlock: { migration, oldSchemaVersion in
                 if (oldSchemaVersion < 1) {
                 }

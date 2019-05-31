@@ -77,7 +77,7 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
         friendListSearchBar.delegate = self
     }
     
-//
+//  Форимрование таблицы
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         firstLetter = filteredFirstLetters[section]
         return filteredFirstLetters[section]
@@ -145,21 +145,7 @@ class FriendListController: UITableViewController, UISearchBarDelegate {
     }
     
 //    Скрытие клавиатуры
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillBeHidden),
-                                               name: UIResponder.keyboardWillHideNotification,
-                                               object: nil)
-    }
-
     @objc func hideKeyboard() {
         self.tableView?.endEditing(true)
-    }
-
-    @objc func keyboardWillBeHidden(notification: Notification) {
-        let contentInsets = UIEdgeInsets.zero
-        tableView?.contentInset = contentInsets
-        tableView?.scrollIndicatorInsets = contentInsets
     }
 }

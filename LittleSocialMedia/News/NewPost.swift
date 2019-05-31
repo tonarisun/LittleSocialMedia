@@ -28,6 +28,7 @@ class NewsPost: Mappable {
     var contentDocUrl = ""
     var contentLinkURL = ""
     var author : NewsAuthor?
+    var comments = [Comment]()
     
     required init?(map: Map) { }
     

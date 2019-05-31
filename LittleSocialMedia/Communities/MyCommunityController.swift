@@ -22,16 +22,21 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        Загрузка списка групп из базы Realm
         loadCommunitiesFromRLM()
 
+//        Добавление наблюдателя за списком групп
         addRealmObserve()
 
+//        Установка строки поиска
         setUpSearchBar()
         
+//        Распознавание жеста для скрытия клавиатуры
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         self.tableView.addGestureRecognizer(hideKeyboardGesture)
     }
     
+//        Загрузка списка групп из базы Realm
     func loadCommunitiesFromRLM() {
         do {
             let realm = try Realm()
@@ -43,6 +48,7 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
         }
     }
     
+//    Наблюдатель за списком отображаемых групп
     func addRealmObserve() {
         self.token = filteredMyCommunities?.observe { [weak self] (changes: RealmCollectionChange) in
             guard let tableView = self?.tableView else { return }
@@ -64,10 +70,12 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
         }
     }
     
+//    Установка SerchBar
     private func setUpSearchBar(){
         myCommunitySearchBar.delegate = self
     }
     
+//    Форирование таблицы
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -85,6 +93,7 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
         return cell
     }
   
+//    Удаление группы из списка
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             do {
@@ -115,24 +124,10 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
         tableView.reloadData()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillBeHidden),
-                                               name: UIResponder.keyboardWillHideNotification,
-                                               object: nil)
-    }
-    
+//    Скрытие клавиатуры
     @objc func hideKeyboard() {
         self.tableView?.endEditing(true)
     }
-    
-    @objc func keyboardWillBeHidden(notification: Notification) {
-        let contentInsets = UIEdgeInsets.zero
-        tableView?.contentInset = contentInsets
-        tableView?.scrollIndicatorInsets = contentInsets
-    }
-    
 }
 
 // Добавление группы по нажатию на ячейку с возвратом на страницу MyCommunityController

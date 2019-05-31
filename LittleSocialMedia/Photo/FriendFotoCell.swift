@@ -15,6 +15,7 @@ class FriendFotoCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         
+//        Анимированное появление картинок при открытии контроллера с фото друга
         let showAnimationSize = CABasicAnimation(keyPath: "transform.scale")
         showAnimationSize.fromValue = 0.5
         showAnimationSize.toValue = 1
@@ -29,13 +30,14 @@ class FriendFotoCell: UICollectionViewCell {
         likeSharecontrolView.likeCount = 0
         likeSharecontrolView.shareCount = 0
         
-        
+//        Распознавание двойного тапа
         let likeTapTap = UITapGestureRecognizer(target: self, action: #selector(likeTapTap(recognizer:)))
         likeTapTap.numberOfTapsRequired = 2
         friendFoto.isUserInteractionEnabled = true
         friendFoto.addGestureRecognizer(likeTapTap)
     }
     
+//    Лайк по двойному тапу
     @objc func likeTapTap(recognizer: UITapGestureRecognizer){
         if likeSharecontrolView.likeImage.image == UIImage(named: "dislike") {
             likeSharecontrolView.likeCount += 1

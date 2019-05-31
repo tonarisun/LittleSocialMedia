@@ -29,6 +29,7 @@ class AnimatedFotoViewController: UIViewController {
         
         noPhotoView.isHidden = true
         
+//        Получение списка url фотографий пользователя со стены ВК
         let vkRequest = Service()
         vkRequest.loadPhoto(userID: currentSession.userID) { [weak self] photos in
             if photos.count != 0 {
@@ -42,6 +43,7 @@ class AnimatedFotoViewController: UIViewController {
             }
         }
         
+//        Добавление распознавания жестов на ImageView для анимированного перелистывания картинок
         animatedView.isUserInteractionEnabled = true
         
         let swipe2L = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeft2(recognizer:)))
@@ -52,6 +54,7 @@ class AnimatedFotoViewController: UIViewController {
         swipe2R.direction = UISwipeGestureRecognizer.Direction.right
         animatedView.addGestureRecognizer(swipe2R)
         
+//        Анимированное появление картинок при открытии контроллера с фото
         let showAnimationSize = CABasicAnimation(keyPath: "transform.scale")
         showAnimationSize.fromValue = 0.5
         showAnimationSize.toValue = 1
@@ -63,6 +66,7 @@ class AnimatedFotoViewController: UIViewController {
         self.animatedView.layer.add(showAnimationOpacity, forKey: nil)
         self.animatedView.layer.add(showAnimationSize, forKey: nil)
         
+//        Лайк и репост
         likeShareControlView.likeCountLabel.text = String(likeCount)
         likeShareControlView.shareCountLabel.text = String(shareCount)
         likeShareControlView.onTapLike = {
@@ -83,9 +87,9 @@ class AnimatedFotoViewController: UIViewController {
                 self.likeShareControlView.unshare()
             }
         }
-        
     }
     
+//    Анимация перелистывания фото
     @objc func swipeLeft2(recognizer: UISwipeGestureRecognizer){
         let offset = view.bounds.width
         guard i < photoToShow.count-1 else { return }

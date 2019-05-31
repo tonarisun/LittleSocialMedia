@@ -17,6 +17,7 @@
 		D6161182229FC4CC00DF175A /* CommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6161181229FC4CC00DF175A /* CommentView.xib */; };
 		D6161184229FEC3A00DF175A /* CommentNewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6161183229FEC3A00DF175A /* CommentNewsController.swift */; };
 		D616118622A0024F00DF175A /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616118522A0024F00DF175A /* CommentCell.swift */; };
+		D616118922A1044E00DF175A /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D616118822A1044E00DF175A /* Comment.swift */; };
 		D6176535222696D4003E39D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6176534222696D4003E39D9 /* AppDelegate.swift */; };
 		D617653A222696D4003E39D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6176538222696D4003E39D9 /* Main.storyboard */; };
 		D617653C222696D5003E39D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D617653B222696D5003E39D9 /* Assets.xcassets */; };
@@ -80,6 +81,7 @@
 		D6161181229FC4CC00DF175A /* CommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentView.xib; sourceTree = "<group>"; };
 		D6161183229FEC3A00DF175A /* CommentNewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentNewsController.swift; sourceTree = "<group>"; };
 		D616118522A0024F00DF175A /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		D616118822A1044E00DF175A /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		D6176531222696D4003E39D9 /* LittleSocialMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleSocialMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6176534222696D4003E39D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6176539222696D4003E39D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -160,6 +162,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D616118722A1037200DF175A /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				D6161183229FEC3A00DF175A /* CommentNewsController.swift */,
+				D616118522A0024F00DF175A /* CommentCell.swift */,
+				D616118822A1044E00DF175A /* Comment.swift */,
+			);
+			path = Comments;
+			sourceTree = "<group>";
+		};
 		D6176528222696D4003E39D9 = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +204,7 @@
 				D61FF0D522452D3D007DED7E /* LogIn */,
 				D674DD592264433200415B0E /* Profile */,
 				D61FF08B2241DC97007DED7E /* News */,
+				D616118722A1037200DF175A /* Comments */,
 				D61FF08A2241DC3C007DED7E /* Friends */,
 				D6C5B38422966B8600456A34 /* Photo */,
 				D61FF0892241DBF3007DED7E /* Communities */,
@@ -227,8 +240,6 @@
 			children = (
 				D656DBE0223E25B00076F5D3 /* NewsCell.swift */,
 				D67AE13722647B4A00665CDC /* NewPost.swift */,
-				D6161183229FEC3A00DF175A /* CommentNewsController.swift */,
-				D616118522A0024F00DF175A /* CommentCell.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -430,6 +441,7 @@
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -449,6 +461,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -518,6 +531,7 @@
 				D656DBE1223E25B00076F5D3 /* NewsCell.swift in Sources */,
 				D603D5002270200B00BCF4A0 /* Session.swift in Sources */,
 				D61765632226972D003E39D9 /* LoginFormController.swift in Sources */,
+				D616118922A1044E00DF175A /* Comment.swift in Sources */,
 				D6CDE73422337CD900025740 /* FriendFotoController.swift in Sources */,
 				D61FF0D22243A1C4007DED7E /* CircleIndicator.swift in Sources */,
 				D6BD26162283DB2500C856F3 /* VKRequest.swift in Sources */,

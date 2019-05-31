@@ -17,7 +17,6 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var contentImageView: UIImageView!
     @IBOutlet weak var likeShareControlView: LikeShareControl!
     @IBOutlet weak var viewsCountLabel: UILabel!
-    var sendCommentButtonTapped : (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()

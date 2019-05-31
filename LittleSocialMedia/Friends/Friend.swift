@@ -40,7 +40,6 @@ class Friend: Object, Comparable, Mappable {
     override static func primaryKey() -> String? {
         return "friendID"
     }
-    
 }
 
 class FriendResponse: Mappable {

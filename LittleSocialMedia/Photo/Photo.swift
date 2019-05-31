@@ -11,7 +11,6 @@ import Foundation
 import ObjectMapper
 import RealmSwift
 
-
 class PhotoResponse : Mappable {
     
     var response = [Photo]()

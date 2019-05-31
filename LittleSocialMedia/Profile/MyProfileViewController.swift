@@ -21,8 +21,6 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var myAgeAndCityLabel: UILabel!
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var newsTableView: UITableView!
-    var users: Results<User>?
-    var currentUser : User?
     var newsList = [NewsPost]()
     var authorsList = [NewsAuthor]()
     let segueID = "showPost"
@@ -31,20 +29,15 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        Загрузка данных пользователя из базы Realm
-        loadUserDataFromRLM()
-        
-//        Отображение данных пользователя
-        guard let user = users?.first else { return }
-        currentUser = user
-        myNameLabel.text = currentUser!.userFirstName + " " + currentUser!.userLastName
-        myAgeAndCityLabel.text = currentUser!.userBDate + ", " + currentUser!.userCity
-        myAvatarView.photoView.downloaded(from: currentUser!.avaURL)
+//        Получение из Realm и отображение данных пользователя
+        guard let currentUser =  vkRequest.loadUserDataFromRLM().first else { return }
+        myNameLabel.text = currentUser.userFirstName + " " + currentUser.userLastName
+        myAgeAndCityLabel.text = currentUser.userBDate + ", " + currentUser.userCity
+        myAvatarView.photoView.downloaded(from: currentUser.avaURL)
         
 //        Загрузка списка новостей из ВК
         vkRequest.loadNews { [weak self] newsList, authorsList in
             for new in newsList {
-                print("--------PIC \(new.contentPicURL), DOC \(new.contentDocUrl), VID \(new.contentVideoURL), LINK \(new.contentLinkURL)")
                 for author in authorsList {
                     if author.id == -new.sourceID {
                         new.author = author
@@ -64,16 +57,6 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
 //      Загрузка списка друзей из ВК, сохранение в базу Realm
         vkRequest.loadFriends { friends in
             self.vkRequest.saveFriendsInRLM(friends)
-        }
-    }
-    
-//    Звгрузка данных пользователя из базы Realm
-    func loadUserDataFromRLM() {
-        do {
-            let realm = try Realm()
-            self.users = realm.objects(User.self)
-        } catch {
-            print(error)
         }
     }
     
