@@ -13,7 +13,8 @@ import ObjectMapper
 import RealmSwift
 
 class Service {
-        
+    
+//    Загрузка данных пользователя с сервера ВК
     func loadUserInfo(completion: @escaping (User) -> Void) {
         Alamofire.request("https://api.vk.com/method/users.get?lang=0&fields=photo_50,city,bdate&access_token=\(currentSession.token)&v=5.95").responseObject {
             (response: DataResponse<UserResponse>) in
@@ -24,7 +25,7 @@ class Service {
         }
     }
     
-//    Загрузка данных пользователя в Realm
+//    Сохранение данных пользователя в Realm
     func saveUserInRLM(_ currentUser: User) {
         do {
             let realm = try Realm()
@@ -36,13 +37,14 @@ class Service {
         }
     }
     
-    //    Звгрузка данных пользователя из базы Realm
+//    Звгрузка данных пользователя из базы Realm
     func loadUserDataFromRLM() -> Results<User> {
         let realm = try! Realm()
         let users = realm.objects(User.self)
         return users
     }
     
+//    Загрузка новостей групп текущего пользователя с сервера ВК
     func loadNews(completion: @escaping ([NewsPost], [NewsAuthor]) -> Void) {
         Alamofire.request("https://api.vk.com/method/newsfeed.get?&filters=post&source_ids=groups&count=60&access_token=\(currentSession.token)&v=5.95").responseObject {
             (response: DataResponse<NewsResponse>) in
@@ -53,6 +55,7 @@ class Service {
         }
     }
     
+//    Загрузка списка друзей текущего пользоателя
     func loadFriends(completion: @escaping ([Friend]) -> Void) {
         Alamofire.request("https://api.vk.com/method/friends.get?user_id=\(currentSession.userID)&fields=nickname,photo_50&access_token=\(currentSession.token)&v=5.95").responseObject {
             (response: DataResponse<FriendResponse>) in
@@ -62,6 +65,7 @@ class Service {
         }
     }
     
+//    Сохранение списка друзей в базе Realm
     func saveFriendsInRLM(_ friendsToSave: [Friend]){
         do {
             let realm = try Realm()
@@ -73,6 +77,7 @@ class Service {
         }
     }
     
+//    Загрузка фото пользователя с сервера ВК
     func loadPhoto(userID: Int, completion: @escaping ([Photo]) -> Void) {
         Alamofire.request("https://api.vk.com/method/photos.get?owner_id=\(userID)&album_id=wall&count=30&access_token=\(currentSession.token)&v=5.95").responseObject {
             (response: DataResponse<PhotoResponse>) in
@@ -82,6 +87,7 @@ class Service {
         }
     }
     
+//    Загрузка списка групп текущего пользователя
     func loadCommunities(completion: @escaping ([Community]) -> Void) {
         Alamofire.request("https://api.vk.com/method/groups.get?extended=1&user_id=\(currentSession.userID)&fields=name,photo_50&count=30&access_token=\(currentSession.token)&v=5.95").responseObject {
             (response: DataResponse<CommunityResponse>) in
@@ -91,6 +97,7 @@ class Service {
         }
     }
     
+//    Сохранение списка групп в базе Realm
     func saveCommunitiesInRLM(_ communitiesToSave: [Community]){
         do {
             let realm = try! Realm()
@@ -104,6 +111,7 @@ class Service {
         }
     }
     
+//    Преобразование даты из формата unixtime в String
     public func getTimeFromUNIXTime(date: Double) -> String {
         let date = Date(timeIntervalSince1970: date)
         let dateFormatter = DateFormatter()
@@ -113,8 +121,8 @@ class Service {
         return dateFormatter.string(from: date)
     }
     
+//    Получение текущего времени в формате String
     func getTodayString() -> String {
-        
         let date = Date()
         let calender = Calendar.current
         let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)

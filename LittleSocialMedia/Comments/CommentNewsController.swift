@@ -25,8 +25,8 @@ class CommentNewsController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         
         commentTextView.layer.cornerRadius = 5
-        commentTextView.layer.borderColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-        commentTextView.layer.borderWidth = 0.2
+        commentTextView.layer.borderColor = #colorLiteral(red: 0.2392156863, green: 0.6470588235, blue: 0.4980392157, alpha: 1)
+        commentTextView.layer.borderWidth = 0.4
         
 //        Получение данных текущего пользователя из базы Realm
         guard let user = service.loadUserDataFromRLM().first else { return }
@@ -44,6 +44,7 @@ class CommentNewsController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
+//            Новость
             let newCell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
             let newPost = postToShow!
             newCell.authorLabel.text = newPost.author?.authorName
@@ -88,6 +89,7 @@ class CommentNewsController: UIViewController, UITableViewDataSource, UITableVie
             return newCell
         }
         else {
+//            Комментарии к новости
             let comment = commentsToShow[indexPath.row - 1]
             let commCell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentCell
             commCell.authorNameLabel.text = comment.authorName
@@ -98,6 +100,7 @@ class CommentNewsController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
+//    Отправка коммента по нажатию на кнопку
     @IBAction func sendComment(_ sender: Any) {
         guard commentTextView.text != "",
         let commentText = commentTextView.text else { return }
@@ -121,6 +124,7 @@ class CommentNewsController: UIViewController, UITableViewDataSource, UITableVie
         commentTextView.text = nil
     }
     
+//    Скрытие клавиатуры
     @objc func hideKeyboard() {
         commentsTableView?.endEditing(true)
     }
