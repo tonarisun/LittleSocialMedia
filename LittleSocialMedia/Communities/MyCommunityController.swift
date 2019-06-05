@@ -108,13 +108,6 @@ class MyCommunityController: UITableViewController, UISearchBarDelegate {
         }
     }
     
-//    Распознавание контроллера CommunitiesList
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if let vc = segue.destination as? CommunitiesList {
-            vc.myCommunityVC = self
-        }
-    }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
             filteredMyCommunities = myCommunities

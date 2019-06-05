@@ -19,7 +19,6 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var communitySearchBar: UISearchBar!
     @IBOutlet weak var searchButton: UIButton!
     var allCommunities = [Community]()
-    var myCommunityVC : MyCommunityController?
     let db = Firestore.firestore()
     var ref: DocumentReference? = nil
 
@@ -51,15 +50,10 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
         cell.avatarView.photoView.downloaded(from: "\(community.pictureURL)")
         cell.configure(community: community)
         cell.addCommunityTapped = { community in
-            guard let myCommunityVC = self.myCommunityVC else {
-                return
-            }
-//            Добавление выбранной группы к списку Моих групп и запись в базу Realm
-            if !myCommunityVC.myCommunities!.contains(community){
                 do {
-                    let realm = try! Realm()
+                    let realm = try Realm()
                     realm.beginWrite()
-                    realm.add(community)
+                    realm.add(community, update: true)
                     try realm.commitWrite()
                 }
                 catch {
@@ -78,7 +72,6 @@ class CommunitiesList: UITableViewController, UISearchBarDelegate {
                 }
                 self.addCommunityAlert(community: community)
             }
-        }
         return cell
     }
 
