@@ -89,7 +89,7 @@ class MyProfileViewController: UIViewController, UITableViewDataSource, UITableV
             cell.contentImageView.downloaded(from: newPost.contentDocUrl)
         } else if newPost.contentVideoURL != "" {
             cell.contentImageView.downloaded(from: newPost.contentVideoURL)
-        } else if newPost.contentLinkURL != ""{
+        } else if newPost.contentLinkURL != "" {
             cell.contentImageView.downloaded(from: newPost.contentLinkURL)
         } else {
             cell.contentImageView.image = #imageLiteral(resourceName: "kosmos")

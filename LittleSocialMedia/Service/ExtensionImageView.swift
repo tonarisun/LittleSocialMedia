@@ -55,3 +55,38 @@ extension UIImageView {
             }.resume()
     }
 }
+
+class CashImage {
+    
+    func saveImage(image: UIImage, url: URL) -> Bool {
+        guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData() else {
+            return false
+        }
+        guard let directiry = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
+            return false
+        }
+        
+        let fileName = String(url.hashValue)
+        
+        do {
+            guard let fileUrl = directiry.appendingPathComponent(fileName) else {
+                return false
+            }
+            print(fileUrl)
+            try data.write(to: fileUrl)
+            return true
+        } catch {
+            print(error.localizedDescription)
+            return false
+        }
+    }
+    
+    func getImage(url: URL) -> UIImage? {
+        let fileName = String(url.hashValue)
+        if let directiry = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: url, create: false) {
+            let fullUrl = URL(fileURLWithPath: directiry.absoluteString).appendingPathComponent(fileName).path
+            return UIImage(contentsOfFile: fullUrl)
+        }
+        return nil
+    }
+}
